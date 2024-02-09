@@ -1,61 +1,64 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class BuildSystemController : MonoBehaviour
 {
-    public List<BuildObject> objects = new List<BuildObject>();
-    private BuildObject currentObject;
+    public LevelManager gameManager;
+    public GameObject BuildMenuPanel;
+    private BuildableObject currentObject = null;
     private Vector3 currentPosition;
     private Vector3 currentRotation;
-    private Transform currentPreview;
+    private Transform currentPreview = null;
     public Transform cam;
     private RaycastHit hit;
     public LayerMask layer;
     public float previewDistance;
-    public bool isBuilding;
-    public bool canBuild;
-    private List<BuildGridHandler> villages = new List<BuildGridHandler>();
-    public BuildGridHandler currentVillage;
+    public float rotationAmount= 45;
+    private bool isBuilding;
+    private bool canBuild;
+    private bool showBuildMenu;
+    private VillageManager currentVillage;
 
 
     // Start is called before the first frame update
     void Start()
     {
-        currentObject = objects[0];
-        changeCurrentObject();
-
-        currentPreview.gameObject.SetActive(isBuilding);
-        villages.AddRange(FindObjectsOfType<BuildGridHandler>());
+        showBuildMenu = false;
     }
 
     private void Update()
     {
+        //Determine if player is in range of a village and can initiate building
         ValidateVillageRange();
 
+        //When crossing into the build distance threshold for a village, assign the village to the active village
         if (canBuild && currentVillage == null)
         {
             currentVillage = FindClosestVillage();
         }
 
+        //Listen for the Tab button to initiate the building mode
         if (Input.GetKeyDown(KeyCode.Tab) && canBuild)
         {
+            //if building mode is already on, then turn it off
             if (isBuilding)
             {
                 isBuilding = false;
                 currentVillage.HideGridPoints();
-                currentPreview.gameObject.SetActive(false);
+                if (currentPreview != null)
+                {
+                    currentObject = null;
+                    RemovePreviewObject();
+                }
             }
+            //if building mode is not on, enable it
             else
             {
                 isBuilding = true;
-                currentVillage.ShowGridPoints();
-                currentPreview.GetComponent<PreviewScript>().colList.Clear();
-                currentPreview.gameObject.SetActive(true);
+                currentVillage.ShowGridPoints();               
             }
         }
-
+        //Leaving the build distance threshold for a village, turn everything off and reset values
         if (!canBuild)
         {
             if (currentVillage != null)
@@ -63,8 +66,49 @@ public class BuildSystemController : MonoBehaviour
                 currentVillage.HideGridPoints();
                 currentVillage = null;
                 isBuilding = false;
-                currentPreview.gameObject.SetActive(false);
             }
+            if (currentPreview != null)
+            {
+                currentObject = null;
+                RemovePreviewObject();
+            }
+        }
+
+        if (canBuild && isBuilding)
+        {
+            if (Input.GetKeyDown(KeyCode.G))
+            {
+                if (showBuildMenu)
+                {
+                    showBuildMenu = false;
+                }
+                else
+                {
+                    showBuildMenu = true;
+                    if (currentPreview != null)
+                    {
+                        currentObject = null;
+                        RemovePreviewObject();
+                    }
+                }
+            }
+        }
+
+        if (showBuildMenu)
+        {
+            BuildMenuPanel.SetActive(true);
+            //Unlock the Cursor
+            Cursor.lockState = CursorLockMode.None;
+            //Set Cursor to be visible
+            Cursor.visible = true;
+        }
+        else
+        {
+            BuildMenuPanel.SetActive(false);
+            //Lock the Cursor
+            Cursor.lockState = CursorLockMode.Locked;
+            //Set Cursor to not be visible
+            Cursor.visible = false;
         }
 
         if (Input.anyKeyDown)
@@ -77,14 +121,13 @@ public class BuildSystemController : MonoBehaviour
                     int.TryParse(Input.inputString, out input);
                     if (Input.inputString == "-")
                     {
-                        currentObject = objects[0];
-                        changeCurrentObject();
-
+                        currentObject = null;
+                        RemovePreviewObject();
                     }
                     if (input <= 9 && input >= 1)
                     {
-                        currentObject = objects[input - 1];
-                        changeCurrentObject();
+                        currentObject = gameManager.objects[input - 1];
+                        ChangePreviewObject();
                     }
                 }
                 catch
@@ -92,33 +135,64 @@ public class BuildSystemController : MonoBehaviour
                     input = -1;
                 }
             }
-
         }
 
-        if (canBuild && isBuilding)
+        if (canBuild && isBuilding && currentPreview != null)
         {
             if (Physics.Raycast(cam.position, cam.forward, out hit, previewDistance, layer))
             {
-                Debug.DrawRay(cam.position, hit.point, Color.red);
-                if (hit.transform != this.transform)
+                if (currentPreview != null)
                 {
-                    showPreview(currentVillage);
-                    if (Input.GetMouseButtonDown(0))
-                    {
-                        attemptBuild(currentVillage);
-                    }
-
-                    if (Input.GetMouseButtonDown(1))
-                    {
-                        attemptDelete(currentVillage);
-                    }
-
+                    movePreview(currentVillage);
                 }
+            }
+
+            if (Input.GetKeyDown(KeyCode.Q))
+            {
+                currentRotation -= new Vector3(0, rotationAmount, 0);
+                currentPreview.localEulerAngles = currentRotation;
+            }
+
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                currentRotation += new Vector3(0, rotationAmount, 0);
+                currentPreview.localEulerAngles = currentRotation;
+            }
+        }
+
+        if (Input.GetMouseButtonDown(0))
+        {
+            if (canBuild && isBuilding && currentPreview != null)
+            {
+                AttemptBuild(currentVillage);
+            }
+        }
+
+        if (Input.GetMouseButtonDown(1))
+        {
+            if (canBuild && isBuilding && currentPreview != null)
+            {
+                AttemptDelete(currentVillage);
             }
         }
     }
 
-    void changeCurrentObject()
+    public void ChangeBuildObject(string objectId)
+    {
+        foreach( BuildableObject buildObject in gameManager.objects)
+        {
+            if (buildObject.buildingId.Equals(objectId))
+            {
+                currentObject = buildObject;
+                ChangePreviewObject();
+                showBuildMenu = false;
+                BuildMenuPanel.SetActive(false);
+                break;
+            }
+        }
+    }
+
+    void ChangePreviewObject()
     {
         if (currentPreview != null)
         {
@@ -128,75 +202,55 @@ public class BuildSystemController : MonoBehaviour
         currentPreview = previewObj.transform;
     }
 
-    void showPreview(BuildGridHandler village)
+    void RemovePreviewObject()
     {
-        
-        if (Input.GetKeyDown(KeyCode.Q))
-        {
-            currentRotation -= new Vector3(0, 45, 0);
-        }
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            currentRotation += new Vector3(0, 45, 0);
-        }
-
-        if (validatePreviewPosition(snapToGrid(currentObject, village)))
-        {
-            currentPosition = snapToGrid(currentObject, village);
-            currentPreview.position = currentPosition;
-        }
-        currentPreview.localEulerAngles = currentRotation;
+        Destroy(currentPreview.gameObject);
+        currentPreview = null;
     }
 
-    private bool validatePreviewPosition(Vector3 currentPosition)
+    void movePreview(VillageManager village)
     {
-        int halfGridSize = (currentVillage.gridSize / 2) * currentVillage.gridScale;
-        Vector3 villageLocation = currentVillage.transform.position;
-        
-        float pointDistX = MathF.Abs(villageLocation.x - currentPosition.x);
-        float pointDistZ = MathF.Abs(villageLocation.z - currentPosition.z);
-
-        if (pointDistX <= halfGridSize && pointDistZ <= halfGridSize)
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
+        currentPosition = SnapToGrid(currentObject, village);
+        currentPreview.position = currentPosition;
     }
 
-    void attemptBuild(BuildGridHandler village)
+    void AttemptBuild(VillageManager village)
     {
         PreviewScript previewObj = currentPreview.GetComponent<PreviewScript>();
         if (previewObj.canBuild)
         {
             GameObject newObject = Instantiate(currentObject.prefab, currentPosition, Quaternion.Euler(currentRotation));
-            village.objects.Add(newObject);
+            village.AddBuilding(newObject);
         }
     }
 
-    void attemptDelete(BuildGridHandler village)
+    void AttemptDelete(VillageManager village)
     {
         PreviewScript previewObj = currentPreview.GetComponent<PreviewScript>();
         if (!previewObj.canBuild && previewObj.colList.Count > 0)
         {
             GameObject objectToDelete = previewObj.colList[0].gameObject;
-            village.objects.Remove(objectToDelete);
-            previewObj.colList.RemoveAt(0);
-            Destroy(objectToDelete);
+            if (objectToDelete.name != "VillageBanner")
+            {
+                village.RemoveBuilding(objectToDelete);
+                previewObj.colList.RemoveAt(0);
+            }
         }
     }
 
-    private Vector3 snapToGrid(BuildObject obj, BuildGridHandler village)
+    private Vector3 SnapToGrid(BuildableObject obj, VillageManager village)
     {
         if (!hit.point.Equals(null))
         {
             Vector3 snapped;
 
-            snapped.x = village.getGridScale() * (Mathf.Round(hit.point.x / village.getGridScale())) + obj.buildingHorizontalOffset + village.getBuildOffset().x;
-            snapped.y = village.transform.position.y + obj.buildHeightOffset + village.getBuildOffset().y;
-            snapped.z = village.getGridScale() * (Mathf.Round(hit.point.z / village.getGridScale())) + obj.buildingForwardOffset + village.getBuildOffset().z;
+            Vector3 limitedPoint = new();
+            limitedPoint.x = EnforceGridLimits(hit.point.x, village.transform.position.x, village.GetHalfGridSize());
+            limitedPoint.z = EnforceGridLimits(hit.point.z, village.transform.position.z, village.GetHalfGridSize());
+
+            snapped.x = village.GetGridScale() * (Mathf.Round(limitedPoint.x / village.GetGridScale())) + obj.buildingHorizontalOffset;
+            snapped.y = village.transform.position.y + obj.buildHeightOffset;
+            snapped.z = village.GetGridScale() * (Mathf.Round(limitedPoint.z / village.GetGridScale())) + obj.buildingForwardOffset;
 
             return snapped;
         }
@@ -206,14 +260,38 @@ public class BuildSystemController : MonoBehaviour
         }
     }
 
+    private float EnforceGridLimits(float point, float villageCenterPoint, int villageHalfSize)
+    {
+        float pointDist = point - villageCenterPoint;
+
+        float adjustedPoint = point;
+
+        if (pointDist >= 0)
+        {
+            if (pointDist > villageHalfSize)
+            {
+                adjustedPoint = villageCenterPoint + villageHalfSize;
+            }
+        }
+        else
+        {
+            if (pointDist < -villageHalfSize)
+            {
+                adjustedPoint = villageCenterPoint - villageHalfSize;
+            }
+        }
+
+        return adjustedPoint;
+    }
+
     private void ValidateVillageRange()
     {
         int validVillages = 0;
 
-        foreach (BuildGridHandler villageManager in villages)
+        foreach (VillageManager villageManager in gameManager.villages)
         {
             float dist = Vector3.Distance(this.transform.position, villageManager.transform.position);
-            if (dist <= villageManager.getBuildDistance())
+            if (dist <= villageManager.GetBuildDistance())
             {
                 validVillages++;
             }
@@ -229,13 +307,13 @@ public class BuildSystemController : MonoBehaviour
         }
     }
 
-    private BuildGridHandler FindClosestVillage()
+    private VillageManager FindClosestVillage()
     {
-        BuildGridHandler closestVillage = villages[0];
+        VillageManager closestVillage = gameManager.villages[0];
 
         float closestVillageDist = Vector3.Distance(this.transform.position, closestVillage.transform.position);
 
-        foreach (BuildGridHandler villageManager in villages)
+        foreach (VillageManager villageManager in gameManager.villages)
         {
             float dist = Vector3.Distance(this.transform.position, villageManager.transform.position);
             if (dist <= closestVillageDist)
@@ -243,7 +321,6 @@ public class BuildSystemController : MonoBehaviour
                 closestVillage = villageManager;
             }
         }
-
         return closestVillage;
     }
 

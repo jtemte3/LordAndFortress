@@ -1,0 +1,81 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &6479148873844228939
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3360510005305883110}
+  - component: {fileID: 575512045496118088}
+  m_Layer: 0
+  m_Name: GameManagerPrefab
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3360510005305883110
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6479148873844228939}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &575512045496118088
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6479148873844228939}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d86259372e5dd54bba6265d41cbbfe1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objects:
+  - buildingName: testCube
+    buildingId: 0001
+    prefab: {fileID: 2130260418143766776, guid: b985ebc6a0e24204c80760c0b481db24,
+      type: 3}
+    preview: {fileID: 3884324369942919481, guid: ad8cbd89853bc2f4a94f4cf7de633087,
+      type: 3}
+    buildingForwardOffset: 0
+    buildingHorizontalOffset: 0
+    buildHeightOffset: 0
+  - buildingName: Wooden Wall
+    buildingId: 0002
+    prefab: {fileID: 202625732342776140, guid: d10252849cc8a8f468faf43efe842ded, type: 3}
+    preview: {fileID: 8697324433416555288, guid: 60a6f10c18d31fc44959240e17819e97,
+      type: 3}
+    buildingForwardOffset: 0
+    buildingHorizontalOffset: 0
+    buildHeightOffset: 1.5
+  - buildingName: Wooden Wall Corner
+    buildingId: 0003
+    prefab: {fileID: 202625732342776140, guid: 44512d989bf12e547a67b671ffb1c6e2, type: 3}
+    preview: {fileID: 8697324433416555288, guid: bbdedce13fb0b11499c17f21fa72e5f8,
+      type: 3}
+    buildingForwardOffset: 0
+    buildingHorizontalOffset: 0
+    buildHeightOffset: 1.5
+  - buildingName: Wooden Wall Inverted Corner
+    buildingId: 0004
+    prefab: {fileID: 202625732342776140, guid: c2b31fc43dd75b64492f6f41a0f12bfb, type: 3}
+    preview: {fileID: 8697324433416555288, guid: ccd9c94575614bc4198737c0a2335128,
+      type: 3}
+    buildingForwardOffset: 0
+    buildingHorizontalOffset: 0
+    buildHeightOffset: 1.5
+  villages: []

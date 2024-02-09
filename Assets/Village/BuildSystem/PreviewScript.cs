@@ -7,6 +7,7 @@ public class PreviewScript : MonoBehaviour
     public List<Collider> colList = new List<Collider>();
     public string layerMaskName;
     //public LayerMask layer; // layer for placed items
+    public Renderer previewRenderer;
     public Color valid = new Color(0,1,0,.25f);
     public Color invalid = new Color(1, 0, 0, .25f);
     public bool canBuild;
@@ -51,11 +52,11 @@ public class PreviewScript : MonoBehaviour
     {
         if (!canBuild)
         {
-            this.transform.GetComponent<Renderer>().material.color = invalid;
+            previewRenderer.material.color = invalid;
         }
         else
         {
-            this.transform.GetComponent<Renderer>().material.color = valid;
+            previewRenderer.material.color = valid;
         }
     }
 }

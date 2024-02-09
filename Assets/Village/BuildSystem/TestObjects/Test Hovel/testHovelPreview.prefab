@@ -121,8 +121,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   colList: []
   layerMaskName: Structure
-  green: {fileID: 2100000, guid: 74e6016fbf9364840be53ca131c4f23e, type: 2}
-  red: {fileID: 2100000, guid: 6b9fbb242a3b6a34dac0c0e0503eb4bd, type: 2}
+  previewRenderer: {fileID: 7654660792533220899}
+  valid: {r: 0, g: 1, b: 0, a: 0.25}
+  invalid: {r: 1, g: 0, b: 0, a: 0.25}
   canBuild: 0
 --- !u!54 &4922102563702084408
 Rigidbody:

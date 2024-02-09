@@ -44,7 +44,7 @@ public class PlayerController : MonoBehaviour
 		}
 
 		//Check for jetpack settings
-		if (Input.GetKeyDown(KeyCode.X))
+		if (Input.GetKey(KeyCode.LeftAlt) && Input.GetKeyDown(KeyCode.X))
 		{
 			if (jetpackMode.Equals(false))
 			{

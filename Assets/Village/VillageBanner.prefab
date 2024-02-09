@@ -83,6 +83,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: VillageBanner
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 6e05ff737bf989b4fb637d1efedf54b4,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 7202271454713460447, guid: 6e05ff737bf989b4fb637d1efedf54b4,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -105,6 +110,10 @@ PrefabInstance:
     - {fileID: -8700617353114198275, guid: 6e05ff737bf989b4fb637d1efedf54b4, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 6e05ff737bf989b4fb637d1efedf54b4,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6068193952422683641}
     - targetCorrespondingSourceObject: {fileID: -5568371526223589888, guid: 6e05ff737bf989b4fb637d1efedf54b4,
         type: 3}
       insertIndex: -1
@@ -122,6 +131,33 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 4243788696519827470}
   m_SourcePrefab: {fileID: 100100000, guid: 6e05ff737bf989b4fb637d1efedf54b4, type: 3}
+--- !u!1 &119275409006805893 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 6e05ff737bf989b4fb637d1efedf54b4,
+    type: 3}
+  m_PrefabInstance: {fileID: 965645587339247316}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &6068193952422683641
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 119275409006805893}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 3, y: 4, z: 3}
+  m_Center: {x: 0, y: 2, z: 0}
 --- !u!1 &4602540361612292308 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -5568371526223589888, guid: 6e05ff737bf989b4fb637d1efedf54b4,
