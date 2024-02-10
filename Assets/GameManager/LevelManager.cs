@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class LevelManager : MonoBehaviour
 {
-    public List<BuildableObject> objects = new List<BuildableObject>();
-    public List<VillageManager> villages = new List<VillageManager>();
+    public List<BuildableObject> objects = new();
+    public List<VillageManager> villages = new();
+    public List<FactionObject> factions = new();
     // Start is called before the first frame update
     void Start()
     {

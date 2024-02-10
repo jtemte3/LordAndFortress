@@ -5,6 +5,8 @@ using UnityEngine;
 public class VillageManager : MonoBehaviour
 {
     public string villageId;
+    public string currentFactionId = "0000";
+    public Renderer bannerFlag;
     public GameObject gridPointIndicator;
     public Transform buildingParent;
     public Transform gridpointParent;
@@ -14,15 +16,19 @@ public class VillageManager : MonoBehaviour
     public float buildDistance;
     public List<GameObject> villageObjects = new();
     private List<GameObject> gridPoints = new();
+    public LevelManager gameManager;
+    public GameObject buildZone;
 
     //Dictionary<string, GridPoint> grid = new Dictionary<string, GridPoint>();
-    private bool isHidden = false;
+    public bool isHidden = false;
     // Start is called before the first frame update
     void Start()
     {
         GenerateGridPoints();
         HideGridPoints();
         halfGridSize = (gridSize / 2) * gridScale;
+
+        ChangeVillageFactionOwner(currentFactionId);
     }
 
     // Update is called once per frame
@@ -52,7 +58,8 @@ public class VillageManager : MonoBehaviour
         if (isHidden)
         {
             isHidden = false;
-            Debug.Log("showing gridpoints");
+            //Debug.Log("showing gridpoints");
+            buildZone.GetComponent<Renderer>().enabled = true;
             foreach (GameObject point in gridPoints)
             {
                 point.GetComponent<Renderer>().enabled = true;
@@ -64,7 +71,8 @@ public class VillageManager : MonoBehaviour
         if (!isHidden)
         {
             isHidden = true;
-            Debug.Log("hiding gridpoints");
+            //Debug.Log("hiding gridpoints");
+            buildZone.GetComponent<Renderer>().enabled = false;
             foreach (GameObject point in gridPoints)
             {
                 point.GetComponent<Renderer>().enabled = false;
@@ -99,5 +107,46 @@ public class VillageManager : MonoBehaviour
     {
         villageObjects.Remove(buildingToRemove);
         Destroy(buildingToRemove);
+    }
+
+    public void ChangeVillageFactionOwner(string factionId)
+    {
+        FactionObject currentFaction = null;
+        FactionObject newFaction = null;
+        Color newFlagColor = Color.white;
+        
+        //find current and new faction
+        foreach (FactionObject faction in gameManager.factions)
+        {
+            if (currentFactionId.Equals(faction.factionId))
+            {
+                currentFaction = faction;
+            }
+            if (factionId.Equals(faction.factionId))
+            {
+                newFaction = faction;
+                newFlagColor = faction.factionColor;
+            }
+        }
+        //change banner color
+        bannerFlag.material.color = newFlagColor;
+
+        //update all of the buildings in the village to match the new faction
+        foreach (GameObject villageObject in villageObjects)
+        {
+            if (villageObject.GetComponent<VillageBuilding>() == true)
+            {
+                //remove house population from current faction to the new faction
+                if (villageObject.GetComponent<VillageProductionScript>().productionType == VillageProductionScript.VillageProductionType.Population)
+                {
+                    currentFaction.currentPopulation -= villageObject.GetComponent<VillageProductionScript>().productionAmmount;
+                    newFaction.currentPopulation += villageObject.GetComponent<VillageProductionScript>().productionAmmount;
+                }
+                //Update the owner to the new faction
+                villageObject.GetComponent<VillageBuilding>().ChangeFactionOwner(newFaction);
+            }
+        }
+        //switch over the factionId so that faction can build
+        currentFactionId = factionId;
     }
 }

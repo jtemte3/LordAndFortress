@@ -10,7 +10,9 @@ public class PreviewScript : MonoBehaviour
     public Renderer previewRenderer;
     public Color valid = new Color(0,1,0,.25f);
     public Color invalid = new Color(1, 0, 0, .25f);
+    public Color resourcesNeeded = new Color(1, 1, 0, .25f);
     public bool canBuild;
+    public bool hasResources;
 
     // Update is called once per frame
     private void Update()
@@ -48,6 +50,11 @@ public class PreviewScript : MonoBehaviour
         }
     }
 
+    public void SetHasResources(bool state)
+    {
+        hasResources = state;
+    }
+
     private void setColor()
     {
         if (!canBuild)
@@ -56,7 +63,15 @@ public class PreviewScript : MonoBehaviour
         }
         else
         {
-            previewRenderer.material.color = valid;
+            if (hasResources)
+            {
+                previewRenderer.material.color = valid;
+            }
+            else
+            {
+                previewRenderer.material.color = resourcesNeeded;
+            }
+            
         }
     }
 }

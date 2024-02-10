@@ -6,10 +6,12 @@ using UnityEngine;
 public class VillageBuilding : MonoBehaviour
 {
     public string buildingId;
+    public string factionId;
     public Vector3 location;
     public Quaternion rotation;
     public float maxHealth;
     public float currentHealth;
+    public FactionObject faction;
 
     public void Start()
     {
@@ -31,6 +33,12 @@ public class VillageBuilding : MonoBehaviour
     public void SetHealth(float newHealth)
     {
         currentHealth = newHealth;
+    }
+
+    public void ChangeFactionOwner(FactionObject newFaction)
+    {
+        factionId = newFaction.factionId;
+        faction = newFaction;
     }
 }
 
