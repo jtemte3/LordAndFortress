@@ -4,6 +4,7 @@ using UnityEngine;
 public class BuildSystemController : MonoBehaviour
 {
     public LevelManager gameManager;
+    public FactionEntityData player;
     public GameObject BuildMenuPanel;
     private BuildableObject currentObject = null;
     private Vector3 currentPosition;
@@ -14,29 +15,28 @@ public class BuildSystemController : MonoBehaviour
     public LayerMask layer;
     public float previewDistance;
     public float rotationAmount= 45;
-    private bool isBuilding;
-    private bool canBuild;
+    public bool isBuilding;
+    public bool canBuild;
     private bool showBuildMenu;
-    private VillageManager currentVillage;
-
+    public VillageManager currentVillage;
+    public FactionObject currentFaction;
+    public bool changeFaction = false;
 
     // Start is called before the first frame update
     void Start()
     {
         showBuildMenu = false;
+        foreach(FactionObject faction in gameManager.factions)
+        {
+            if (faction.factionId == player.factionId)
+            {
+                currentFaction = faction;
+            }
+        }
     }
 
     private void Update()
     {
-        //Determine if player is in range of a village and can initiate building
-        ValidateVillageRange();
-
-        //When crossing into the build distance threshold for a village, assign the village to the active village
-        if (canBuild && currentVillage == null)
-        {
-            currentVillage = FindClosestVillage();
-        }
-
         //Listen for the Tab button to initiate the building mode
         if (Input.GetKeyDown(KeyCode.Tab) && canBuild)
         {
@@ -61,12 +61,6 @@ public class BuildSystemController : MonoBehaviour
         //Leaving the build distance threshold for a village, turn everything off and reset values
         if (!canBuild)
         {
-            if (currentVillage != null)
-            {
-                currentVillage.HideGridPoints();
-                currentVillage = null;
-                isBuilding = false;
-            }
             if (currentPreview != null)
             {
                 currentObject = null;
@@ -137,13 +131,16 @@ public class BuildSystemController : MonoBehaviour
             }
         }
 
+        //placement mode
         if (canBuild && isBuilding && currentPreview != null)
         {
+            currentPreview.GetComponent<PreviewScript>().SetHasResources(CheckForResources());
+
             if (Physics.Raycast(cam.position, cam.forward, out hit, previewDistance, layer))
             {
                 if (currentPreview != null)
                 {
-                    movePreview(currentVillage);
+                    MovePreview(currentVillage);
                 }
             }
 
@@ -160,6 +157,7 @@ public class BuildSystemController : MonoBehaviour
             }
         }
 
+        //Build current object
         if (Input.GetMouseButtonDown(0))
         {
             if (canBuild && isBuilding && currentPreview != null)
@@ -168,12 +166,26 @@ public class BuildSystemController : MonoBehaviour
             }
         }
 
+        //Delete item preview is colliding with
         if (Input.GetMouseButtonDown(1))
         {
             if (canBuild && isBuilding && currentPreview != null)
             {
                 AttemptDelete(currentVillage);
             }
+        }
+
+        //Just for testing.. allows the dev to change factions
+        if (changeFaction)
+        {
+            foreach (FactionObject faction in gameManager.factions)
+            {
+                if (faction.factionId == player.factionId)
+                {
+                    currentFaction = faction;
+                }
+            }
+            changeFaction = false;
         }
     }
 
@@ -208,19 +220,34 @@ public class BuildSystemController : MonoBehaviour
         currentPreview = null;
     }
 
-    void movePreview(VillageManager village)
+    void MovePreview(VillageManager village)
     {
         currentPosition = SnapToGrid(currentObject, village);
         currentPreview.position = currentPosition;
     }
 
+    bool CheckForResources()
+    {
+        if (currentFaction.currentWood >= currentObject.woodCost && currentFaction.currentStone >= currentObject.stoneCost)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
     void AttemptBuild(VillageManager village)
     {
         PreviewScript previewObj = currentPreview.GetComponent<PreviewScript>();
-        if (previewObj.canBuild)
+        if (previewObj.canBuild && CheckForResources())
         {
             GameObject newObject = Instantiate(currentObject.prefab, currentPosition, Quaternion.Euler(currentRotation));
             village.AddBuilding(newObject);
+            newObject.GetComponent<VillageBuilding>().ChangeFactionOwner(currentFaction);
+            currentFaction.currentWood -= currentObject.woodCost;
+            currentFaction.currentStone -= currentObject.stoneCost;
         }
     }
 
@@ -234,6 +261,8 @@ public class BuildSystemController : MonoBehaviour
             {
                 village.RemoveBuilding(objectToDelete);
                 previewObj.colList.RemoveAt(0);
+                currentFaction.currentWood += currentObject.woodRefund;
+                currentFaction.currentStone += currentObject.stoneRefund;
             }
         }
     }
@@ -282,46 +311,6 @@ public class BuildSystemController : MonoBehaviour
         }
 
         return adjustedPoint;
-    }
-
-    private void ValidateVillageRange()
-    {
-        int validVillages = 0;
-
-        foreach (VillageManager villageManager in gameManager.villages)
-        {
-            float dist = Vector3.Distance(this.transform.position, villageManager.transform.position);
-            if (dist <= villageManager.GetBuildDistance())
-            {
-                validVillages++;
-            }
-        }
-
-        if (validVillages >= 1)
-        {
-            canBuild = true;
-        }
-        else
-        {
-            canBuild = false;
-        }
-    }
-
-    private VillageManager FindClosestVillage()
-    {
-        VillageManager closestVillage = gameManager.villages[0];
-
-        float closestVillageDist = Vector3.Distance(this.transform.position, closestVillage.transform.position);
-
-        foreach (VillageManager villageManager in gameManager.villages)
-        {
-            float dist = Vector3.Distance(this.transform.position, villageManager.transform.position);
-            if (dist <= closestVillageDist)
-            {
-                closestVillage = villageManager;
-            }
-        }
-        return closestVillage;
     }
 
 }

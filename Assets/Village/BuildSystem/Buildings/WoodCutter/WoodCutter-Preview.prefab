@@ -473,11 +473,11 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 4, y: 4, z: 4}
+  m_Size: {x: 3.9, y: 3.9, z: 3.9}
   m_Center: {x: 0, y: 2, z: 0}
 --- !u!54 &6963097161796303270
 Rigidbody:
@@ -523,4 +523,6 @@ MonoBehaviour:
   previewRenderer: {fileID: 8133747332459903630}
   valid: {r: 0, g: 1, b: 0, a: 0.25}
   invalid: {r: 1, g: 0, b: 0, a: 0.25}
+  resourcesNeeded: {r: 1, g: 1, b: 0, a: 0.25}
   canBuild: 0
+  hasResources: 0

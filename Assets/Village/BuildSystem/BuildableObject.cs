@@ -12,4 +12,8 @@ public class BuildableObject
     public float buildingForwardOffset;
     public float buildingHorizontalOffset;
     public float buildHeightOffset;
+    public int woodCost;
+    public int woodRefund;
+    public int stoneCost;
+    public int stoneRefund;
 }

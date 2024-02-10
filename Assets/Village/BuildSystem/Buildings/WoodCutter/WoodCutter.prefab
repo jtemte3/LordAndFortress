@@ -348,6 +348,10 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 6ba7e1e5c844b1d4380239e1e622ed89,
         type: 3}
       insertIndex: -1
+      addedObject: {fileID: -8916998186551423939}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 6ba7e1e5c844b1d4380239e1e622ed89,
+        type: 3}
+      insertIndex: -1
       addedObject: {fileID: 1899985454919630213}
   m_SourcePrefab: {fileID: 100100000, guid: 6ba7e1e5c844b1d4380239e1e622ed89, type: 3}
 --- !u!4 &5134246514279439962 stripped
@@ -396,10 +400,36 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buildingId: 0009
+  factionId: 
   location: {x: 0, y: 0, z: 0}
   rotation: {x: 0, y: 0, z: 0, w: 0}
   maxHealth: 30
   currentHealth: 0
+  faction:
+    factionName: 
+    factionId: 
+    teamId: 
+    factionColor: {r: 0, g: 0, b: 0, a: 0}
+    currentWood: 0
+    currentStone: 0
+    currentGold: 0
+    currentFood: 0
+    currentPopulation: 0
+--- !u!114 &-8916998186551423939
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5479564270353614048}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80cc4779ab00187458d5c53154614f4e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  productionType: 0
+  productionAmmount: 3
+  productionRate: 15
 --- !u!54 &1899985454919630213
 Rigidbody:
   m_ObjectHideFlags: 0
