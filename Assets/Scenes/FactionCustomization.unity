@@ -180,7 +180,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Prevoius
+  m_text: Previous Pants
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -447,7 +447,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Prevoius
+  m_text: Previous Helmet
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -537,7 +537,7 @@ GameObject:
   - component: {fileID: 213528558}
   - component: {fileID: 213528557}
   m_Layer: 5
-  m_Name: Btn_Torso_Prevoius
+  m_Name: Btn_Torso_Previous
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -670,12 +670,12 @@ GameObject:
   - component: {fileID: 230014813}
   - component: {fileID: 230014812}
   m_Layer: 5
-  m_Name: Btn_Color_Prevoius
+  m_Name: Btn_Color_Previous
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &230014811
 RectTransform:
   m_ObjectHideFlags: 0
@@ -693,7 +693,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -281.31, y: 114.8}
+  m_AnchoredPosition: {x: -281.31, y: 226.71}
   m_SizeDelta: {x: 150, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &230014812
@@ -742,7 +742,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 340597462}
         m_TargetAssemblyTypeName: UnitCustomizationController, Assembly-CSharp
-        m_MethodName: PreviousHelmet
+        m_MethodName: PreviousColor
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -841,6 +841,14 @@ MonoBehaviour:
   legMaterials:
   - {fileID: 2100000, guid: fc53d2ab488ff8d46bf7cc90092ceff4, type: 2}
   - {fileID: 2100000, guid: 3549a67606862454b8b60d63d2f6844b, type: 2}
+  FactonColors:
+  - {r: 0.2053667, g: 0.3471699, b: 0.6132076, a: 0}
+  - {r: 0.33383763, g: 0.5849056, b: 0.43604925, a: 0}
+  - {r: 0.6792453, g: 0.17621931, b: 0.21100307, a: 0}
+  - {r: 0.7735849, g: 0.7735849, b: 0.7735849, a: 0}
+  - {r: 0, g: 0, b: 0, a: 0}
+  - {r: 0.754717, g: 0.4516296, b: 0.16019939, a: 0}
+  - {r: 0.58295393, g: 0.18903525, b: 0.6792453, a: 0}
   torso: {fileID: 323091477}
   legs: {fileID: 1991598955}
 --- !u!4 &340597463
@@ -1039,7 +1047,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Next
+  m_text: 'Next
+
+    Armor'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1262,7 +1272,7 @@ GameObject:
   - component: {fileID: 724159671}
   - component: {fileID: 724159670}
   m_Layer: 5
-  m_Name: Btn_Legs_Prevoius
+  m_Name: Btn_Legs_Previous
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1683,7 +1693,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Prevoius
+  m_text: Previous Armor
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1817,7 +1827,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Next
+  m_text: 'Next
+
+    Pants'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2069,7 +2081,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Next
+  m_text: 'Next
+
+    Helmet'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2203,7 +2217,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Next
+  m_text: 'Next
+
+    Team Color'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2293,7 +2309,7 @@ GameObject:
   - component: {fileID: 1316674703}
   - component: {fileID: 1316674702}
   m_Layer: 5
-  m_Name: Btn_Helmet_Prevoius
+  m_Name: Btn_Helmet_Previous
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2431,7 +2447,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1389261968
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2449,7 +2465,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 281.31, y: 114.8}
+  m_AnchoredPosition: {x: 281.31, y: 226.71}
   m_SizeDelta: {x: 150, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1389261969
@@ -2498,7 +2514,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 340597462}
         m_TargetAssemblyTypeName: UnitCustomizationController, Assembly-CSharp
-        m_MethodName: NextHelmet
+        m_MethodName: NextColor
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2897,7 +2913,7 @@ GameObject:
   - component: {fileID: 1663375735}
   - component: {fileID: 1663375734}
   m_Layer: 5
-  m_Name: Btn_Armor_Prevoius
+  m_Name: Btn_Armor_Previous
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3080,7 +3096,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Prevoius
+  m_text: Previous Tunic
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -3226,7 +3242,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Next
+  m_text: 'Next
+
+    Tunic'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -3360,7 +3378,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Prevoius
+  m_text: Previous Team Color
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

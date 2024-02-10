@@ -9,6 +9,7 @@ public class UnitCustomizationController : MonoBehaviour
     public List<Material> torsoMaterials = new();
     public List<GameObject> armors = new();
     public List<Material> legMaterials = new();
+    public List<Color> FactonColors = new();
     public GameObject torso;
     public GameObject legs;
 
@@ -16,7 +17,15 @@ public class UnitCustomizationController : MonoBehaviour
     int torsoPos = 0;
     int armorPos = 0;
     int legsPos = 0;
+    int colorPos = 0;
 
+    private void Start()
+    {
+        if (torso.GetComponent<Renderer>().material.name.Contains("Cloth"))
+        {
+            torso.GetComponent<Renderer>().material.color = FactonColors[colorPos];
+        }
+    }
     public void NextHelmet()
     {
         helmets[helmetPos].SetActive(false);
@@ -39,6 +48,15 @@ public class UnitCustomizationController : MonoBehaviour
 
         armorPos = NextPos(armorPos, armors.Count);
         armors[armorPos].SetActive(true);
+
+        if (armors[armorPos].GetComponent<Renderer>())
+        {
+            if (armors[armorPos].GetComponent<Renderer>().material.name.Contains("Cloth"))
+            {
+                armors[armorPos].GetComponent<Renderer>().material.color = FactonColors[colorPos];
+            }
+        }
+
     }
 
     public void PreviousArmor()
@@ -47,16 +65,34 @@ public class UnitCustomizationController : MonoBehaviour
 
         armorPos = PreviousPos(armorPos, armors.Count);
         armors[armorPos].SetActive(true);
+
+        if (armors[armorPos].GetComponent<Renderer>())
+        {
+            if (armors[armorPos].GetComponent<Renderer>().material.name.Contains("Cloth"))
+            {
+                armors[armorPos].GetComponent<Renderer>().material.color = FactonColors[colorPos];
+            }
+        }
     }
     public void NextTorso()
     {
         torsoPos = NextPos(torsoPos, torsoMaterials.Count);
         torso.GetComponent<Renderer>().material = torsoMaterials[torsoPos];
+
+        if (torso.GetComponent<Renderer>().material.name.Contains("Cloth"))
+        {
+            torso.GetComponent<Renderer>().material.color = FactonColors[colorPos];
+        }
     }
     public void PreviousTorso()
     {
         torsoPos = PreviousPos(torsoPos, torsoMaterials.Count);
         torso.GetComponent<Renderer>().material = torsoMaterials[torsoPos];
+
+        if (torso.GetComponent<Renderer>().material.name.Contains("Cloth"))
+        {
+            torso.GetComponent<Renderer>().material.color = FactonColors[colorPos];
+        }
     }
     public void NextLegs()
     {
@@ -73,6 +109,37 @@ public class UnitCustomizationController : MonoBehaviour
         var mats = legs.GetComponent<Renderer>().sharedMaterials;
         mats[1] = legMaterials[legsPos];
         legs.GetComponent<Renderer>().sharedMaterials = mats;
+    }
+    public void NextColor()
+    {
+        colorPos = NextPos(colorPos, FactonColors.Count);
+        if (torso.GetComponent<Renderer>().material.name.Contains("Cloth"))
+        {
+            torso.GetComponent<Renderer>().material.color = FactonColors[colorPos];
+        }
+        if (armors[armorPos].GetComponent<Renderer>())
+        {
+            if (armors[armorPos].GetComponent<Renderer>().material.name.Contains("Cloth"))
+            {
+                armors[armorPos].GetComponent<Renderer>().material.color = FactonColors[colorPos];
+            }
+        }
+    }
+    public void PreviousColor()
+    {
+        colorPos = PreviousPos(colorPos, FactonColors.Count);
+        if (torso.GetComponent<Renderer>().material.name.Contains("Cloth"))
+        {
+            torso.GetComponent<Renderer>().material.color = FactonColors[colorPos];
+        }
+        if (armors[armorPos].GetComponent<Renderer>())
+        {
+            if (armors[armorPos].GetComponent<Renderer>().material.name.Contains("Cloth"))
+            {
+                armors[armorPos].GetComponent<Renderer>().material.color = FactonColors[colorPos];
+            }
+        }
+        
     }
 
     private int NextPos (int currentPos, int listCount)
