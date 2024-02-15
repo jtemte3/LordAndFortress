@@ -5,10 +5,12 @@ using UnityEngine;
 public class VillageCaptureZoneScript : MonoBehaviour
 {
     public VillageManager villageManager;
+    public Animator flagAnimator;
     Dictionary<string, int> currentFactionContenders = new();
     public bool isBeingCaptured = false;
     public float captureTime;
     float finishCaptureTime;
+    float flagChangeTime;
     string capturingFactiton;
 
     // Update is called once per frame
@@ -24,16 +26,19 @@ public class VillageCaptureZoneScript : MonoBehaviour
                 if (unitCount > highestNumberOfUnits)
                 {
                     capturingFactiton = faction;
+                    flagAnimator.speed = 1;
                 }
                 if (unitCount == highestNumberOfUnits)
                 {
                     isBeingCaptured = false;
+                    flagAnimator.speed = 0;
                 }
             }
 
             if (!isBeingCaptured && capturingFactiton != villageManager.currentFactionId)
             {
                 finishCaptureTime = Time.time + captureTime;
+                flagChangeTime = Time.time + (captureTime / 2);
                 isBeingCaptured = true;
             }
         }
@@ -48,7 +53,18 @@ public class VillageCaptureZoneScript : MonoBehaviour
             if (Time.time >= finishCaptureTime)
             {
                 isBeingCaptured = false;
+                villageManager.gameManager.ChangeVillageOwnership(villageManager.currentFactionId, capturingFactiton);
                 villageManager.ChangeVillageFactionOwner(capturingFactiton);
+                
+            }
+            if (Time.time < flagChangeTime && !flagAnimator.GetBool("bannerDown"))
+            {
+                flagAnimator.SetBool("bannerDown", true);
+            }
+            if (Time.time >= flagChangeTime && flagAnimator.GetBool("bannerDown"))
+            {
+                villageManager.ChangeVillageFlagColor(capturingFactiton);
+                flagAnimator.SetBool("bannerDown", false);
             }
         }
     }

@@ -88,6 +88,16 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 5019510007467989289, guid: 6e05ff737bf989b4fb637d1efedf54b4,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.4106957
+      objectReference: {fileID: 0}
+    - target: {fileID: 5019510007467989289, guid: 6e05ff737bf989b4fb637d1efedf54b4,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 35
+      objectReference: {fileID: 0}
     - target: {fileID: 7202271454713460447, guid: 6e05ff737bf989b4fb637d1efedf54b4,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -114,6 +124,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 6068193952422683641}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 6e05ff737bf989b4fb637d1efedf54b4,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1758469808275634513}
     - targetCorrespondingSourceObject: {fileID: -5568371526223589888, guid: 6e05ff737bf989b4fb637d1efedf54b4,
         type: 3}
       insertIndex: -1
@@ -158,6 +172,27 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 3, y: 4, z: 3}
   m_Center: {x: 0, y: 2, z: 0}
+--- !u!95 &1758469808275634513
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 119275409006805893}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 8ce606afbcbf7fa49b21c3082b815291, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &4602540361612292308 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -5568371526223589888, guid: 6e05ff737bf989b4fb637d1efedf54b4,
