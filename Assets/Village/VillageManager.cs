@@ -18,6 +18,7 @@ public class VillageManager : MonoBehaviour
     private List<GameObject> gridPoints = new();
     public LevelManager gameManager;
     public GameObject buildZone;
+    public bool showBuildZone = false;
 
     //Dictionary<string, GridPoint> grid = new Dictionary<string, GridPoint>();
     public bool isHidden = false;
@@ -28,6 +29,7 @@ public class VillageManager : MonoBehaviour
         HideGridPoints();
         halfGridSize = (gridSize / 2) * gridScale;
 
+        ChangeVillageFlagColor(currentFactionId);
         ChangeVillageFactionOwner(currentFactionId);
     }
 
@@ -59,7 +61,10 @@ public class VillageManager : MonoBehaviour
         {
             isHidden = false;
             //Debug.Log("showing gridpoints");
-            buildZone.GetComponent<Renderer>().enabled = true;
+            if (showBuildZone)
+            {
+                buildZone.GetComponent<Renderer>().enabled = true;
+            }
             foreach (GameObject point in gridPoints)
             {
                 point.GetComponent<Renderer>().enabled = true;
@@ -72,7 +77,10 @@ public class VillageManager : MonoBehaviour
         {
             isHidden = true;
             //Debug.Log("hiding gridpoints");
-            buildZone.GetComponent<Renderer>().enabled = false;
+            if (showBuildZone)
+            {
+                buildZone.GetComponent<Renderer>().enabled = false;
+            }
             foreach (GameObject point in gridPoints)
             {
                 point.GetComponent<Renderer>().enabled = false;
@@ -109,11 +117,27 @@ public class VillageManager : MonoBehaviour
         Destroy(buildingToRemove);
     }
 
+    public void ChangeVillageFlagColor(string factionId)
+    {
+        Color newFlagColor = Color.white;
+
+        //find current and new faction
+        foreach (FactionObject faction in gameManager.factions)
+        {
+            if (factionId.Equals(faction.factionId))
+            {
+                newFlagColor = faction.factionColor;
+                break;
+            }
+        }
+        //change banner color
+        bannerFlag.material.color = newFlagColor;
+    }
+
     public void ChangeVillageFactionOwner(string factionId)
     {
         FactionObject currentFaction = null;
         FactionObject newFaction = null;
-        Color newFlagColor = Color.white;
         
         //find current and new faction
         foreach (FactionObject faction in gameManager.factions)
@@ -125,11 +149,8 @@ public class VillageManager : MonoBehaviour
             if (factionId.Equals(faction.factionId))
             {
                 newFaction = faction;
-                newFlagColor = faction.factionColor;
             }
         }
-        //change banner color
-        bannerFlag.material.color = newFlagColor;
 
         //update all of the buildings in the village to match the new faction
         foreach (GameObject villageObject in villageObjects)
