@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class UnitCustomizationController : MonoBehaviour
 {
-
+    public FactionManager factionManager;
     public List<GameObject> helmets = new();
     public List<Material> torsoMaterials = new();
     public List<GameObject> armors = new();
     public List<Material> legMaterials = new();
-    public List<Color> FactonColors = new();
+    //public List<Color> FactonColors = new();
     public GameObject torso;
     public GameObject legs;
 
@@ -17,14 +17,57 @@ public class UnitCustomizationController : MonoBehaviour
     int torsoPos = 0;
     int armorPos = 0;
     int legsPos = 0;
-    int colorPos = 0;
+    //int colorPos = 0;
 
     private void Start()
     {
         if (torso.GetComponent<Renderer>().material.name.Contains("Cloth"))
         {
-            torso.GetComponent<Renderer>().material.color = FactonColors[colorPos];
+            torso.GetComponent<Renderer>().material.color = factionManager.currentColor;
         }
+    }
+
+    public CustomUnitObject ExportUnit()
+    {
+        CustomUnitObject currentUnit = new();
+        currentUnit.helmetId = helmetPos;
+        currentUnit.torsoId = torsoPos;
+        currentUnit.armorId = armorPos;
+        currentUnit.legsId = legsPos;
+        currentUnit.weaponId = 0;
+        currentUnit.unitGoldCost = 0;
+        currentUnit.unitHealth = 10;
+        currentUnit.unitSpeed = 3;
+
+        return currentUnit;
+    }
+
+    public void LoadUnit(CustomUnitObject newUnit)
+    {
+        foreach (GameObject obj in helmets)
+        {
+            obj.SetActive(false);
+        }
+
+        helmetPos = newUnit.helmetId;
+        helmets[helmetPos].SetActive(true);
+
+        foreach (GameObject obj in armors)
+        {
+            obj.SetActive(false);
+        }
+        armorPos = newUnit.armorId;
+        armors[armorPos].SetActive(true);
+
+        torsoPos = newUnit.torsoId;
+        torso.GetComponent<Renderer>().material = torsoMaterials[torsoPos];
+
+        legsPos = newUnit.legsId;
+        var legMats = legs.GetComponent<Renderer>().sharedMaterials;
+        legMats[1] = legMaterials[legsPos];
+
+        legs.GetComponent<Renderer>().sharedMaterials = legMats;
+
     }
     public void NextHelmet()
     {
@@ -53,7 +96,7 @@ public class UnitCustomizationController : MonoBehaviour
         {
             if (armors[armorPos].GetComponent<Renderer>().material.name.Contains("Cloth"))
             {
-                armors[armorPos].GetComponent<Renderer>().material.color = FactonColors[colorPos];
+                armors[armorPos].GetComponent<Renderer>().material.color = factionManager.currentColor;
             }
         }
 
@@ -70,7 +113,7 @@ public class UnitCustomizationController : MonoBehaviour
         {
             if (armors[armorPos].GetComponent<Renderer>().material.name.Contains("Cloth"))
             {
-                armors[armorPos].GetComponent<Renderer>().material.color = FactonColors[colorPos];
+                armors[armorPos].GetComponent<Renderer>().material.color = factionManager.currentColor;
             }
         }
     }
@@ -81,7 +124,7 @@ public class UnitCustomizationController : MonoBehaviour
 
         if (torso.GetComponent<Renderer>().material.name.Contains("Cloth"))
         {
-            torso.GetComponent<Renderer>().material.color = FactonColors[colorPos];
+            torso.GetComponent<Renderer>().material.color = factionManager.currentColor;
         }
     }
     public void PreviousTorso()
@@ -91,7 +134,7 @@ public class UnitCustomizationController : MonoBehaviour
 
         if (torso.GetComponent<Renderer>().material.name.Contains("Cloth"))
         {
-            torso.GetComponent<Renderer>().material.color = FactonColors[colorPos];
+            torso.GetComponent<Renderer>().material.color = factionManager.currentColor;
         }
     }
     public void NextLegs()
@@ -110,36 +153,20 @@ public class UnitCustomizationController : MonoBehaviour
         mats[1] = legMaterials[legsPos];
         legs.GetComponent<Renderer>().sharedMaterials = mats;
     }
-    public void NextColor()
+
+    public void UpdateColor(Color newColor)
     {
-        colorPos = NextPos(colorPos, FactonColors.Count);
         if (torso.GetComponent<Renderer>().material.name.Contains("Cloth"))
         {
-            torso.GetComponent<Renderer>().material.color = FactonColors[colorPos];
+            torso.GetComponent<Renderer>().material.color = newColor;
         }
         if (armors[armorPos].GetComponent<Renderer>())
         {
             if (armors[armorPos].GetComponent<Renderer>().material.name.Contains("Cloth"))
             {
-                armors[armorPos].GetComponent<Renderer>().material.color = FactonColors[colorPos];
+                armors[armorPos].GetComponent<Renderer>().material.color = newColor;
             }
         }
-    }
-    public void PreviousColor()
-    {
-        colorPos = PreviousPos(colorPos, FactonColors.Count);
-        if (torso.GetComponent<Renderer>().material.name.Contains("Cloth"))
-        {
-            torso.GetComponent<Renderer>().material.color = FactonColors[colorPos];
-        }
-        if (armors[armorPos].GetComponent<Renderer>())
-        {
-            if (armors[armorPos].GetComponent<Renderer>().material.name.Contains("Cloth"))
-            {
-                armors[armorPos].GetComponent<Renderer>().material.color = FactonColors[colorPos];
-            }
-        }
-        
     }
 
     private int NextPos (int currentPos, int listCount)

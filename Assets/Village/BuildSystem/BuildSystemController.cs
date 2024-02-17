@@ -91,18 +91,7 @@ public class BuildSystemController : MonoBehaviour
         if (showBuildMenu)
         {
             BuildMenuPanel.SetActive(true);
-            //Unlock the Cursor
-            Cursor.lockState = CursorLockMode.None;
-            //Set Cursor to be visible
-            Cursor.visible = true;
-        }
-        else
-        {
-            BuildMenuPanel.SetActive(false);
-            //Lock the Cursor
-            Cursor.lockState = CursorLockMode.Locked;
-            //Set Cursor to not be visible
-            Cursor.visible = false;
+            gameManager.showCursor = true;
         }
 
         if (Input.anyKeyDown)
@@ -199,6 +188,7 @@ public class BuildSystemController : MonoBehaviour
                 ChangePreviewObject();
                 showBuildMenu = false;
                 BuildMenuPanel.SetActive(false);
+                gameManager.showCursor = false;
                 break;
             }
         }

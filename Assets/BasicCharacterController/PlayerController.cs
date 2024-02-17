@@ -38,10 +38,10 @@ public class PlayerController : MonoBehaviour
 		float speed;
 
 		//Check for cursor settings
-		if (Input.GetKeyDown(KeyCode.Escape))
+		/*if (Input.GetKeyDown(KeyCode.Escape))
 		{
 			SetCursor();
-		}
+		}*/
 
 		//Check for jetpack settings
 		if (Input.GetKey(KeyCode.LeftAlt) && Input.GetKeyDown(KeyCode.X))
@@ -131,7 +131,7 @@ public class PlayerController : MonoBehaviour
 
 	}
 
-	void SetCursor()
+/*	void SetCursor()
 	{
 
 		if (Cursor.lockState == CursorLockMode.Locked)
@@ -149,5 +149,5 @@ public class PlayerController : MonoBehaviour
 			Cursor.visible = false;
 		}
 
-	}
+	}*/
 }

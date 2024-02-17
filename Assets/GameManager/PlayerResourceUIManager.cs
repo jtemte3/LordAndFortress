@@ -31,13 +31,12 @@ public class PlayerResourceUIManager : MonoBehaviour
                 break;
             }
         }
-
-        img_Color.color = currentFaction.factionColor;
-        LblFaction.text = currentFaction.factionName;
     }
     // Update is called once per frame
     void Update()
     {
+        img_Color.color = currentFaction.factionColor;
+        LblFaction.text = currentFaction.factionName;
         LblWood.text = "Wood: " + currentFaction.currentWood;
         LblFood.text = "Food: " + currentFaction.currentFood;
         LblPopulation.text = "Population: " + currentFaction.currentPopulation;
