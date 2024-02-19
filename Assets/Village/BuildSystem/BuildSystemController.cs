@@ -50,6 +50,12 @@ public class BuildSystemController : MonoBehaviour
                     currentObject = null;
                     RemovePreviewObject();
                 }
+                if (showBuildMenu)
+                {
+                    showBuildMenu = false;
+                    BuildMenuPanel.SetActive(false);
+                    gameManager.showCursor = false;
+                }
             }
             //if building mode is not on, enable it
             else
@@ -75,6 +81,8 @@ public class BuildSystemController : MonoBehaviour
                 if (showBuildMenu)
                 {
                     showBuildMenu = false;
+                    BuildMenuPanel.SetActive(false);
+                    gameManager.showCursor = false;
                 }
                 else
                 {
@@ -84,14 +92,10 @@ public class BuildSystemController : MonoBehaviour
                         currentObject = null;
                         RemovePreviewObject();
                     }
+                    BuildMenuPanel.SetActive(true);
+                    gameManager.showCursor = true;
                 }
             }
-        }
-
-        if (showBuildMenu)
-        {
-            BuildMenuPanel.SetActive(true);
-            gameManager.showCursor = true;
         }
 
         if (Input.anyKeyDown)

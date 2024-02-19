@@ -11,10 +11,6 @@ public class EscapeMenuScript : MonoBehaviour
     private void Start()
     {
         menu.SetActive(showMenu);
-        //Set Cursor to the middle of the game window
-        Cursor.lockState = CursorLockMode.Locked;
-        //Set Cursor to not be visible
-        Cursor.visible = false;
     }
     // Update is called once per frame
     void Update()
