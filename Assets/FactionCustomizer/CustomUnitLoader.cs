@@ -12,7 +12,7 @@ public class CustomUnitLoader : MonoBehaviour
     public List<GameObject> shields = new();
     public GameObject legs;
 
-    public void LoadUnit(CustomUnitObject newUnit)
+    public void LoadUnit(CustomUnitObject newUnit, Color factionColor)
     {
         for (int i = 0; i < helmets.Count; i++)
         {
@@ -72,6 +72,10 @@ public class CustomUnitLoader : MonoBehaviour
             if (armorMats[i].name.Contains("ChainMail"))
             {
                 armorMats[i] = baseArmorMaterials[newUnit.baseArmorId];
+            }
+            if (armorMats[i].name.Contains("Cloth"))
+            {
+                armorMats[i].color = factionColor;
             }
         }
         armors[newUnit.armorId].GetComponent<Renderer>().sharedMaterials = armorMats;

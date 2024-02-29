@@ -1807,7 +1807,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.4016999, g: 0.5566038, b: 0.50264853, a: 1}
+  m_Color: {r: 0.35686275, g: 0.49411765, b: 0.44705883, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -2759,7 +2759,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.48406905, g: 0.3292097, b: 0.509434, a: 1}
+  m_Color: {r: 0.39607844, g: 0.27058825, b: 0.41960785, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -4010,7 +4010,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.33073086, g: 0.4433962, b: 0.25725347, a: 1}
+  m_Color: {r: 0.28627452, g: 0.38431373, b: 0.22352941, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -4083,15 +4083,15 @@ MonoBehaviour:
   unitCustomization: {fileID: 340597462}
   factionName: {fileID: 1494631615}
   FactonColors:
-  - {r: 0, g: 0, b: 0, a: 1}
-  - {r: 0.32941177, g: 0.44313726, b: 0.25882354, a: 1}
-  - {r: 0.4, g: 0.5568628, b: 0.5019608, a: 1}
-  - {r: 0.09803922, g: 0.3529412, b: 0.50980395, a: 1}
-  - {r: 0.8980392, g: 0.8, b: 0.4, a: 1}
-  - {r: 0.83137256, g: 0.53333336, b: 0.25490198, a: 1}
-  - {r: 0.58431375, g: 0.21176471, b: 0.21176471, a: 1}
-  - {r: 0.48235294, g: 0.32941177, b: 0.50980395, a: 1}
-  - {r: 0.9137255, g: 0.9137255, b: 0.9137255, a: 1}
+  - {r: 0.085, g: 0.085, b: 0.085, a: 1}
+  - {r: 0.28470796, g: 0.383, b: 0.22369912, a: 1}
+  - {r: 0.35628167, g: 0.496, b: 0.44709858, a: 1}
+  - {r: 0.28235295, g: 0.34901962, b: 0.40392157, a: 1}
+  - {r: 0.7372549, g: 0.6509804, b: 0.29803923, a: 1}
+  - {r: 0.759, g: 0.48690563, b: 0.23271224, a: 1}
+  - {r: 0.53900003, g: 0.19534229, b: 0.19534229, a: 1}
+  - {r: 0.3954923, g: 0.27009228, b: 0.41799998, a: 1}
+  - {r: 0.794, g: 0.794, b: 0.794, a: 1}
   currentColor: {r: 0.28235295, g: 0.34901962, b: 0.40392157, a: 1}
   factionJsonPath: C:/Users/jtemt/Documents/UnityProjects/LordAndFortress/Assets/StreamingAssets/FactionCustomizer/CurrentFaction.json
   loadFromFile: 1
@@ -4601,7 +4601,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.8301887, g: 0.53220534, b: 0.254539, a: 1}
+  m_Color: {r: 0.7607843, g: 0.4862745, b: 0.23137255, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -4733,7 +4733,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.8962264, g: 0.8004944, b: 0.40161088, a: 1}
+  m_Color: {r: 0.735849, g: 0.64907444, b: 0.29803923, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -6259,7 +6259,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.09803922, g: 0.3529412, b: 0.50980395, a: 1}
+  m_Color: {r: 0.28235295, g: 0.34901962, b: 0.40392157, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -6391,7 +6391,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.5849056, g: 0.21244211, b: 0.21244211, a: 1}
+  m_Color: {r: 0.5372549, g: 0.19607843, b: 0.19607843, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -7063,7 +7063,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.9150943, g: 0.9150943, b: 0.9150943, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1

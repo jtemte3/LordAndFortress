@@ -1,9 +1,9 @@
 {
     "name": "Custom Faction",
     "color": {
-        "r": 0.5843137502670288,
-        "g": 0.21176470816135407,
-        "b": 0.21176470816135407,
+        "r": 0.5390000343322754,
+        "g": 0.1953422874212265,
+        "b": 0.1953422874212265,
         "a": 1.0
     },
     "customUnits": [
@@ -12,7 +12,7 @@
             "baseArmorId": 0,
             "armorId": 0,
             "legsId": 0,
-            "weaponId": 2,
+            "weaponId": 1,
             "shieldId": 0,
             "unitGoldCost": 0,
             "unitSpeed": 3.0,

@@ -24,7 +24,7 @@ public class MainMenuManager : MonoBehaviour
         
         foreach(CustomUnitLoader unit in customUnits)
         {
-            unit.LoadUnit(loadedFaction.customUnits[0]);
+            unit.LoadUnit(loadedFaction.customUnits[0], loadedFaction.color);
         }
     }
 
