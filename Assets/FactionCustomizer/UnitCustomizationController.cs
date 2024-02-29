@@ -6,24 +6,37 @@ public class UnitCustomizationController : MonoBehaviour
 {
     public FactionManager factionManager;
     public List<GameObject> helmets = new();
-    public List<Material> torsoMaterials = new();
+    public List<Material> baseArmorMaterials = new();
     public List<GameObject> armors = new();
     public List<Material> legMaterials = new();
-    //public List<Color> FactonColors = new();
-    public GameObject torso;
+    public List<GameObject> weapons = new();
+    public List<GameObject> shields = new();
     public GameObject legs;
 
     int helmetPos = 0;
-    int torsoPos = 0;
+    int baseArmorMatPos = 0;
     int armorPos = 0;
-    int legsPos = 0;
-    //int colorPos = 0;
+    int weaponPos = 0;
+    int shieldPos = 0;
+    int legMatPos = 0;
 
     private void Start()
     {
-        if (torso.GetComponent<Renderer>().material.name.Contains("Cloth"))
+        foreach (GameObject armor in armors)
         {
-            torso.GetComponent<Renderer>().material.color = factionManager.currentColor;
+            var armorMats = armor.GetComponent<Renderer>().sharedMaterials;
+            for (int i = 0; i < armorMats.Length; i++)
+            {
+                if (armorMats[i].name.Contains("Cloth") && !armorMats[i].name.Contains("Tabbard"))
+                {
+                    armorMats[i] = baseArmorMaterials[baseArmorMatPos];
+                }
+                if (armorMats[i].name.Contains("ChainMail"))
+                {
+                    armorMats[i] = baseArmorMaterials[baseArmorMatPos];
+                }
+            }
+            armor.GetComponent<Renderer>().sharedMaterials = armorMats;
         }
     }
 
@@ -31,10 +44,11 @@ public class UnitCustomizationController : MonoBehaviour
     {
         CustomUnitObject currentUnit = new();
         currentUnit.helmetId = helmetPos;
-        currentUnit.torsoId = torsoPos;
+        currentUnit.baseArmorId = baseArmorMatPos;
         currentUnit.armorId = armorPos;
-        currentUnit.legsId = legsPos;
-        currentUnit.weaponId = 0;
+        currentUnit.legsId = legMatPos;
+        currentUnit.weaponId = weaponPos;
+        currentUnit.shieldId = shieldPos;
         currentUnit.unitGoldCost = 0;
         currentUnit.unitHealth = 10;
         currentUnit.unitSpeed = 3;
@@ -52,6 +66,22 @@ public class UnitCustomizationController : MonoBehaviour
         helmetPos = newUnit.helmetId;
         helmets[helmetPos].SetActive(true);
 
+        foreach (GameObject obj in weapons)
+        {
+            obj.SetActive(false);
+        }
+
+        weaponPos = newUnit.weaponId;
+        weapons[weaponPos].SetActive(true);
+
+        foreach (GameObject obj in shields)
+        {
+            obj.SetActive(false);
+        }
+
+        shieldPos = newUnit.shieldId;
+        shields[shieldPos].SetActive(true);
+
         foreach (GameObject obj in armors)
         {
             obj.SetActive(false);
@@ -59,14 +89,27 @@ public class UnitCustomizationController : MonoBehaviour
         armorPos = newUnit.armorId;
         armors[armorPos].SetActive(true);
 
-        torsoPos = newUnit.torsoId;
-        torso.GetComponent<Renderer>().material = torsoMaterials[torsoPos];
+        baseArmorMatPos = newUnit.baseArmorId;
+        var armorMats = armors[armorPos].GetComponent<Renderer>().sharedMaterials;
+        for (int i = 0; i < armorMats.Length; i++)
+        {
+            if (armorMats[i].name.Contains("Cloth") && !armorMats[i].name.Contains("Tabbard"))
+            {
+                armorMats[i] = baseArmorMaterials[baseArmorMatPos];
+            }
+            if (armorMats[i].name.Contains("ChainMail"))
+            {
+                armorMats[i] = baseArmorMaterials[baseArmorMatPos];
+            }
+        }
+        armors[armorPos].GetComponent<Renderer>().sharedMaterials = armorMats;
 
-        legsPos = newUnit.legsId;
+        legMatPos = newUnit.legsId;
         var legMats = legs.GetComponent<Renderer>().sharedMaterials;
-        legMats[1] = legMaterials[legsPos];
+        legMats[1] = legMaterials[legMatPos];
 
         legs.GetComponent<Renderer>().sharedMaterials = legMats;
+        legs.SetActive(true);
 
     }
     public void NextHelmet()
@@ -85,6 +128,38 @@ public class UnitCustomizationController : MonoBehaviour
         helmets[helmetPos].SetActive(true);
     }
 
+    public void NextWeapon()
+    {
+        weapons[weaponPos].SetActive(false);
+
+        weaponPos = NextPos(weaponPos, weapons.Count);
+        weapons[weaponPos].SetActive(true);
+    }
+
+    public void PreviousWeapon()
+    {
+        weapons[weaponPos].SetActive(false);
+
+        weaponPos = PreviousPos(weaponPos, weapons.Count);
+        weapons[weaponPos].SetActive(true);
+    }
+
+    public void NextShield()
+    {
+        shields[shieldPos].SetActive(false);
+
+        shieldPos = NextPos(shieldPos, shields.Count);
+        shields[shieldPos].SetActive(true);
+    }
+
+    public void PreviousShield()
+    {
+        shields[shieldPos].SetActive(false);
+
+        shieldPos = PreviousPos(shieldPos, shields.Count);
+        shields[shieldPos].SetActive(true);
+    }
+
     public void NextArmor()
     {
         armors[armorPos].SetActive(false);
@@ -92,13 +167,23 @@ public class UnitCustomizationController : MonoBehaviour
         armorPos = NextPos(armorPos, armors.Count);
         armors[armorPos].SetActive(true);
 
-        if (armors[armorPos].GetComponent<Renderer>())
+        var armorMats = armors[armorPos].GetComponent<Renderer>().sharedMaterials;
+        for (int i = 0; i < armorMats.Length; i++)
         {
-            if (armors[armorPos].GetComponent<Renderer>().material.name.Contains("Cloth"))
+            if (armorMats[i].name.Contains("Cloth") && !armorMats[i].name.Contains("Tabbard"))
             {
-                armors[armorPos].GetComponent<Renderer>().material.color = factionManager.currentColor;
+                armorMats[i] = baseArmorMaterials[baseArmorMatPos];
+            }
+            if (armorMats[i].name.Contains("ChainMail"))
+            {
+                armorMats[i] = baseArmorMaterials[baseArmorMatPos];
+            }
+            if (armorMats[i].name.Contains("Cloth"))
+            {
+                armorMats[i].color = factionManager.currentColor;
             }
         }
+        armors[armorPos].GetComponent<Renderer>().sharedMaterials = armorMats;
 
     }
 
@@ -109,64 +194,98 @@ public class UnitCustomizationController : MonoBehaviour
         armorPos = PreviousPos(armorPos, armors.Count);
         armors[armorPos].SetActive(true);
 
-        if (armors[armorPos].GetComponent<Renderer>())
+        var armorMats = armors[armorPos].GetComponent<Renderer>().sharedMaterials;
+        for (int i = 0; i < armorMats.Length; i++)
         {
-            if (armors[armorPos].GetComponent<Renderer>().material.name.Contains("Cloth"))
+            if (armorMats[i].name.Contains("Cloth") && !armorMats[i].name.Contains("Tabbard"))
             {
-                armors[armorPos].GetComponent<Renderer>().material.color = factionManager.currentColor;
+                armorMats[i] = baseArmorMaterials[baseArmorMatPos];
+            }
+            if (armorMats[i].name.Contains("ChainMail"))
+            {
+                armorMats[i] = baseArmorMaterials[baseArmorMatPos];
+            }
+            if (armorMats[i].name.Contains("Cloth"))
+            {
+                armorMats[i].color = factionManager.currentColor;
             }
         }
+        armors[armorPos].GetComponent<Renderer>().sharedMaterials = armorMats;
     }
     public void NextTorso()
     {
-        torsoPos = NextPos(torsoPos, torsoMaterials.Count);
-        torso.GetComponent<Renderer>().material = torsoMaterials[torsoPos];
+        baseArmorMatPos = NextPos(baseArmorMatPos, baseArmorMaterials.Count);
+        //torso.GetComponent<Renderer>().material = torsoMaterials[armorMatPos];
 
-        if (torso.GetComponent<Renderer>().material.name.Contains("Cloth"))
+        var armorMats = armors[armorPos].GetComponent<Renderer>().sharedMaterials;
+        for (int i = 0; i < armorMats.Length; i++)
         {
-            torso.GetComponent<Renderer>().material.color = factionManager.currentColor;
+            if (armorMats[i].name.Contains("Cloth") && !armorMats[i].name.Contains("Tabbard"))
+            {
+                armorMats[i] = baseArmorMaterials[baseArmorMatPos];
+            }
+            if (armorMats[i].name.Contains("ChainMail"))
+            {
+                armorMats[i] = baseArmorMaterials[baseArmorMatPos];
+            }
+            if (armorMats[i].name.Contains("Cloth"))
+            {
+                armorMats[i].color = factionManager.currentColor;
+            }
         }
+
+        armors[armorPos].GetComponent<Renderer>().sharedMaterials = armorMats;
     }
     public void PreviousTorso()
     {
-        torsoPos = PreviousPos(torsoPos, torsoMaterials.Count);
-        torso.GetComponent<Renderer>().material = torsoMaterials[torsoPos];
+        baseArmorMatPos = PreviousPos(baseArmorMatPos, baseArmorMaterials.Count);
+        //torso.GetComponent<Renderer>().material = torsoMaterials[armorMatPos];
 
-        if (torso.GetComponent<Renderer>().material.name.Contains("Cloth"))
+        var armorMats = armors[armorPos].GetComponent<Renderer>().sharedMaterials;
+        for (int i = 0; i < armorMats.Length; i++)
         {
-            torso.GetComponent<Renderer>().material.color = factionManager.currentColor;
+            if (armorMats[i].name.Contains("Cloth") && !armorMats[i].name.Contains("Tabbard"))
+            {
+                armorMats[i] = baseArmorMaterials[baseArmorMatPos];
+            }
+            if (armorMats[i].name.Contains("ChainMail"))
+            {
+                armorMats[i] = baseArmorMaterials[baseArmorMatPos];
+            }
+            if (armorMats[i].name.Contains("Cloth"))
+            {
+                armorMats[i].color = factionManager.currentColor;
+            }
         }
     }
     public void NextLegs()
     {
-        legsPos = NextPos(legsPos, legMaterials.Count);
+        legMatPos = NextPos(legMatPos, legMaterials.Count);
 
         var mats = legs.GetComponent<Renderer>().sharedMaterials;
-        mats[1] = legMaterials[legsPos];
+        mats[1] = legMaterials[legMatPos];
         legs.GetComponent<Renderer>().sharedMaterials = mats;
     }
     public void PreviousLegs()
     {
-        legsPos = PreviousPos(legsPos, legMaterials.Count);
+        legMatPos = PreviousPos(legMatPos, legMaterials.Count);
 
         var mats = legs.GetComponent<Renderer>().sharedMaterials;
-        mats[1] = legMaterials[legsPos];
+        mats[1] = legMaterials[legMatPos];
         legs.GetComponent<Renderer>().sharedMaterials = mats;
     }
 
     public void UpdateColor(Color newColor)
     {
-        if (torso.GetComponent<Renderer>().material.name.Contains("Cloth"))
+        var armorMats = armors[armorPos].GetComponent<Renderer>().sharedMaterials;
+        for (int i = 0; i < armorMats.Length; i++)
         {
-            torso.GetComponent<Renderer>().material.color = newColor;
-        }
-        if (armors[armorPos].GetComponent<Renderer>())
-        {
-            if (armors[armorPos].GetComponent<Renderer>().material.name.Contains("Cloth"))
+            if (armorMats[i].name.Contains("Cloth"))
             {
-                armors[armorPos].GetComponent<Renderer>().material.color = newColor;
+                armorMats[i].color = newColor;
             }
         }
+        armors[armorPos].GetComponent<Renderer>().sharedMaterials = armorMats;
     }
 
     private int NextPos (int currentPos, int listCount)

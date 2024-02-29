@@ -7,6 +7,8 @@ public class MainMenuManager : MonoBehaviour
 {
     private string factionJsonPath;
     public Renderer bannerRenderer;
+    public CustomFactionObject loadedFaction;
+    public List<CustomUnitLoader> customUnits;
     // Start is called before the first frame update
     void Start()
     {
@@ -15,10 +17,15 @@ public class MainMenuManager : MonoBehaviour
 
         StreamReader reader = new(factionJsonPath);
         string configJson = reader.ReadToEnd();
-
-        CustomFactionObject loadedFaction = JsonUtility.FromJson<CustomFactionObject>(configJson);
-        bannerRenderer.material.color = loadedFaction.color;
         reader.Close();
+
+        loadedFaction = JsonUtility.FromJson<CustomFactionObject>(configJson);
+        bannerRenderer.material.color = loadedFaction.color;
+        
+        foreach(CustomUnitLoader unit in customUnits)
+        {
+            unit.LoadUnit(loadedFaction.customUnits[0]);
+        }
     }
 
     public void LoadScene(int sceneNumber)
