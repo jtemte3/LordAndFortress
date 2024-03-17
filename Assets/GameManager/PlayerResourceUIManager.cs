@@ -19,9 +19,23 @@ public class PlayerResourceUIManager : MonoBehaviour
     public TMP_Text LblGold;
     public TMP_Text LblFlagCount;
 
+    private string factionFormat;
+    private string woodFormat;
+    private string foodFormat;
+    private string populationFormat;
+    private string goldFormat;
+    private string flagFormat;
+
     private void Start()
     {
         string factionId = entityData.factionId;
+
+        factionFormat = LblFaction.text;
+        woodFormat = LblWood.text;
+        foodFormat = LblFood.text;
+        populationFormat = LblPopulation.text;
+        goldFormat = LblGold.text;
+        flagFormat = LblFlagCount.text;
 
         foreach (FactionObject faction in gameManager.factions)
         {
@@ -36,11 +50,11 @@ public class PlayerResourceUIManager : MonoBehaviour
     void Update()
     {
         img_Color.color = currentFaction.factionColor;
-        LblFaction.text = currentFaction.factionName;
-        LblWood.text = "Wood: " + currentFaction.currentWood;
-        LblFood.text = "Food: " + currentFaction.currentFood;
-        LblPopulation.text = "Population: " + currentFaction.currentPopulation;
-        LblGold.text = "Gold: " + currentFaction.currentGold;
-        LblFlagCount.text = "Captured Flags: " + currentFaction.ownedFlags + "/" + gameManager.villages.Count;
+        LblFaction.text = string.Format(factionFormat, currentFaction.factionName);
+        LblWood.text = string.Format(woodFormat, currentFaction.currentWood);
+        LblFood.text = string.Format(foodFormat, currentFaction.currentFood);
+        LblPopulation.text = string.Format(populationFormat, currentFaction.currentPopulation);
+        LblGold.text = string.Format(goldFormat, currentFaction.currentGold);
+        LblFlagCount.text = string.Format(flagFormat, currentFaction.ownedFlags , gameManager.villages.Count);
     }
 }

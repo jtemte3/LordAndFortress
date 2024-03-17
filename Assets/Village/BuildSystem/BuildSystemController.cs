@@ -265,15 +265,18 @@ public class BuildSystemController : MonoBehaviour
     {
         if (!hit.point.Equals(null))
         {
-            Vector3 snapped;
+            Vector3 snapped = new();
 
-            Vector3 limitedPoint = new();
-            limitedPoint.x = EnforceGridLimits(hit.point.x, village.transform.position.x, village.GetHalfGridSize());
-            limitedPoint.z = EnforceGridLimits(hit.point.z, village.transform.position.z, village.GetHalfGridSize());
+            snapped.x = village.GetGridScale() * Mathf.Round(hit.point.x / village.GetGridScale()) + obj.buildingHorizontalOffset;
+            snapped.z = village.GetGridScale() * Mathf.Round(hit.point.z / village.GetGridScale()) + obj.buildingForwardOffset;
 
-            snapped.x = village.GetGridScale() * (Mathf.Round(limitedPoint.x / village.GetGridScale())) + obj.buildingHorizontalOffset;
+            snapped.x = EnforceGridLimits(snapped.x, village.villageOffsetResult.x, village.GetHalfGridSize());
+            snapped.z = EnforceGridLimits(snapped.z, village.villageOffsetResult.z, village.GetHalfGridSize());
+
+            snapped.x += village.villageOffset.x;
+            snapped.z += village.villageOffset.z;
+
             snapped.y = village.transform.position.y + obj.buildHeightOffset;
-            snapped.z = village.GetGridScale() * (Mathf.Round(limitedPoint.z / village.GetGridScale())) + obj.buildingForwardOffset;
 
             return snapped;
         }

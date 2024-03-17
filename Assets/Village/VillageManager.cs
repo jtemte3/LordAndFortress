@@ -12,6 +12,9 @@ public class VillageManager : MonoBehaviour
     public Transform gridpointParent;
     public int gridSize;
     public int gridScale;
+    public Vector3 villageOffset;
+    public Vector3 villageOffsetGen;
+    public Vector3 villageOffsetResult;
     private int halfGridSize;
     public float buildDistance;
     public List<GameObject> villageObjects = new();
@@ -31,6 +34,37 @@ public class VillageManager : MonoBehaviour
 
         ChangeVillageFlagColor(currentFactionId);
         ChangeVillageFactionOwner(currentFactionId);
+
+        villageOffsetGen.y = 0;
+        float roundedX = gridScale * Mathf.Round(transform.position.x / gridScale);
+        float roundedZ = gridScale * Mathf.Round(transform.position.z / gridScale);
+        Vector3 villageRoundedPos = new (roundedX, transform.position.y, roundedZ);
+
+        villageOffsetGen = transform.position - villageRoundedPos;
+
+        /*if (roundedX >= Mathf.Abs(transform.position.x))
+        {
+            villageOffsetGen.x = Mathf.Abs(transform.position.x) - roundedX;
+        }
+        else
+        {
+            villageOffsetGen.x = (roundedX + 1) - Mathf.Abs(transform.position.x);
+        }
+
+        if (roundedZ >= Mathf.Abs(transform.position.z))
+        {
+            villageOffsetGen.z =  Mathf.Abs(transform.position.z) - roundedZ;
+        }
+        else
+        {
+            villageOffsetGen.z = (roundedZ + 1) - Mathf.Abs(transform.position.z);
+        }*/
+
+        villageOffset = villageOffsetGen;
+
+        villageOffsetResult.x = transform.position.x - villageOffset.x;
+        villageOffsetResult.y = transform.position.y - villageOffset.y;
+        villageOffsetResult.z = transform.position.z - villageOffset.z;
     }
 
     // Update is called once per frame

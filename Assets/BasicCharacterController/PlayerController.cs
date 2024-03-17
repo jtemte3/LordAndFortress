@@ -2,22 +2,29 @@
 
 public class PlayerController : MonoBehaviour
 {
-	public float spawnHeight = .5f;
+	[Header("Player Movement")]
 	public float speedWalking = 2.0f;
 	public float speedRunning = 5.0f;
 	public float speedJump = 750.0f;
 	public float speedRotation = 2.0f;
-	public bool jetpackMode = true;
+	[Header("Jetpack Mode")]
+	public bool enableJetpack = true;
+	[Header("Player Spawning")]
 	public Camera cam;
 	public GameObject playerBody;
+	public float spawnHeight = .5f;
+	[Header("Ground Detection")]
 	public Transform PlayerBase;
 	public bool canJump = false;
-	float distance = 1.0f;
+	public float groundCheckDistance = 1.0f;
+	public bool onSlope = false;
+	public Vector3 slopeMovementDirection;
+	public float slopeMovementBoost = 0.01f;
 
 	public void Start()
 	{
 		//initialize gravity based on jetpack state
-		if (jetpackMode.Equals(true))
+		if (enableJetpack.Equals(true))
 		{
 			playerBody.GetComponent<Rigidbody>().useGravity = false;
 		}
@@ -25,10 +32,7 @@ public class PlayerController : MonoBehaviour
 		{
 			playerBody.GetComponent<Rigidbody>().useGravity = true;
 		}
-		//Set Cursor to the middle of the game window
-		Cursor.lockState = CursorLockMode.Locked;
-		//Set Cursor to not be visible
-		Cursor.visible = false;
+
 	}
 
 	// Update is called once per frame
@@ -37,23 +41,18 @@ public class PlayerController : MonoBehaviour
 		//Creating a local speed variable that can change
 		float speed;
 
-		//Check for cursor settings
-		/*if (Input.GetKeyDown(KeyCode.Escape))
-		{
-			SetCursor();
-		}*/
 
 		//Check for jetpack settings
 		if (Input.GetKey(KeyCode.LeftAlt) && Input.GetKeyDown(KeyCode.X))
 		{
-			if (jetpackMode.Equals(false))
+			if (enableJetpack.Equals(false))
 			{
-				jetpackMode = true;
+				enableJetpack = true;
 				playerBody.GetComponent<Rigidbody>().useGravity = false;
 			}
 			else
 			{
-				jetpackMode = false;
+				enableJetpack = false;
 				playerBody.GetComponent<Rigidbody>().useGravity = true;
 			}
 
@@ -72,12 +71,27 @@ public class PlayerController : MonoBehaviour
 		//Check for moving forwards
 		if (Input.GetKey(KeyCode.W))
 		{
-			transform.Translate(0, 0, speed);
+			if (onSlope)
+            {
+				transform.Translate(slopeMovementDirection * (speed + slopeMovementBoost));
+			}
+            else
+            {
+				transform.Translate(0, 0, speed);
+			}
+			
 		}
 		//Check for moving backwards
 		if (Input.GetKey(KeyCode.S))
 		{
-			transform.Translate(0, 0, -speed);
+			if (onSlope)
+			{
+				transform.Translate(slopeMovementDirection * -(speed + slopeMovementBoost));
+			}
+			else
+			{
+				transform.Translate(0, 0, -speed);
+			}
 		}
 		//Check for moving left
 		if (Input.GetKey(KeyCode.A))
@@ -91,10 +105,22 @@ public class PlayerController : MonoBehaviour
 		}
 
 		//check if jetpack is off
-		if (jetpackMode == false)
+		if (enableJetpack == false)
 		{
+			RaycastHit hit;
 			// This determines if the player is touching the ground or a surface underneath them
-			canJump = Physics.Raycast(PlayerBase.position, PlayerBase.TransformDirection(Vector3.down), distance);
+			canJump = Physics.Raycast(PlayerBase.position, PlayerBase.TransformDirection(Vector3.down),out hit, groundCheckDistance);
+
+			//Check if the player is on a slope
+			if (hit.normal != Vector3.up)
+            {
+				onSlope = true;
+				slopeMovementDirection = Vector3.ProjectOnPlane(Vector3.forward, hit.normal);
+            }
+            else
+            {
+				onSlope = false;
+            }
 
 			//Check for jumping
 			if (canJump.Equals(true) && Input.GetKeyDown(KeyCode.Space))
@@ -130,24 +156,4 @@ public class PlayerController : MonoBehaviour
 		cam.transform.Rotate(-vertical, 0, 0);
 
 	}
-
-/*	void SetCursor()
-	{
-
-		if (Cursor.lockState == CursorLockMode.Locked)
-		{
-			//Unlock the Cursor
-			Cursor.lockState = CursorLockMode.None;
-			//Set Cursor to be visible
-			Cursor.visible = true;
-		}
-		if (Cursor.lockState == CursorLockMode.None)
-		{
-			//Lock the Cursor
-			Cursor.lockState = CursorLockMode.Locked;
-			//Set Cursor to not be visible
-			Cursor.visible = false;
-		}
-
-	}*/
 }
