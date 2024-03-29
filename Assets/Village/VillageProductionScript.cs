@@ -20,7 +20,7 @@ public class VillageProductionScript : MonoBehaviour
         }
         else
         {
-            villageBuilding.faction.currentPopulation += productionAmmount;
+            villageBuilding.GetVillage().GetCurrentFaction().currentPopulation += productionAmmount;
         }
     }
     private void Update()
@@ -32,15 +32,15 @@ public class VillageProductionScript : MonoBehaviour
                 nextProduction = Time.time + productionRate;
                 if (productionType == VillageProductionType.Wood)
                 {
-                    villageBuilding.faction.currentWood += productionAmmount;
+                    villageBuilding.GetVillage().GetCurrentFaction().currentWood += productionAmmount;
                 }
                 if (productionType == VillageProductionType.Food)
                 {
-                    villageBuilding.faction.currentFood += productionAmmount;
+                    villageBuilding.GetVillage().GetCurrentFaction().currentFood += productionAmmount;
                 }
                 if (productionType == VillageProductionType.Stone)
                 {
-                    villageBuilding.faction.currentStone += productionAmmount;
+                    villageBuilding.GetVillage().GetCurrentFaction().currentStone += productionAmmount;
                 }
 
             }
@@ -51,10 +51,10 @@ public class VillageProductionScript : MonoBehaviour
     {
         if (productionType == VillageProductionType.Population)
         {
-            villageBuilding.faction.currentPopulation -= productionAmmount;
-            if (villageBuilding.faction.currentPopulation < 0)
+            villageBuilding.GetVillage().GetCurrentFaction().currentPopulation -= productionAmmount;
+            if (villageBuilding.GetVillage().GetCurrentFaction().currentPopulation < 0)
             {
-                villageBuilding.faction.currentPopulation = 0;
+                villageBuilding.GetVillage().GetCurrentFaction().currentPopulation = 0;
             }
         }
     }

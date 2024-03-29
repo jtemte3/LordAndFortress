@@ -6,11 +6,6 @@ public class VillageBuildZoneScript : MonoBehaviour
 {
     public VillageManager villageManager;
 
-    private void Start()
-    {
-        int villageBounds = (villageManager.gridSize * villageManager.gridScale) + villageManager.gridScale;
-        transform.localScale = new Vector3(villageBounds, 5, villageBounds);
-    }
     void OnTriggerEnter(Collider other)
     {
 
@@ -41,5 +36,11 @@ public class VillageBuildZoneScript : MonoBehaviour
                 }
             }
         }
+    }
+
+    public void AdjustBoundryZone(int gridSize, int gridScale)
+    {
+        int villageBounds = (gridSize * gridScale) + gridScale;
+        transform.localScale = new Vector3(villageBounds, 5, villageBounds);
     }
 }

@@ -6,65 +6,55 @@ public class VillageManager : MonoBehaviour
 {
     public string villageId;
     public string currentFactionId = "0000";
+    private FactionObject currentFaction;
     public Renderer bannerFlag;
     public GameObject gridPointIndicator;
     public Transform buildingParent;
     public Transform gridpointParent;
     public int gridSize;
-    public int gridScale;
+    public const int gridScale = 4;
     public Vector3 villageOffset;
-    public Vector3 villageOffsetGen;
     public Vector3 villageOffsetResult;
     private int halfGridSize;
-    public float buildDistance;
     public List<GameObject> villageObjects = new();
+    public Dictionary<Vector3, GameObject> villageMap = new();
     private List<GameObject> gridPoints = new();
     public LevelManager gameManager;
     public GameObject buildZone;
     public bool showBuildZone = false;
+    public bool loadFromFile;
 
     //Dictionary<string, GridPoint> grid = new Dictionary<string, GridPoint>();
     public bool isHidden = false;
     // Start is called before the first frame update
     void Start()
     {
-        GenerateGridPoints();
-        HideGridPoints();
+        currentFaction = GetFactionDetails(currentFactionId);
+
+        if (!loadFromFile)
+        {
+            buildZone.GetComponent<VillageBuildZoneScript>().AdjustBoundryZone(gridSize, gridScale);
+            GenerateGridPoints(gridSize);
+            HideGridPoints();
+        }
+
         halfGridSize = (gridSize / 2) * gridScale;
 
         ChangeVillageFlagColor(currentFactionId);
         ChangeVillageFactionOwner(currentFactionId);
 
-        villageOffsetGen.y = 0;
         float roundedX = gridScale * Mathf.Round(transform.position.x / gridScale);
         float roundedZ = gridScale * Mathf.Round(transform.position.z / gridScale);
         Vector3 villageRoundedPos = new (roundedX, transform.position.y, roundedZ);
 
-        villageOffsetGen = transform.position - villageRoundedPos;
-
-        /*if (roundedX >= Mathf.Abs(transform.position.x))
-        {
-            villageOffsetGen.x = Mathf.Abs(transform.position.x) - roundedX;
-        }
-        else
-        {
-            villageOffsetGen.x = (roundedX + 1) - Mathf.Abs(transform.position.x);
-        }
-
-        if (roundedZ >= Mathf.Abs(transform.position.z))
-        {
-            villageOffsetGen.z =  Mathf.Abs(transform.position.z) - roundedZ;
-        }
-        else
-        {
-            villageOffsetGen.z = (roundedZ + 1) - Mathf.Abs(transform.position.z);
-        }*/
-
-        villageOffset = villageOffsetGen;
+        villageOffset = transform.position - villageRoundedPos;
 
         villageOffsetResult.x = transform.position.x - villageOffset.x;
         villageOffsetResult.y = transform.position.y - villageOffset.y;
         villageOffsetResult.z = transform.position.z - villageOffset.z;
+
+        villageMap.Add(new Vector3(0,0,0), transform.Find("VillageBanner").gameObject);
+
     }
 
     // Update is called once per frame
@@ -73,9 +63,9 @@ public class VillageManager : MonoBehaviour
 
     }
 
-    private void GenerateGridPoints()
+    public void GenerateGridPoints(int newGridSize)
     {
-        int halfGridSize = gridSize / 2;
+        int halfGridSize = newGridSize / 2;
         for (int x = -halfGridSize; x <= halfGridSize; x++)
         {
             for (int z = -halfGridSize; z <= halfGridSize; z++)
@@ -87,6 +77,15 @@ public class VillageManager : MonoBehaviour
                 pointObj.transform.parent = gridpointParent;
                 gridPoints.Add(pointObj);
             }
+        }
+    }
+
+    public void DeleteGridPoints()
+    {
+        foreach (GameObject point in gridPoints)
+        {
+            //gridPoints.Remove(point);
+            Destroy(point);
         }
     }
     public void ShowGridPoints()
@@ -121,11 +120,6 @@ public class VillageManager : MonoBehaviour
             }
         }
     }
-    public float GetBuildDistance()
-    {
-        return buildDistance;
-    }
-
     public int GetGridScale()
     {
         return gridScale;
@@ -134,20 +128,68 @@ public class VillageManager : MonoBehaviour
     {
         return gridSize;
     }
+    public void SetGridSize(int newSize)
+    {
+        gridSize = newSize;
+    }
     public int GetHalfGridSize()
     {
         return halfGridSize;
     }
 
+    public FactionObject GetCurrentFaction()
+    {
+        return currentFaction;
+    }
+
     public void AddBuilding(GameObject newBuilding)
     {
+        Vector3 buildingCoordinate = transform.position - newBuilding.transform.position;
+
+        newBuilding.GetComponent<VillageBuilding>().SetVillage(this);
+        newBuilding.GetComponent<VillageBuilding>().SetCoordinate(buildingCoordinate);
+
         villageObjects.Add(newBuilding);
+        villageMap.Add(buildingCoordinate, newBuilding);
+
+        newBuilding.transform.parent = buildingParent;
+    }
+
+    public void AddBuilding(BuildingDataObject newBuildingData)
+    {
+        BuildableObject newBuildingObject = new();
+
+        Vector3 newBuildingPosition = transform.position + (newBuildingData.GetCoordinate() * -1);
+
+        foreach (BuildableObject buildObject in gameManager.objects)
+        {
+            if (buildObject.buildingId.Equals(newBuildingData.buildingId))
+            {
+                newBuildingObject = buildObject;
+                break;
+            }
+        }
+
+        //newBuildingPosition.y += newBuildingObject.buildHeightOffset;
+
+        GameObject newBuilding = Instantiate(newBuildingObject.prefab, newBuildingPosition, Quaternion.Euler(newBuildingData.GetRotation().eulerAngles));
+
+        newBuilding.GetComponent<VillageBuilding>().SetVillage(this);
+        newBuilding.GetComponent<VillageBuilding>().SetCoordinate(newBuildingData.GetCoordinate());
+
+        villageObjects.Add(newBuilding);
+        villageMap.Add(newBuildingData.GetCoordinate(), newBuilding);
+
         newBuilding.transform.parent = buildingParent;
     }
 
     public void RemoveBuilding(GameObject buildingToRemove)
     {
+        Vector3 buildingCoordinate = buildingToRemove.GetComponent<VillageBuilding>().GetCoordinate();
+
         villageObjects.Remove(buildingToRemove);
+        villageMap.Remove(buildingCoordinate);
+
         Destroy(buildingToRemove);
     }
 
@@ -155,36 +197,20 @@ public class VillageManager : MonoBehaviour
     {
         Color newFlagColor = Color.white;
 
-        //find current and new faction
-        foreach (FactionObject faction in gameManager.factions)
-        {
-            if (factionId.Equals(faction.factionId))
-            {
-                newFlagColor = faction.factionColor;
-                break;
-            }
-        }
+        newFlagColor = GetFactionDetails(factionId).factionColor;
         //change banner color
         bannerFlag.material.color = newFlagColor;
     }
 
+    public void ChangeVillageFlagColor(Color factionColor)
+    {
+        bannerFlag.material.color = factionColor;
+    }
+
     public void ChangeVillageFactionOwner(string factionId)
     {
-        FactionObject currentFaction = null;
-        FactionObject newFaction = null;
-        
-        //find current and new faction
-        foreach (FactionObject faction in gameManager.factions)
-        {
-            if (currentFactionId.Equals(faction.factionId))
-            {
-                currentFaction = faction;
-            }
-            if (factionId.Equals(faction.factionId))
-            {
-                newFaction = faction;
-            }
-        }
+        //Find the new faction object
+        FactionObject newFaction = GetFactionDetails(factionId);
 
         //update all of the buildings in the village to match the new faction
         foreach (GameObject villageObject in villageObjects)
@@ -197,11 +223,26 @@ public class VillageManager : MonoBehaviour
                     currentFaction.currentPopulation -= villageObject.GetComponent<VillageProductionScript>().productionAmmount;
                     newFaction.currentPopulation += villageObject.GetComponent<VillageProductionScript>().productionAmmount;
                 }
-                //Update the owner to the new faction
-                villageObject.GetComponent<VillageBuilding>().ChangeFactionOwner(newFaction);
             }
         }
         //switch over the factionId so that faction can build
         currentFactionId = factionId;
+        currentFaction = newFaction;
+    }
+
+    private FactionObject GetFactionDetails(string factionId)
+    {
+        FactionObject faction = new();
+
+        foreach (FactionObject factionObj in gameManager.factions)
+        {
+            if (factionId.Equals(factionObj.factionId))
+            {
+                faction = factionObj;
+                break;
+            }
+        }
+
+        return faction;
     }
 }

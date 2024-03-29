@@ -1,25 +1,17 @@
-using System.IO;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class MainMenuManager : MonoBehaviour
 {
-    private string factionJsonPath;
     public Renderer bannerRenderer;
     public CustomFactionObject loadedFaction;
     public List<CustomUnitLoader> customUnits;
     // Start is called before the first frame update
     void Start()
     {
-        factionJsonPath = Application.streamingAssetsPath + "/FactionCustomizer/CurrentFaction.json";
-        Debug.Log("MainMenuManager json path:" + factionJsonPath);
-
-        StreamReader reader = new(factionJsonPath);
-        string configJson = reader.ReadToEnd();
-        reader.Close();
-
-        loadedFaction = JsonUtility.FromJson<CustomFactionObject>(configJson);
+        
+        loadedFaction = new FileUtils().LoadFactionFromFile();
         bannerRenderer.material.color = loadedFaction.color;
         
         foreach(CustomUnitLoader unit in customUnits)

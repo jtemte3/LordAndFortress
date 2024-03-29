@@ -61,7 +61,7 @@ public class BuildSystemController : MonoBehaviour
             else
             {
                 isBuilding = true;
-                currentVillage.ShowGridPoints();               
+                currentVillage.ShowGridPoints();
             }
         }
         //Leaving the build distance threshold for a village, turn everything off and reset values
@@ -239,7 +239,6 @@ public class BuildSystemController : MonoBehaviour
         {
             GameObject newObject = Instantiate(currentObject.prefab, currentPosition, Quaternion.Euler(currentRotation));
             village.AddBuilding(newObject);
-            newObject.GetComponent<VillageBuilding>().ChangeFactionOwner(currentFaction);
             currentFaction.currentWood -= currentObject.woodCost;
             currentFaction.currentStone -= currentObject.stoneCost;
         }

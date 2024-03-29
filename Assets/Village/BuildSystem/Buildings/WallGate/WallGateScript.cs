@@ -14,7 +14,7 @@ public class WallGateScript : MonoBehaviour
         if (other.gameObject.GetComponent<FactionEntityData>())
         {
             FactionEntityData entity = other.gameObject.GetComponent<FactionEntityData>();
-            if (entity.factionId == gateBuilding.factionId)
+            if (entity.factionId == gateBuilding.GetVillage().GetCurrentFaction().factionId)
             {
                 animator.SetBool("doorOpen", true);
             }
@@ -26,7 +26,7 @@ public class WallGateScript : MonoBehaviour
         if (other.gameObject.GetComponent<FactionEntityData>())
         {
             FactionEntityData entity = other.gameObject.GetComponent<FactionEntityData>();
-            if (entity.factionId == gateBuilding.factionId)
+            if (entity.factionId == gateBuilding.GetVillage().GetCurrentFaction().factionId)
             {
                 animator.SetBool("doorOpen", false);
             }

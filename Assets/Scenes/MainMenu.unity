@@ -521,6 +521,7 @@ MonoBehaviour:
   buildingId: 0002
   factionId: 0001
   location: {x: 28, y: 1.5, z: -32}
+  coordinate: {x: 0, y: 0, z: 0}
   rotation: {x: -0, y: -0.70710677, z: -0, w: 0.7071068}
   maxHealth: 20
   currentHealth: 20
@@ -1320,6 +1321,7 @@ MonoBehaviour:
   buildingId: 0003
   factionId: 0001
   location: {x: 28, y: 1.5, z: -52}
+  coordinate: {x: 0, y: 0, z: 0}
   rotation: {x: -0, y: -0.7071069, z: -0, w: 0.7071067}
   maxHealth: 20
   currentHealth: 20
@@ -1685,74 +1687,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 87663446}
   m_Mesh: {fileID: -5495902117074765545, guid: c3b888b26f00dd04091e76f9fda9dbbc, type: 3}
---- !u!1001 &92244373
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 2545018903021708508, guid: 5063886daede2144c9a12e5d4dc46942,
-        type: 3}
-      propertyPath: m_Name
-      value: PineTree_1-6 (4)
-      objectReference: {fileID: 0}
-    - target: {fileID: 2889738220385549926, guid: 5063886daede2144c9a12e5d4dc46942,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -18.75
-      objectReference: {fileID: 0}
-    - target: {fileID: 2889738220385549926, guid: 5063886daede2144c9a12e5d4dc46942,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2889738220385549926, guid: 5063886daede2144c9a12e5d4dc46942,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 27.95
-      objectReference: {fileID: 0}
-    - target: {fileID: 2889738220385549926, guid: 5063886daede2144c9a12e5d4dc46942,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2889738220385549926, guid: 5063886daede2144c9a12e5d4dc46942,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2889738220385549926, guid: 5063886daede2144c9a12e5d4dc46942,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2889738220385549926, guid: 5063886daede2144c9a12e5d4dc46942,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2889738220385549926, guid: 5063886daede2144c9a12e5d4dc46942,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2889738220385549926, guid: 5063886daede2144c9a12e5d4dc46942,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2889738220385549926, guid: 5063886daede2144c9a12e5d4dc46942,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 5063886daede2144c9a12e5d4dc46942, type: 3}
 --- !u!1 &96169475
 GameObject:
   m_ObjectHideFlags: 0
@@ -2141,74 +2075,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 111611696}
   m_Mesh: {fileID: 4486770756708203710, guid: c3b888b26f00dd04091e76f9fda9dbbc, type: 3}
---- !u!1001 &113678915
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 2545018903021708508, guid: 5063886daede2144c9a12e5d4dc46942,
-        type: 3}
-      propertyPath: m_Name
-      value: PineTree_1-6 (3)
-      objectReference: {fileID: 0}
-    - target: {fileID: 2889738220385549926, guid: 5063886daede2144c9a12e5d4dc46942,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -28.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2889738220385549926, guid: 5063886daede2144c9a12e5d4dc46942,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2889738220385549926, guid: 5063886daede2144c9a12e5d4dc46942,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 5.13
-      objectReference: {fileID: 0}
-    - target: {fileID: 2889738220385549926, guid: 5063886daede2144c9a12e5d4dc46942,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2889738220385549926, guid: 5063886daede2144c9a12e5d4dc46942,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2889738220385549926, guid: 5063886daede2144c9a12e5d4dc46942,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2889738220385549926, guid: 5063886daede2144c9a12e5d4dc46942,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2889738220385549926, guid: 5063886daede2144c9a12e5d4dc46942,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2889738220385549926, guid: 5063886daede2144c9a12e5d4dc46942,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2889738220385549926, guid: 5063886daede2144c9a12e5d4dc46942,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 5063886daede2144c9a12e5d4dc46942, type: 3}
 --- !u!1 &117678641
 GameObject:
   m_ObjectHideFlags: 0
@@ -2439,6 +2305,7 @@ MonoBehaviour:
   buildingId: 0002
   factionId: 0001
   location: {x: 52, y: 1.5, z: -44}
+  coordinate: {x: 0, y: 0, z: 0}
   rotation: {x: -0, y: -0.7071067, z: -0, w: -0.7071068}
   maxHealth: 20
   currentHealth: 20
@@ -3194,6 +3061,7 @@ MonoBehaviour:
   buildingId: 0002
   factionId: 0001
   location: {x: 44, y: 1.5, z: -52}
+  coordinate: {x: 0, y: 0, z: 0}
   rotation: {x: -0, y: 1, z: -0, w: -0.00000004371139}
   maxHealth: 20
   currentHealth: 20
@@ -5286,6 +5154,7 @@ MonoBehaviour:
   buildingId: 0003
   factionId: 0001
   location: {x: 36, y: 1.5, z: -28}
+  coordinate: {x: 0, y: 0, z: 0}
   rotation: {x: -0, y: -0.7071067, z: -0, w: -0.7071068}
   maxHealth: 20
   currentHealth: 20
@@ -7381,6 +7250,7 @@ MonoBehaviour:
   buildingId: 0002
   factionId: 0001
   location: {x: 28, y: 1.5, z: -36}
+  coordinate: {x: 0, y: 0, z: 0}
   rotation: {x: -0, y: -0.70710677, z: -0, w: 0.7071068}
   maxHealth: 20
   currentHealth: 20
@@ -9428,6 +9298,7 @@ MonoBehaviour:
   buildingId: 0002
   factionId: 0001
   location: {x: 28, y: 1.5, z: -48}
+  coordinate: {x: 0, y: 0, z: 0}
   rotation: {x: -0, y: 0.7071068, z: -0, w: -0.7071068}
   maxHealth: 20
   currentHealth: 20
@@ -9644,6 +9515,7 @@ MonoBehaviour:
   buildingId: 0002
   factionId: 0001
   location: {x: 52, y: 1.5, z: -48}
+  coordinate: {x: 0, y: 0, z: 0}
   rotation: {x: -0, y: -0.7071067, z: -0, w: -0.7071068}
   maxHealth: 20
   currentHealth: 20
@@ -11332,6 +11204,7 @@ MonoBehaviour:
   buildingId: 0005
   factionId: 0001
   location: {x: 48, y: 1.5, z: -32}
+  coordinate: {x: 0, y: 0, z: 0}
   rotation: {x: -0, y: 0.00000027814184, z: -0, w: -1}
   maxHealth: 20
   currentHealth: 20
@@ -11463,6 +11336,7 @@ MonoBehaviour:
   buildingId: 0003
   factionId: 0001
   location: {x: 28, y: 1.5, z: -28}
+  coordinate: {x: 0, y: 0, z: 0}
   rotation: {x: -0, y: -0.000000023849761, z: -0, w: -1}
   maxHealth: 20
   currentHealth: 20
@@ -11847,6 +11721,7 @@ MonoBehaviour:
   buildingId: 0002
   factionId: 0001
   location: {x: 48, y: 1.5, z: -52}
+  coordinate: {x: 0, y: 0, z: 0}
   rotation: {x: -0, y: 1, z: -0, w: -0.00000004371139}
   maxHealth: 20
   currentHealth: 20
@@ -14846,6 +14721,7 @@ MonoBehaviour:
   buildingId: 0004
   factionId: 0001
   location: {x: 36, y: 1.5, z: -32}
+  coordinate: {x: 0, y: 0, z: 0}
   rotation: {x: -0, y: 0.00000017484555, z: -0, w: 1}
   maxHealth: 20
   currentHealth: 20
@@ -15504,74 +15380,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 975764680}
   m_Mesh: {fileID: -2329215531002497545, guid: 111738990ad9fb946a58aaa194c37617, type: 3}
---- !u!1001 &983902045
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 2545018903021708508, guid: 5063886daede2144c9a12e5d4dc46942,
-        type: 3}
-      propertyPath: m_Name
-      value: PineTree_1-6 (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 2889738220385549926, guid: 5063886daede2144c9a12e5d4dc46942,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -19.96
-      objectReference: {fileID: 0}
-    - target: {fileID: 2889738220385549926, guid: 5063886daede2144c9a12e5d4dc46942,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2889738220385549926, guid: 5063886daede2144c9a12e5d4dc46942,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 18.07
-      objectReference: {fileID: 0}
-    - target: {fileID: 2889738220385549926, guid: 5063886daede2144c9a12e5d4dc46942,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2889738220385549926, guid: 5063886daede2144c9a12e5d4dc46942,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2889738220385549926, guid: 5063886daede2144c9a12e5d4dc46942,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2889738220385549926, guid: 5063886daede2144c9a12e5d4dc46942,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2889738220385549926, guid: 5063886daede2144c9a12e5d4dc46942,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2889738220385549926, guid: 5063886daede2144c9a12e5d4dc46942,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2889738220385549926, guid: 5063886daede2144c9a12e5d4dc46942,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 5063886daede2144c9a12e5d4dc46942, type: 3}
 --- !u!1 &988965094
 GameObject:
   m_ObjectHideFlags: 0
@@ -15627,6 +15435,7 @@ MonoBehaviour:
   buildingId: 0005
   factionId: 0001
   location: {x: 32, y: 1.5, z: -32}
+  coordinate: {x: 0, y: 0, z: 0}
   rotation: {x: -0, y: 0.00000027814184, z: -0, w: -1}
   maxHealth: 20
   currentHealth: 20
@@ -16095,6 +15904,7 @@ MonoBehaviour:
   buildingId: 0002
   factionId: 0001
   location: {x: 28, y: 1.5, z: -40}
+  coordinate: {x: 0, y: 0, z: 0}
   rotation: {x: -0, y: -0.70710677, z: -0, w: 0.7071068}
   maxHealth: 20
   currentHealth: 20
@@ -16226,6 +16036,7 @@ MonoBehaviour:
   buildingId: 0003
   factionId: 0001
   location: {x: 52, y: 1.5, z: -28}
+  coordinate: {x: 0, y: 0, z: 0}
   rotation: {x: -0, y: 0.7071066, z: -0, w: 0.707107}
   maxHealth: 20
   currentHealth: 20
@@ -17373,6 +17184,7 @@ MonoBehaviour:
   buildingId: 0002
   factionId: 0001
   location: {x: 28, y: 1.5, z: -44}
+  coordinate: {x: 0, y: 0, z: 0}
   rotation: {x: -0, y: 0.7071068, z: -0, w: -0.7071068}
   maxHealth: 20
   currentHealth: 20
@@ -17695,74 +17507,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1139841506}
   m_Mesh: {fileID: 4896394041108732376, guid: c3b888b26f00dd04091e76f9fda9dbbc, type: 3}
---- !u!1001 &1155417118
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 2545018903021708508, guid: 5063886daede2144c9a12e5d4dc46942,
-        type: 3}
-      propertyPath: m_Name
-      value: PineTree_1-6 (2)
-      objectReference: {fileID: 0}
-    - target: {fileID: 2889738220385549926, guid: 5063886daede2144c9a12e5d4dc46942,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 11.67
-      objectReference: {fileID: 0}
-    - target: {fileID: 2889738220385549926, guid: 5063886daede2144c9a12e5d4dc46942,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2889738220385549926, guid: 5063886daede2144c9a12e5d4dc46942,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 5.13
-      objectReference: {fileID: 0}
-    - target: {fileID: 2889738220385549926, guid: 5063886daede2144c9a12e5d4dc46942,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2889738220385549926, guid: 5063886daede2144c9a12e5d4dc46942,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2889738220385549926, guid: 5063886daede2144c9a12e5d4dc46942,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2889738220385549926, guid: 5063886daede2144c9a12e5d4dc46942,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2889738220385549926, guid: 5063886daede2144c9a12e5d4dc46942,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2889738220385549926, guid: 5063886daede2144c9a12e5d4dc46942,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2889738220385549926, guid: 5063886daede2144c9a12e5d4dc46942,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 5063886daede2144c9a12e5d4dc46942, type: 3}
 --- !u!1 &1157501836
 GameObject:
   m_ObjectHideFlags: 0
@@ -18160,6 +17904,7 @@ MonoBehaviour:
   buildingId: 0002
   factionId: 0001
   location: {x: 52, y: 1.5, z: -32}
+  coordinate: {x: 0, y: 0, z: 0}
   rotation: {x: -0, y: 0.7071066, z: -0, w: 0.707107}
   maxHealth: 20
   currentHealth: 20
@@ -18782,6 +18527,7 @@ MonoBehaviour:
   buildingId: 0003
   factionId: 0001
   location: {x: 44, y: 1.5, z: -28}
+  coordinate: {x: 0, y: 0, z: 0}
   rotation: {x: -0, y: -0.00000008742278, z: -0, w: -1}
   maxHealth: 20
   currentHealth: 20
@@ -18914,6 +18660,7 @@ MonoBehaviour:
   buildingId: 0002
   factionId: 0001
   location: {x: 40, y: 1.5, z: -52}
+  coordinate: {x: 0, y: 0, z: 0}
   rotation: {x: -0, y: 1, z: -0, w: -0.00000004371139}
   maxHealth: 20
   currentHealth: 20
@@ -20549,6 +20296,7 @@ MonoBehaviour:
   buildingId: 0002
   factionId: 0001
   location: {x: 32, y: 1.5, z: -28}
+  coordinate: {x: 0, y: 0, z: 0}
   rotation: {x: -0, y: -0.000000023849761, z: -0, w: -1}
   maxHealth: 20
   currentHealth: 20
@@ -21426,6 +21174,7 @@ MonoBehaviour:
   buildingId: 0004
   factionId: 0001
   location: {x: 44, y: 1.5, z: -32}
+  coordinate: {x: 0, y: 0, z: 0}
   rotation: {x: -0, y: -0.7071069, z: -0, w: 0.7071067}
   maxHealth: 20
   currentHealth: 20
@@ -26261,6 +26010,7 @@ MonoBehaviour:
   buildingId: 0002
   factionId: 0001
   location: {x: 48, y: 1.5, z: -28}
+  coordinate: {x: 0, y: 0, z: 0}
   rotation: {x: -0, y: 0.00000027814184, z: -0, w: -1}
   maxHealth: 20
   currentHealth: 20
@@ -27414,6 +27164,7 @@ MonoBehaviour:
   buildingId: 0003
   factionId: 0001
   location: {x: 52, y: 1.5, z: -52}
+  coordinate: {x: 0, y: 0, z: 0}
   rotation: {x: -0, y: 1, z: -0, w: -0.00000004371139}
   maxHealth: 20
   currentHealth: 20
@@ -27924,6 +27675,7 @@ MonoBehaviour:
   buildingId: 0002
   factionId: 0001
   location: {x: 52, y: 1.5, z: -36}
+  coordinate: {x: 0, y: 0, z: 0}
   rotation: {x: -0, y: 0.7071066, z: -0, w: 0.707107}
   maxHealth: 20
   currentHealth: 20
@@ -28222,6 +27974,7 @@ MonoBehaviour:
   buildingId: 0002
   factionId: 0001
   location: {x: 32, y: 1.5, z: -52}
+  coordinate: {x: 0, y: 0, z: 0}
   rotation: {x: -0, y: 1, z: -0, w: -0.00000004371139}
   maxHealth: 20
   currentHealth: 20
@@ -28762,6 +28515,7 @@ MonoBehaviour:
   buildingId: 0002
   factionId: 0001
   location: {x: 36, y: 1.5, z: -52}
+  coordinate: {x: 0, y: 0, z: 0}
   rotation: {x: -0, y: 1, z: -0, w: -0.00000004371139}
   maxHealth: 20
   currentHealth: 20
@@ -31617,6 +31371,7 @@ MonoBehaviour:
   buildingId: 0006
   factionId: 0001
   location: {x: 40, y: 1.5, z: -32}
+  coordinate: {x: 0, y: 0, z: 0}
   rotation: {x: -0, y: -0.00000008742278, z: -0, w: -1}
   maxHealth: 20
   currentHealth: 20
@@ -32646,6 +32401,7 @@ MonoBehaviour:
   buildingId: 0002
   factionId: 0001
   location: {x: 52, y: 1.5, z: -40}
+  coordinate: {x: 0, y: 0, z: 0}
   rotation: {x: -0, y: 0.7071066, z: -0, w: 0.707107}
   maxHealth: 20
   currentHealth: 20
@@ -33240,74 +32996,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2145278169}
   m_Mesh: {fileID: 3320184997738873532, guid: c3b888b26f00dd04091e76f9fda9dbbc, type: 3}
---- !u!1001 &4330462923664271776
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 2545018903021708508, guid: 5063886daede2144c9a12e5d4dc46942,
-        type: 3}
-      propertyPath: m_Name
-      value: PineTree_1-6
-      objectReference: {fileID: 0}
-    - target: {fileID: 2889738220385549926, guid: 5063886daede2144c9a12e5d4dc46942,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -12.57
-      objectReference: {fileID: 0}
-    - target: {fileID: 2889738220385549926, guid: 5063886daede2144c9a12e5d4dc46942,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2889738220385549926, guid: 5063886daede2144c9a12e5d4dc46942,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 5.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 2889738220385549926, guid: 5063886daede2144c9a12e5d4dc46942,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2889738220385549926, guid: 5063886daede2144c9a12e5d4dc46942,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2889738220385549926, guid: 5063886daede2144c9a12e5d4dc46942,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2889738220385549926, guid: 5063886daede2144c9a12e5d4dc46942,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2889738220385549926, guid: 5063886daede2144c9a12e5d4dc46942,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2889738220385549926, guid: 5063886daede2144c9a12e5d4dc46942,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2889738220385549926, guid: 5063886daede2144c9a12e5d4dc46942,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 5063886daede2144c9a12e5d4dc46942, type: 3}
 --- !u!1001 &7070287923035475494
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -33395,8 +33083,3 @@ SceneRoots:
   - {fileID: 827120892}
   - {fileID: 7070287923035475494}
   - {fileID: 1764229406}
-  - {fileID: 4330462923664271776}
-  - {fileID: 983902045}
-  - {fileID: 1155417118}
-  - {fileID: 113678915}
-  - {fileID: 92244373}

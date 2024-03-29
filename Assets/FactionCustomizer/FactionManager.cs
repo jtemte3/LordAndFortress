@@ -11,7 +11,6 @@ public class FactionManager : MonoBehaviour
     public TMP_InputField factionName;
     public List<Color> FactonColors = new();
     public Color currentColor;
-    public string factionJsonPath;
     public bool loadFromFile = true;
     public Transform customTroopPreviewTransform;
     public float speed = 0f;
@@ -20,9 +19,6 @@ public class FactionManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        factionJsonPath = Application.streamingAssetsPath + "/FactionCustomizer/CurrentFaction.json";
-        Debug.Log("FactionManager json path:" + factionJsonPath);
-
         LoadFactionDetails();
         unitCustomization.UpdateColor(currentColor);
     }
@@ -65,19 +61,14 @@ public class FactionManager : MonoBehaviour
     {
         if (loadFromFile)
         {
-            StreamWriter writer = new StreamWriter(factionJsonPath);
-
             CustomFactionObject newFaction = new();
             newFaction.name = factionName.text;
             newFaction.color = currentColor;
             newFaction.customUnits = new List<CustomUnitObject>();
             newFaction.customUnits.Add(unitCustomization.ExportUnit());
 
-            string factionJson = JsonUtility.ToJson(newFaction, true);
+            new FileUtils().SaveFactionToFile(newFaction);
 
-            writer.Write(factionJson);
-            writer.Flush();
-            writer.Close();
         }
         else
         {
@@ -90,16 +81,11 @@ public class FactionManager : MonoBehaviour
     {
         if (loadFromFile)
         {
-            StreamReader reader = new(factionJsonPath);
-            string configJson = reader.ReadToEnd();
-
-            CustomFactionObject loadedFaction = JsonUtility.FromJson<CustomFactionObject>(configJson);
+            CustomFactionObject loadedFaction = new FileUtils().LoadFactionFromFile();
             factionName.text = loadedFaction.name;
             currentColor = loadedFaction.color;
             unitCustomization.LoadUnit(loadedFaction.customUnits[0]);
             unitCustomization.UpdateColor(loadedFaction.color);
-
-            reader.Close();
         }
         else
         {
