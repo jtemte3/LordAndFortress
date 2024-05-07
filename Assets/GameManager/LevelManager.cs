@@ -90,10 +90,16 @@ public class LevelManager : MonoBehaviour
 
                 faction.factionName = loadedFaction.name;
                 faction.factionColor = loadedFaction.color;
+                faction.customFactionObject = loadedFaction;
 
                 Debug.Log("Level Manager: factionName :" + faction.factionName);
                 break;
             }
         }
+    }
+
+    public void SetCursor(bool state)
+    {
+        showCursor = state;
     }
 }

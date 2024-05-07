@@ -8,13 +8,13 @@ public class VillageBuildZoneScript : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-
         if (other.gameObject.GetComponent<BuildSystemController>())
         {
             BuildSystemController builder = other.gameObject.GetComponent<BuildSystemController>();
             if (builder.currentFaction.factionId == villageManager.currentFactionId)
             {
                 builder.currentVillage = villageManager;
+                villageManager.SetCanBuild(true);
                 builder.canBuild = true;
             }
         }
@@ -28,6 +28,7 @@ public class VillageBuildZoneScript : MonoBehaviour
             if (builder.currentFaction.factionId == villageManager.currentFactionId)
             {
                 builder.currentVillage = null;
+                villageManager.SetCanBuild(false);
                 builder.canBuild = false;
                 builder.isBuilding = false;
                 if (!villageManager.isHidden)

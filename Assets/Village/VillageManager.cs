@@ -22,7 +22,10 @@ public class VillageManager : MonoBehaviour
     public LevelManager gameManager;
     public GameObject buildZone;
     public bool showBuildZone = false;
+    public bool canBuild = false;
     public bool loadFromFile;
+    public GameObject barracks;
+    public GameObject barracksPanel;
 
     //Dictionary<string, GridPoint> grid = new Dictionary<string, GridPoint>();
     public bool isHidden = false;
@@ -45,7 +48,7 @@ public class VillageManager : MonoBehaviour
 
         float roundedX = gridScale * Mathf.Round(transform.position.x / gridScale);
         float roundedZ = gridScale * Mathf.Round(transform.position.z / gridScale);
-        Vector3 villageRoundedPos = new (roundedX, transform.position.y, roundedZ);
+        Vector3 villageRoundedPos = new(roundedX, transform.position.y, roundedZ);
 
         villageOffset = transform.position - villageRoundedPos;
 
@@ -53,14 +56,33 @@ public class VillageManager : MonoBehaviour
         villageOffsetResult.y = transform.position.y - villageOffset.y;
         villageOffsetResult.z = transform.position.z - villageOffset.z;
 
-        villageMap.Add(new Vector3(0,0,0), transform.Find("VillageBanner").gameObject);
+        villageMap.Add(new Vector3(0, 0, 0), transform.Find("VillageBanner").gameObject);
 
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        if (canBuild && barracks != null)
+        {
+            if (Input.GetKeyDown(KeyCode.B))
+            {
+                if (barracksPanel.activeSelf != true)
+                {
+                    gameManager.showCursor = true;
+                    barracksPanel.GetComponent<BarracksMenuHandler>().ClearListeners();
+                    barracksPanel.GetComponent<BarracksMenuHandler>().Setup(this);
+                    barracksPanel.SetActive(true);
+                }
+                else
+                {
+                    barracksPanel.GetComponent<BarracksMenuHandler>().ClearListeners();
+                    gameManager.showCursor = false;
+                    barracksPanel.SetActive(false);
+                }
+            }
+        }
+        
     }
 
     public void GenerateGridPoints(int newGridSize)
@@ -72,7 +94,7 @@ public class VillageManager : MonoBehaviour
             {
                 string coordinatesAsString = x + "," + z;
 
-                GameObject pointObj = Instantiate(gridPointIndicator, new Vector3( this.transform.position.x + x * gridScale, this.transform.position.y, this.transform.position.z + z * gridScale), Quaternion.identity);
+                GameObject pointObj = Instantiate(gridPointIndicator, new Vector3(this.transform.position.x + x * gridScale, this.transform.position.y, this.transform.position.z + z * gridScale), Quaternion.identity);
                 pointObj.name = coordinatesAsString;
                 pointObj.transform.parent = gridpointParent;
                 gridPoints.Add(pointObj);
@@ -136,7 +158,14 @@ public class VillageManager : MonoBehaviour
     {
         return halfGridSize;
     }
-
+    public void SetCanBuild(bool state)
+    {
+        canBuild = state;
+    }
+    public bool GetCanBuild()
+    {
+        return canBuild;
+    }
     public FactionObject GetCurrentFaction()
     {
         return currentFaction;
@@ -215,13 +244,16 @@ public class VillageManager : MonoBehaviour
         //update all of the buildings in the village to match the new faction
         foreach (GameObject villageObject in villageObjects)
         {
-            if (villageObject.GetComponent<VillageBuilding>() == true)
+            if (villageObject.GetComponent<VillageBuilding>() != null)
             {
-                //remove house population from current faction to the new faction
-                if (villageObject.GetComponent<VillageProductionScript>().productionType == VillageProductionScript.VillageProductionType.Population)
+                if (villageObject.GetComponent<VillageProductionScript>() != null)
                 {
-                    currentFaction.currentPopulation -= villageObject.GetComponent<VillageProductionScript>().productionAmmount;
-                    newFaction.currentPopulation += villageObject.GetComponent<VillageProductionScript>().productionAmmount;
+                    //remove house population from current faction to the new faction
+                    if (villageObject.GetComponent<VillageProductionScript>().productionType == VillageProductionScript.VillageProductionType.Population)
+                    {
+                        currentFaction.currentPopulation -= villageObject.GetComponent<VillageProductionScript>().productionAmmount;
+                        newFaction.currentPopulation += villageObject.GetComponent<VillageProductionScript>().productionAmmount;
+                    }
                 }
             }
         }
@@ -244,5 +276,14 @@ public class VillageManager : MonoBehaviour
         }
 
         return faction;
+    }
+
+    public void SpawnUnit(int type)
+    {
+        if (barracks != null)
+        {
+            CustomUnitObject customUnit = currentFaction.customFactionObject.customUnits[type];
+            barracks.GetComponent<BarracksManager>().CreateUnitType(customUnit, currentFaction.factionColor, currentFaction.factionId, type);
+        }
     }
 }

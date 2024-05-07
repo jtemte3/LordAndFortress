@@ -438,6 +438,7 @@ GameObject:
   - component: {fileID: -8931536464292873711}
   - component: {fileID: -7298316469382728358}
   - component: {fileID: -4249897807231825028}
+  - component: {fileID: 5374788231490280257}
   m_Layer: 7
   m_Name: Barracks
   m_TagString: Untagged
@@ -463,6 +464,7 @@ Transform:
   - {fileID: 7793695813053376875}
   - {fileID: 7036698874838009904}
   - {fileID: 1069260605029896382}
+  - {fileID: 5675693945323878386}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &-8931536464292873711
@@ -498,7 +500,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea26f430b8cbb8848af0c85f733e970b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buildingId: 0010
+  buildingId: 0009
   location: {x: 0, y: 0, z: 0}
   coordinate: {x: 0, y: 0, z: 0}
   rotation: {x: 0, y: 0, z: 0, w: 0}
@@ -532,6 +534,22 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
+--- !u!114 &5374788231490280257
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7839335527022624398}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 142ec27c07ac6484785cc83a3c536ed5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  villageManager: {fileID: 0}
+  unitSpawnPoint: {fileID: 8536568030350655803}
+  customUnitPrefab: {fileID: 7669318621373707049, guid: d40d00a8457578b478ccce1594b0efc7,
+    type: 3}
 --- !u!1 &8015040023504303694
 GameObject:
   m_ObjectHideFlags: 0
@@ -639,3 +657,34 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4596239184023814631, guid: cc3f7e77995adef478d8eee2621d3937, type: 3}
+--- !u!1 &8536568030350655803
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5675693945323878386}
+  m_Layer: 7
+  m_Name: UnitSpawnPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5675693945323878386
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8536568030350655803}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: -1.5, y: 0, z: -2.5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7458306831039341620}
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
