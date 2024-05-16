@@ -399,22 +399,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea26f430b8cbb8848af0c85f733e970b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buildingId: 0009
-  factionId: 
+  buildingId: 0008
   location: {x: 0, y: 0, z: 0}
+  coordinate: {x: 0, y: 0, z: 0}
   rotation: {x: 0, y: 0, z: 0, w: 0}
   maxHealth: 30
   currentHealth: 0
-  faction:
-    factionName: 
-    factionId: 
-    teamId: 
-    factionColor: {r: 0, g: 0, b: 0, a: 0}
-    currentWood: 0
-    currentStone: 0
-    currentGold: 0
-    currentFood: 0
-    currentPopulation: 0
+  village: {fileID: 0}
 --- !u!114 &-8916998186551423939
 MonoBehaviour:
   m_ObjectHideFlags: 0

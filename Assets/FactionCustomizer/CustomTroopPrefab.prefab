@@ -26,17 +26,17 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: f82e4c3d8cf509349851e8b13ce72c35,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -8.15
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f82e4c3d8cf509349851e8b13ce72c35,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.04
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f82e4c3d8cf509349851e8b13ce72c35,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 15.32
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f82e4c3d8cf509349851e8b13ce72c35,
         type: 3}
@@ -216,7 +216,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: f82e4c3d8cf509349851e8b13ce72c35,
         type: 3}
       propertyPath: m_Name
-      value: MainMenuCustomTroop
+      value: CustomTroopPrefab
       objectReference: {fileID: 0}
     - target: {fileID: 1119500358505894382, guid: f82e4c3d8cf509349851e8b13ce72c35,
         type: 3}
@@ -404,6 +404,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1758484239051666776}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: f82e4c3d8cf509349851e8b13ce72c35,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -1447443793931239448}
   m_SourcePrefab: {fileID: 100100000, guid: f82e4c3d8cf509349851e8b13ce72c35, type: 3}
 --- !u!1 &1089264563779381998 stripped
 GameObject:
@@ -495,7 +499,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d74d0fd52afe54641ade6c6fde80afe1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  manager: {fileID: 0}
   helmets:
   - {fileID: 4056749714295083626}
   - {fileID: 1089264563779381998}
@@ -521,7 +524,20 @@ MonoBehaviour:
   - {fileID: 4739705743779346964}
   - {fileID: 3030864527904740575}
   legs: {fileID: 6617217501895398039}
-  unitToLoad: 0
+--- !u!114 &-1447443793931239448
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7669318621373707049}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab543867ef8ec7d44bce14e7816b3b85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerName: 
+  factionId: 
 --- !u!1 &7801823382490389221 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 786485551630161053, guid: f82e4c3d8cf509349851e8b13ce72c35,

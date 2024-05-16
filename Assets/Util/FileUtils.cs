@@ -73,4 +73,30 @@ public class FileUtils
 
         return loadedVillage;
     }
+
+    public Sprite LoadSpriteFromFile(string fileName)
+    {
+        Texture2D SpriteTexture = LoadTexture(fileName);
+        Sprite NewSprite = Sprite.Create(SpriteTexture, new Rect(0, 0, SpriteTexture.width, SpriteTexture.height), new Vector2(0, 0), 100);
+        return NewSprite;
+    }
+
+    public Texture2D LoadTexture(string fileName)
+    {
+        string filePath = Application.persistentDataPath + "/FactionCustomizer/" + fileName;
+
+        Texture2D Tex2D;
+        byte[] FileData;
+
+        if (File.Exists(filePath))
+        {
+            FileData = File.ReadAllBytes(filePath);
+            Tex2D = new Texture2D(2, 2);
+            if (Tex2D.LoadImage(FileData))
+            {
+                return Tex2D;
+            }
+        }
+        return null;
+    }
 }

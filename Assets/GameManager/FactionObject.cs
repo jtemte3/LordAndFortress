@@ -9,6 +9,7 @@ public class FactionObject
     public string factionId;
     public string teamId;
     public Color factionColor;
+    public CustomFactionObject customFactionObject;
     public int ownedFlags;
     public int currentWood;
     public int currentStone;

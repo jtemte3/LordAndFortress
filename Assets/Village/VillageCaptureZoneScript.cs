@@ -11,24 +11,24 @@ public class VillageCaptureZoneScript : MonoBehaviour
     public float captureTime;
     float finishCaptureTime;
     float flagChangeTime;
-    string capturingFactiton;
+    public string capturingFactiton;
+    public int highestNumberOfUnits = 0;
 
     // Update is called once per frame
     void Update()
     {
         if (currentFactionContenders.Count > 0)
-        {            
-            int highestNumberOfUnits = 0;
-
+        {
             foreach (string faction in currentFactionContenders.Keys)
             {
                 int unitCount = currentFactionContenders[faction];
                 if (unitCount > highestNumberOfUnits)
                 {
+                    highestNumberOfUnits = unitCount;
                     capturingFactiton = faction;
                     flagAnimator.speed = 1;
                 }
-                if (unitCount == highestNumberOfUnits)
+                if (faction != capturingFactiton && unitCount == highestNumberOfUnits)
                 {
                     isBeingCaptured = false;
                     flagAnimator.speed = 0;
@@ -44,18 +44,24 @@ public class VillageCaptureZoneScript : MonoBehaviour
         }
         else
         {
-            isBeingCaptured = false;
+            highestNumberOfUnits = 0;
             capturingFactiton = villageManager.currentFactionId;
+            isBeingCaptured = false;
+            flagAnimator.SetBool("bannerDown", false);
+            villageManager.ChangeVillageFlagColor(capturingFactiton);
         }
 
-        if (isBeingCaptured)
+        if (isBeingCaptured && capturingFactiton != villageManager.currentFactionId)
         {            
             if (Time.time >= finishCaptureTime)
             {
+                //Flag capture time achieved and flag was captured by an enemy
                 isBeingCaptured = false;
-                villageManager.gameManager.ChangeVillageOwnership(villageManager.currentFactionId, capturingFactiton);
-                villageManager.ChangeVillageFactionOwner(capturingFactiton);
-                
+                if (capturingFactiton != villageManager.currentFactionId)
+                {
+                    villageManager.gameManager.ChangeVillageOwnership(villageManager.currentFactionId, capturingFactiton);
+                    villageManager.ChangeVillageFactionOwner(capturingFactiton);
+                }
             }
             if (Time.time < flagChangeTime && !flagAnimator.GetBool("bannerDown"))
             {
@@ -66,6 +72,15 @@ public class VillageCaptureZoneScript : MonoBehaviour
                 villageManager.ChangeVillageFlagColor(capturingFactiton);
                 flagAnimator.SetBool("bannerDown", false);
             }
+        }
+        else
+        {
+            flagAnimator.SetBool("bannerDown", false);
+        }
+
+        if (!isBeingCaptured)
+        {
+            flagAnimator.SetBool("bannerDown", false);
         }
     }
 
@@ -89,14 +104,14 @@ public class VillageCaptureZoneScript : MonoBehaviour
         
     }
 
-    private void OnTriggerStay(Collider other)
+    /*private void OnTriggerStay(Collider other)
     {
         if (other.gameObject.GetComponent<BuildSystemController>() && isBeingCaptured != true)
         {
             other.gameObject.GetComponent<BuildSystemController>().currentVillage = villageManager;
             other.gameObject.GetComponent<BuildSystemController>().canBuild = true;
         }
-    }
+    }*/
 
     void OnTriggerExit(Collider other)
     {
@@ -114,8 +129,11 @@ public class VillageCaptureZoneScript : MonoBehaviour
                 else
                 {
                     currentFactionContenders.Remove(factionId);
+                    capturingFactiton = villageManager.currentFactionId;
+                    isBeingCaptured = false;
+                    flagAnimator.SetBool("bannerDown", false);
+                    villageManager.ChangeVillageFlagColor(capturingFactiton);
                 }
-                
             }
         }
     }

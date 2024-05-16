@@ -7,6 +7,7 @@ public class BuildableObject
 {
     public string buildingName;
     public string buildingId;
+    public Sprite buildingImage;
     public GameObject prefab;
     public GameObject preview;
     public float buildingForwardOffset;

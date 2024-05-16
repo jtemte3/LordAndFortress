@@ -17,6 +17,39 @@
             "unitGoldCost": 0,
             "unitSpeed": 3.0,
             "unitHealth": 10.0
+        },
+		{
+            "helmetId": 3,
+            "baseArmorId": 0,
+            "armorId": 0,
+            "legsId": 0,
+            "weaponId": 1,
+            "shieldId": 0,
+            "unitGoldCost": 0,
+            "unitSpeed": 3.0,
+            "unitHealth": 10.0
+        },
+		{
+            "helmetId": 3,
+            "baseArmorId": 0,
+            "armorId": 0,
+            "legsId": 0,
+            "weaponId": 1,
+            "shieldId": 0,
+            "unitGoldCost": 0,
+            "unitSpeed": 3.0,
+            "unitHealth": 10.0
+        },
+		{
+            "helmetId": 3,
+            "baseArmorId": 0,
+            "armorId": 0,
+            "legsId": 0,
+            "weaponId": 1,
+            "shieldId": 0,
+            "unitGoldCost": 0,
+            "unitSpeed": 3.0,
+            "unitHealth": 10.0
         }
     ]
 }
