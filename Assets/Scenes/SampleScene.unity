@@ -8197,7 +8197,7 @@ MonoBehaviour:
   buildZone: {fileID: 203333660}
   showBuildZone: 0
   canBuild: 0
-  loadFromFile: 1
+  loadFromFile: 0
   barracks: {fileID: 0}
   barracksPanel: {fileID: 138368394}
   isHidden: 0
