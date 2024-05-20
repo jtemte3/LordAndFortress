@@ -5,26 +5,35 @@ using System.IO;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System.Threading;
 
 public class FactionManager : MonoBehaviour
 {
-    public UnitCustomizationController unitCustomizationController;
+    [Header("General Settings")]
     private CustomFactionObject loadedFaction;
+    public bool loadFromFile = true;
+    public GameObject unitUI;
+    public GameObject factionUI;
+    public UnitCustomizationController unitCustomizationController;
+    public Camera screenShotCamera;
+
+    [Header("Faction Settings")] 
     public TMP_InputField factionName;
     public List<Color> FactonColors = new();
     public Color currentColor;
-    public bool loadFromFile = true;
-    public GameObject customTroopPreview;
-    public float speed = 0f;
-    public Animator controller;
     public Image heroImage;
     public Image unitOneImage;
     public Image unitTwoImage;
     public Image unitThreeImage;
-    public GameObject unitUI;
-    public GameObject factionUI;
+
+    [Header("Unit Settings")]
+    public GameObject customTroopPreview;
+    public float speed = 0f;
+    public Animator controller;
     public Button btnSaveUnit;
     public TMP_Text Lbl_UnitName;
+    public Image currentUnitImage;
+
 
     // Start is called before the first frame update
     void Start()
@@ -116,6 +125,15 @@ public class FactionManager : MonoBehaviour
             new FileUtils().SaveFactionToFile(newFaction);
         }
 
+        if (unitType.Equals(0))
+        {
+            CaptureImage("Icon-Hero.png");
+        }
+        else
+        {
+            CaptureImage("Icon-Unit-" + unitType + ".png");
+        }
+
     }
 
     public void LoadFactionDetails()
@@ -128,10 +146,7 @@ public class FactionManager : MonoBehaviour
             unitCustomizationController.LoadUnit(loadedFaction.customUnits[0]);
             unitCustomizationController.UpdateColor(loadedFaction.color);
 
-            heroImage.sprite = new FileUtils().LoadSpriteFromFile("Icon-Hero.png");
-            unitOneImage.sprite = new FileUtils().LoadSpriteFromFile("Icon-Unit-1.png");
-            unitTwoImage.sprite = new FileUtils().LoadSpriteFromFile("Icon-Unit-2.png");
-            unitThreeImage.sprite = new FileUtils().LoadSpriteFromFile("Icon-Unit-3.png");
+            LoadUnitImages();
         }
         else
         {
@@ -153,10 +168,12 @@ public class FactionManager : MonoBehaviour
             if (unitType.Equals(0))
             {
                 Lbl_UnitName.text = "Leader";
+                currentUnitImage.sprite = new FileUtils().LoadSpriteFromFile("Icon-Hero.png");
             }
             else
             {
                 Lbl_UnitName.text = "Unit " + unitType;
+                currentUnitImage.sprite = new FileUtils().LoadSpriteFromFile("Icon-Unit-" + unitType + ".png");
             }
         }
     }
@@ -166,10 +183,41 @@ public class FactionManager : MonoBehaviour
         if (loadedFaction != null)
         {
             customTroopPreview.SetActive(false);
+            LoadUnitImages();
             unitUI.SetActive(false);
             factionUI.SetActive(true);
             btnSaveUnit.onClick.RemoveAllListeners();
         }
+    }
+
+    public void LoadUnitImages()
+    {
+        heroImage.sprite = new FileUtils().LoadSpriteFromFile("Icon-Hero.png");
+        unitOneImage.sprite = new FileUtils().LoadSpriteFromFile("Icon-Unit-1.png");
+        unitTwoImage.sprite = new FileUtils().LoadSpriteFromFile("Icon-Unit-2.png");
+        unitThreeImage.sprite = new FileUtils().LoadSpriteFromFile("Icon-Unit-3.png");
+    }
+
+    public void CaptureImage(string fileName)
+    {
+        RenderTexture activeRenderTexture = new RenderTexture(600, 600, 24, RenderTextureFormat.ARGB32);
+        screenShotCamera.targetTexture = activeRenderTexture;
+
+        RenderTexture.active = activeRenderTexture;
+
+        screenShotCamera.Render();
+
+        Texture2D screenShot = new Texture2D(screenShotCamera.targetTexture.width, screenShotCamera.targetTexture.height, TextureFormat.ARGB32, false, true);
+        screenShot.ReadPixels(new Rect(0, 0, screenShotCamera.targetTexture.width, screenShotCamera.targetTexture.height), 0, 0);
+        screenShot.Apply();
+
+        RenderTexture.active = null;
+
+        new FileUtils().SaveImageToFile(screenShot, fileName);
+
+        Destroy(screenShot);
+
+        currentUnitImage.sprite = new FileUtils().LoadSpriteFromFile(fileName);
     }
 
 }

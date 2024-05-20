@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
+  m_SkyboxMaterial: {fileID: 2100000, guid: f0c7c919cc9d1754d873b12c0b482afb, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.17757836, g: 0.22232237, b: 0.30451798, a: 1}
+  m_IndirectSpecularColor: {r: 0.108793855, g: 0.13543372, b: 0.18975614, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -471,7 +471,6 @@ GameObject:
   - component: {fileID: 32168421}
   - component: {fileID: 32168420}
   - component: {fileID: 32168419}
-  - component: {fileID: 32168418}
   m_Layer: 7
   m_Name: Wall-1(Clone)
   m_TagString: Untagged
@@ -506,36 +505,6 @@ Transform:
   - {fileID: 1737287917}
   m_Father: {fileID: 495733538}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &32168418
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 32168416}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ea26f430b8cbb8848af0c85f733e970b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  buildingId: 0002
-  factionId: 0001
-  location: {x: 28, y: 1.5, z: -32}
-  coordinate: {x: 0, y: 0, z: 0}
-  rotation: {x: -0, y: -0.70710677, z: -0, w: 0.7071068}
-  maxHealth: 20
-  currentHealth: 20
-  faction:
-    factionName: Kameria
-    factionId: 0001
-    teamId: 0001
-    factionColor: {r: 0.58431375, g: 0.21176471, b: 0.21176471, a: 1}
-    ownedFlags: 1
-    currentWood: 940
-    currentStone: 0
-    currentGold: 0
-    currentFood: 100
-    currentPopulation: 5
 --- !u!54 &32168419
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1272,7 +1241,6 @@ GameObject:
   - component: {fileID: 80217020}
   - component: {fileID: 80217019}
   - component: {fileID: 80217018}
-  - component: {fileID: 80217017}
   m_Layer: 7
   m_Name: Wall-Corner-1(Clone)
   m_TagString: Untagged
@@ -1306,36 +1274,6 @@ Transform:
   - {fileID: 1105838261}
   m_Father: {fileID: 495733538}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &80217017
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 80217015}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ea26f430b8cbb8848af0c85f733e970b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  buildingId: 0003
-  factionId: 0001
-  location: {x: 28, y: 1.5, z: -52}
-  coordinate: {x: 0, y: 0, z: 0}
-  rotation: {x: -0, y: -0.7071069, z: -0, w: 0.7071067}
-  maxHealth: 20
-  currentHealth: 20
-  faction:
-    factionName: Kameria
-    factionId: 0001
-    teamId: 0001
-    factionColor: {r: 0.58431375, g: 0.21176471, b: 0.21176471, a: 1}
-    ownedFlags: 1
-    currentWood: 940
-    currentStone: 0
-    currentGold: 0
-    currentFood: 100
-    currentPopulation: 5
 --- !u!54 &80217018
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2255,7 +2193,6 @@ GameObject:
   - component: {fileID: 120936235}
   - component: {fileID: 120936234}
   - component: {fileID: 120936233}
-  - component: {fileID: 120936232}
   m_Layer: 7
   m_Name: Wall-1(Clone)
   m_TagString: Untagged
@@ -2290,36 +2227,6 @@ Transform:
   - {fileID: 99406167}
   m_Father: {fileID: 495733538}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &120936232
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 120936230}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ea26f430b8cbb8848af0c85f733e970b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  buildingId: 0002
-  factionId: 0001
-  location: {x: 52, y: 1.5, z: -44}
-  coordinate: {x: 0, y: 0, z: 0}
-  rotation: {x: -0, y: -0.7071067, z: -0, w: -0.7071068}
-  maxHealth: 20
-  currentHealth: 20
-  faction:
-    factionName: Kameria
-    factionId: 0001
-    teamId: 0001
-    factionColor: {r: 0.58431375, g: 0.21176471, b: 0.21176471, a: 1}
-    ownedFlags: 1
-    currentWood: 940
-    currentStone: 0
-    currentGold: 0
-    currentFood: 100
-    currentPopulation: 5
 --- !u!54 &120936233
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2675,7 +2582,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5365b6d7be27d154b8ea86aeeb9f46a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gateBuilding: {fileID: 2022703747}
+  gateBuilding: {fileID: 0}
   animator: {fileID: 0}
 --- !u!65 &135497170
 BoxCollider:
@@ -3011,7 +2918,6 @@ GameObject:
   - component: {fileID: 144426821}
   - component: {fileID: 144426820}
   - component: {fileID: 144426819}
-  - component: {fileID: 144426818}
   m_Layer: 7
   m_Name: Wall-1(Clone)
   m_TagString: Untagged
@@ -3046,36 +2952,6 @@ Transform:
   - {fileID: 1569255104}
   m_Father: {fileID: 495733538}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &144426818
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 144426816}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ea26f430b8cbb8848af0c85f733e970b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  buildingId: 0002
-  factionId: 0001
-  location: {x: 44, y: 1.5, z: -52}
-  coordinate: {x: 0, y: 0, z: 0}
-  rotation: {x: -0, y: 1, z: -0, w: -0.00000004371139}
-  maxHealth: 20
-  currentHealth: 20
-  faction:
-    factionName: Kameria
-    factionId: 0001
-    teamId: 0001
-    factionColor: {r: 0.58431375, g: 0.21176471, b: 0.21176471, a: 1}
-    ownedFlags: 1
-    currentWood: 940
-    currentStone: 0
-    currentGold: 0
-    currentFood: 100
-    currentPopulation: 5
 --- !u!54 &144426819
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -5105,7 +4981,6 @@ GameObject:
   - component: {fileID: 294685914}
   - component: {fileID: 294685913}
   - component: {fileID: 294685912}
-  - component: {fileID: 294685911}
   m_Layer: 7
   m_Name: Wall-Corner-1(Clone)
   m_TagString: Untagged
@@ -5139,36 +5014,6 @@ Transform:
   - {fileID: 198913889}
   m_Father: {fileID: 495733538}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &294685911
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 294685909}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ea26f430b8cbb8848af0c85f733e970b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  buildingId: 0003
-  factionId: 0001
-  location: {x: 36, y: 1.5, z: -28}
-  coordinate: {x: 0, y: 0, z: 0}
-  rotation: {x: -0, y: -0.7071067, z: -0, w: -0.7071068}
-  maxHealth: 20
-  currentHealth: 20
-  faction:
-    factionName: Kameria
-    factionId: 0001
-    teamId: 0001
-    factionColor: {r: 0.58431375, g: 0.21176471, b: 0.21176471, a: 1}
-    ownedFlags: 1
-    currentWood: 940
-    currentStone: 0
-    currentGold: 0
-    currentFood: 100
-    currentPopulation: 5
 --- !u!54 &294685912
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -7200,7 +7045,6 @@ GameObject:
   - component: {fileID: 479917460}
   - component: {fileID: 479917459}
   - component: {fileID: 479917458}
-  - component: {fileID: 479917457}
   m_Layer: 7
   m_Name: Wall-1(Clone)
   m_TagString: Untagged
@@ -7235,36 +7079,6 @@ Transform:
   - {fileID: 450742952}
   m_Father: {fileID: 495733538}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &479917457
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 479917455}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ea26f430b8cbb8848af0c85f733e970b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  buildingId: 0002
-  factionId: 0001
-  location: {x: 28, y: 1.5, z: -36}
-  coordinate: {x: 0, y: 0, z: 0}
-  rotation: {x: -0, y: -0.70710677, z: -0, w: 0.7071068}
-  maxHealth: 20
-  currentHealth: 20
-  faction:
-    factionName: Kameria
-    factionId: 0001
-    teamId: 0001
-    factionColor: {r: 0.58431375, g: 0.21176471, b: 0.21176471, a: 1}
-    ownedFlags: 1
-    currentWood: 940
-    currentStone: 0
-    currentGold: 0
-    currentFood: 100
-    currentPopulation: 5
 --- !u!54 &479917458
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -9043,7 +8857,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!64 &570075567
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -9248,7 +9062,6 @@ GameObject:
   - component: {fileID: 577648300}
   - component: {fileID: 577648299}
   - component: {fileID: 577648298}
-  - component: {fileID: 577648297}
   m_Layer: 7
   m_Name: Wall-1(Clone)
   m_TagString: Untagged
@@ -9283,36 +9096,6 @@ Transform:
   - {fileID: 1557283558}
   m_Father: {fileID: 495733538}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &577648297
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 577648295}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ea26f430b8cbb8848af0c85f733e970b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  buildingId: 0002
-  factionId: 0001
-  location: {x: 28, y: 1.5, z: -48}
-  coordinate: {x: 0, y: 0, z: 0}
-  rotation: {x: -0, y: 0.7071068, z: -0, w: -0.7071068}
-  maxHealth: 20
-  currentHealth: 20
-  faction:
-    factionName: Kameria
-    factionId: 0001
-    teamId: 0001
-    factionColor: {r: 0.58431375, g: 0.21176471, b: 0.21176471, a: 1}
-    ownedFlags: 1
-    currentWood: 940
-    currentStone: 0
-    currentGold: 0
-    currentFood: 100
-    currentPopulation: 5
 --- !u!54 &577648298
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -9465,7 +9248,6 @@ GameObject:
   - component: {fileID: 616471251}
   - component: {fileID: 616471250}
   - component: {fileID: 616471249}
-  - component: {fileID: 616471248}
   m_Layer: 7
   m_Name: Wall-1(Clone)
   m_TagString: Untagged
@@ -9500,36 +9282,6 @@ Transform:
   - {fileID: 2005408823}
   m_Father: {fileID: 495733538}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &616471248
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 616471246}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ea26f430b8cbb8848af0c85f733e970b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  buildingId: 0002
-  factionId: 0001
-  location: {x: 52, y: 1.5, z: -48}
-  coordinate: {x: 0, y: 0, z: 0}
-  rotation: {x: -0, y: -0.7071067, z: -0, w: -0.7071068}
-  maxHealth: 20
-  currentHealth: 20
-  faction:
-    factionName: Kameria
-    factionId: 0001
-    teamId: 0001
-    factionColor: {r: 0.58431375, g: 0.21176471, b: 0.21176471, a: 1}
-    ownedFlags: 1
-    currentWood: 940
-    currentStone: 0
-    currentGold: 0
-    currentFood: 100
-    currentPopulation: 5
 --- !u!54 &616471249
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -11161,7 +10913,6 @@ GameObject:
   - component: {fileID: 711748797}
   - component: {fileID: 711748796}
   - component: {fileID: 711748795}
-  - component: {fileID: 711748794}
   m_Layer: 7
   m_Name: Wall-Ramp-1(Clone)
   m_TagString: Untagged
@@ -11189,36 +10940,6 @@ Transform:
   - {fileID: 1440850070}
   m_Father: {fileID: 495733538}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &711748794
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 711748792}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ea26f430b8cbb8848af0c85f733e970b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  buildingId: 0005
-  factionId: 0001
-  location: {x: 48, y: 1.5, z: -32}
-  coordinate: {x: 0, y: 0, z: 0}
-  rotation: {x: -0, y: 0.00000027814184, z: -0, w: -1}
-  maxHealth: 20
-  currentHealth: 20
-  faction:
-    factionName: Kameria
-    factionId: 0001
-    teamId: 0001
-    factionColor: {r: 0.58431375, g: 0.21176471, b: 0.21176471, a: 1}
-    ownedFlags: 1
-    currentWood: 940
-    currentStone: 0
-    currentGold: 0
-    currentFood: 100
-    currentPopulation: 5
 --- !u!54 &711748795
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -11287,7 +11008,6 @@ GameObject:
   - component: {fileID: 718584790}
   - component: {fileID: 718584789}
   - component: {fileID: 718584788}
-  - component: {fileID: 718584787}
   m_Layer: 7
   m_Name: Wall-Corner-1(Clone)
   m_TagString: Untagged
@@ -11321,36 +11041,6 @@ Transform:
   - {fileID: 848216000}
   m_Father: {fileID: 495733538}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &718584787
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 718584785}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ea26f430b8cbb8848af0c85f733e970b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  buildingId: 0003
-  factionId: 0001
-  location: {x: 28, y: 1.5, z: -28}
-  coordinate: {x: 0, y: 0, z: 0}
-  rotation: {x: -0, y: -0.000000023849761, z: -0, w: -1}
-  maxHealth: 20
-  currentHealth: 20
-  faction:
-    factionName: Kameria
-    factionId: 0001
-    teamId: 0001
-    factionColor: {r: 0.58431375, g: 0.21176471, b: 0.21176471, a: 1}
-    ownedFlags: 1
-    currentWood: 940
-    currentStone: 0
-    currentGold: 0
-    currentFood: 100
-    currentPopulation: 5
 --- !u!54 &718584788
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -11671,7 +11361,6 @@ GameObject:
   - component: {fileID: 738014234}
   - component: {fileID: 738014233}
   - component: {fileID: 738014232}
-  - component: {fileID: 738014231}
   m_Layer: 7
   m_Name: Wall-1(Clone)
   m_TagString: Untagged
@@ -11706,36 +11395,6 @@ Transform:
   - {fileID: 1384356537}
   m_Father: {fileID: 495733538}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &738014231
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 738014229}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ea26f430b8cbb8848af0c85f733e970b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  buildingId: 0002
-  factionId: 0001
-  location: {x: 48, y: 1.5, z: -52}
-  coordinate: {x: 0, y: 0, z: 0}
-  rotation: {x: -0, y: 1, z: -0, w: -0.00000004371139}
-  maxHealth: 20
-  currentHealth: 20
-  faction:
-    factionName: Kameria
-    factionId: 0001
-    teamId: 0001
-    factionColor: {r: 0.58431375, g: 0.21176471, b: 0.21176471, a: 1}
-    ownedFlags: 1
-    currentWood: 940
-    currentStone: 0
-    currentGold: 0
-    currentFood: 100
-    currentPopulation: 5
 --- !u!54 &738014232
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -13965,6 +13624,88 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 873840621}
   m_Mesh: {fileID: -5495902117074765545, guid: c3b888b26f00dd04091e76f9fda9dbbc, type: 3}
+--- !u!1001 &879170337
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 658271124509449591, guid: ccc6cb85c1fe90e439722a4c5180159e,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3620264762645121763, guid: ccc6cb85c1fe90e439722a4c5180159e,
+        type: 3}
+      propertyPath: m_Name
+      value: Hovel
+      objectReference: {fileID: 0}
+    - target: {fileID: 4140518014911238233, guid: ccc6cb85c1fe90e439722a4c5180159e,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -8.394083
+      objectReference: {fileID: 0}
+    - target: {fileID: 4140518014911238233, guid: ccc6cb85c1fe90e439722a4c5180159e,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.017636025
+      objectReference: {fileID: 0}
+    - target: {fileID: 4140518014911238233, guid: ccc6cb85c1fe90e439722a4c5180159e,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 25.96
+      objectReference: {fileID: 0}
+    - target: {fileID: 4140518014911238233, guid: ccc6cb85c1fe90e439722a4c5180159e,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4140518014911238233, guid: ccc6cb85c1fe90e439722a4c5180159e,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4140518014911238233, guid: ccc6cb85c1fe90e439722a4c5180159e,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4140518014911238233, guid: ccc6cb85c1fe90e439722a4c5180159e,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4140518014911238233, guid: ccc6cb85c1fe90e439722a4c5180159e,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4140518014911238233, guid: ccc6cb85c1fe90e439722a4c5180159e,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 180
+      objectReference: {fileID: 0}
+    - target: {fileID: 4140518014911238233, guid: ccc6cb85c1fe90e439722a4c5180159e,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4764523567360736222, guid: ccc6cb85c1fe90e439722a4c5180159e,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 6192909263081480929, guid: ccc6cb85c1fe90e439722a4c5180159e, type: 3}
+    - {fileID: 658271124509449591, guid: ccc6cb85c1fe90e439722a4c5180159e, type: 3}
+    - {fileID: 4764523567360736222, guid: ccc6cb85c1fe90e439722a4c5180159e, type: 3}
+    - {fileID: 5563130721068079205, guid: ccc6cb85c1fe90e439722a4c5180159e, type: 3}
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: ccc6cb85c1fe90e439722a4c5180159e, type: 3}
 --- !u!1 &899131451
 GameObject:
   m_ObjectHideFlags: 0
@@ -14669,7 +14410,6 @@ GameObject:
   - component: {fileID: 934929376}
   - component: {fileID: 934929375}
   - component: {fileID: 934929374}
-  - component: {fileID: 934929373}
   m_Layer: 7
   m_Name: Wall-Corner-Inverse-1(Clone)
   m_TagString: Untagged
@@ -14706,36 +14446,6 @@ Transform:
   - {fileID: 75558243}
   m_Father: {fileID: 495733538}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &934929373
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 934929371}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ea26f430b8cbb8848af0c85f733e970b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  buildingId: 0004
-  factionId: 0001
-  location: {x: 36, y: 1.5, z: -32}
-  coordinate: {x: 0, y: 0, z: 0}
-  rotation: {x: -0, y: 0.00000017484555, z: -0, w: 1}
-  maxHealth: 20
-  currentHealth: 20
-  faction:
-    factionName: Kameria
-    factionId: 0001
-    teamId: 0001
-    factionColor: {r: 0.58431375, g: 0.21176471, b: 0.21176471, a: 1}
-    ownedFlags: 1
-    currentWood: 940
-    currentStone: 0
-    currentGold: 0
-    currentFood: 100
-    currentPopulation: 5
 --- !u!54 &934929374
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -15392,7 +15102,6 @@ GameObject:
   - component: {fileID: 988965099}
   - component: {fileID: 988965098}
   - component: {fileID: 988965097}
-  - component: {fileID: 988965096}
   m_Layer: 7
   m_Name: Wall-Ramp-1(Clone)
   m_TagString: Untagged
@@ -15420,36 +15129,6 @@ Transform:
   - {fileID: 1046333886}
   m_Father: {fileID: 495733538}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &988965096
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 988965094}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ea26f430b8cbb8848af0c85f733e970b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  buildingId: 0005
-  factionId: 0001
-  location: {x: 32, y: 1.5, z: -32}
-  coordinate: {x: 0, y: 0, z: 0}
-  rotation: {x: -0, y: 0.00000027814184, z: -0, w: -1}
-  maxHealth: 20
-  currentHealth: 20
-  faction:
-    factionName: Kameria
-    factionId: 0001
-    teamId: 0001
-    factionColor: {r: 0.58431375, g: 0.21176471, b: 0.21176471, a: 1}
-    ownedFlags: 1
-    currentWood: 940
-    currentStone: 0
-    currentGold: 0
-    currentFood: 100
-    currentPopulation: 5
 --- !u!54 &988965097
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -15854,7 +15533,6 @@ GameObject:
   - component: {fileID: 1019901660}
   - component: {fileID: 1019901659}
   - component: {fileID: 1019901658}
-  - component: {fileID: 1019901657}
   m_Layer: 7
   m_Name: Wall-1(Clone)
   m_TagString: Untagged
@@ -15889,36 +15567,6 @@ Transform:
   - {fileID: 1763578369}
   m_Father: {fileID: 495733538}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1019901657
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1019901655}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ea26f430b8cbb8848af0c85f733e970b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  buildingId: 0002
-  factionId: 0001
-  location: {x: 28, y: 1.5, z: -40}
-  coordinate: {x: 0, y: 0, z: 0}
-  rotation: {x: -0, y: -0.70710677, z: -0, w: 0.7071068}
-  maxHealth: 20
-  currentHealth: 20
-  faction:
-    factionName: Kameria
-    factionId: 0001
-    teamId: 0001
-    factionColor: {r: 0.58431375, g: 0.21176471, b: 0.21176471, a: 1}
-    ownedFlags: 1
-    currentWood: 940
-    currentStone: 0
-    currentGold: 0
-    currentFood: 100
-    currentPopulation: 5
 --- !u!54 &1019901658
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -15987,7 +15635,6 @@ GameObject:
   - component: {fileID: 1024981661}
   - component: {fileID: 1024981660}
   - component: {fileID: 1024981659}
-  - component: {fileID: 1024981658}
   m_Layer: 7
   m_Name: Wall-Corner-1(Clone)
   m_TagString: Untagged
@@ -16021,36 +15668,6 @@ Transform:
   - {fileID: 751836533}
   m_Father: {fileID: 495733538}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1024981658
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1024981656}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ea26f430b8cbb8848af0c85f733e970b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  buildingId: 0003
-  factionId: 0001
-  location: {x: 52, y: 1.5, z: -28}
-  coordinate: {x: 0, y: 0, z: 0}
-  rotation: {x: -0, y: 0.7071066, z: -0, w: 0.707107}
-  maxHealth: 20
-  currentHealth: 20
-  faction:
-    factionName: Kameria
-    factionId: 0001
-    teamId: 0001
-    factionColor: {r: 0.58431375, g: 0.21176471, b: 0.21176471, a: 1}
-    ownedFlags: 1
-    currentWood: 940
-    currentStone: 0
-    currentGold: 0
-    currentFood: 100
-    currentPopulation: 5
 --- !u!54 &1024981659
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -16464,6 +16081,79 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1052100466}
   m_Mesh: {fileID: -3836626486599244093, guid: c3b888b26f00dd04091e76f9fda9dbbc, type: 3}
+--- !u!1001 &1059751991
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1758484239051666776, guid: d40d00a8457578b478ccce1594b0efc7,
+        type: 3}
+      propertyPath: manager
+      value: 
+      objectReference: {fileID: 2114867221}
+    - target: {fileID: 7000058420266330515, guid: d40d00a8457578b478ccce1594b0efc7,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 8.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 7000058420266330515, guid: d40d00a8457578b478ccce1594b0efc7,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3.04
+      objectReference: {fileID: 0}
+    - target: {fileID: 7000058420266330515, guid: d40d00a8457578b478ccce1594b0efc7,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 15.32
+      objectReference: {fileID: 0}
+    - target: {fileID: 7000058420266330515, guid: d40d00a8457578b478ccce1594b0efc7,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7000058420266330515, guid: d40d00a8457578b478ccce1594b0efc7,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7000058420266330515, guid: d40d00a8457578b478ccce1594b0efc7,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7000058420266330515, guid: d40d00a8457578b478ccce1594b0efc7,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7000058420266330515, guid: d40d00a8457578b478ccce1594b0efc7,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7000058420266330515, guid: d40d00a8457578b478ccce1594b0efc7,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 180
+      objectReference: {fileID: 0}
+    - target: {fileID: 7000058420266330515, guid: d40d00a8457578b478ccce1594b0efc7,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7669318621373707049, guid: d40d00a8457578b478ccce1594b0efc7,
+        type: 3}
+      propertyPath: m_Name
+      value: CustomTroop (1)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: d40d00a8457578b478ccce1594b0efc7, type: 3}
 --- !u!1 &1060061227
 GameObject:
   m_ObjectHideFlags: 0
@@ -17134,7 +16824,6 @@ GameObject:
   - component: {fileID: 1125691106}
   - component: {fileID: 1125691105}
   - component: {fileID: 1125691104}
-  - component: {fileID: 1125691103}
   m_Layer: 7
   m_Name: Wall-1(Clone)
   m_TagString: Untagged
@@ -17169,36 +16858,6 @@ Transform:
   - {fileID: 439283197}
   m_Father: {fileID: 495733538}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1125691103
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1125691101}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ea26f430b8cbb8848af0c85f733e970b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  buildingId: 0002
-  factionId: 0001
-  location: {x: 28, y: 1.5, z: -44}
-  coordinate: {x: 0, y: 0, z: 0}
-  rotation: {x: -0, y: 0.7071068, z: -0, w: -0.7071068}
-  maxHealth: 20
-  currentHealth: 20
-  faction:
-    factionName: Kameria
-    factionId: 0001
-    teamId: 0001
-    factionColor: {r: 0.58431375, g: 0.21176471, b: 0.21176471, a: 1}
-    ownedFlags: 1
-    currentWood: 940
-    currentStone: 0
-    currentGold: 0
-    currentFood: 100
-    currentPopulation: 5
 --- !u!54 &1125691104
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -17854,7 +17513,6 @@ GameObject:
   - component: {fileID: 1175350481}
   - component: {fileID: 1175350480}
   - component: {fileID: 1175350479}
-  - component: {fileID: 1175350478}
   m_Layer: 7
   m_Name: Wall-1(Clone)
   m_TagString: Untagged
@@ -17889,36 +17547,6 @@ Transform:
   - {fileID: 2131062916}
   m_Father: {fileID: 495733538}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1175350478
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1175350476}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ea26f430b8cbb8848af0c85f733e970b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  buildingId: 0002
-  factionId: 0001
-  location: {x: 52, y: 1.5, z: -32}
-  coordinate: {x: 0, y: 0, z: 0}
-  rotation: {x: -0, y: 0.7071066, z: -0, w: 0.707107}
-  maxHealth: 20
-  currentHealth: 20
-  faction:
-    factionName: Kameria
-    factionId: 0001
-    teamId: 0001
-    factionColor: {r: 0.58431375, g: 0.21176471, b: 0.21176471, a: 1}
-    ownedFlags: 1
-    currentWood: 940
-    currentStone: 0
-    currentGold: 0
-    currentFood: 100
-    currentPopulation: 5
 --- !u!54 &1175350479
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -18478,7 +18106,6 @@ GameObject:
   - component: {fileID: 1223438641}
   - component: {fileID: 1223438640}
   - component: {fileID: 1223438639}
-  - component: {fileID: 1223438638}
   m_Layer: 7
   m_Name: Wall-Corner-1(Clone)
   m_TagString: Untagged
@@ -18512,36 +18139,6 @@ Transform:
   - {fileID: 1269683841}
   m_Father: {fileID: 495733538}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1223438638
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1223438636}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ea26f430b8cbb8848af0c85f733e970b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  buildingId: 0003
-  factionId: 0001
-  location: {x: 44, y: 1.5, z: -28}
-  coordinate: {x: 0, y: 0, z: 0}
-  rotation: {x: -0, y: -0.00000008742278, z: -0, w: -1}
-  maxHealth: 20
-  currentHealth: 20
-  faction:
-    factionName: Kameria
-    factionId: 0001
-    teamId: 0001
-    factionColor: {r: 0.58431375, g: 0.21176471, b: 0.21176471, a: 1}
-    ownedFlags: 1
-    currentWood: 940
-    currentStone: 0
-    currentGold: 0
-    currentFood: 100
-    currentPopulation: 5
 --- !u!54 &1223438639
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -18610,7 +18207,6 @@ GameObject:
   - component: {fileID: 1226671560}
   - component: {fileID: 1226671559}
   - component: {fileID: 1226671558}
-  - component: {fileID: 1226671557}
   m_Layer: 7
   m_Name: Wall-1(Clone)
   m_TagString: Untagged
@@ -18645,36 +18241,6 @@ Transform:
   - {fileID: 772042943}
   m_Father: {fileID: 495733538}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1226671557
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1226671555}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ea26f430b8cbb8848af0c85f733e970b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  buildingId: 0002
-  factionId: 0001
-  location: {x: 40, y: 1.5, z: -52}
-  coordinate: {x: 0, y: 0, z: 0}
-  rotation: {x: -0, y: 1, z: -0, w: -0.00000004371139}
-  maxHealth: 20
-  currentHealth: 20
-  faction:
-    factionName: Kameria
-    factionId: 0001
-    teamId: 0001
-    factionColor: {r: 0.58431375, g: 0.21176471, b: 0.21176471, a: 1}
-    ownedFlags: 1
-    currentWood: 940
-    currentStone: 0
-    currentGold: 0
-    currentFood: 100
-    currentPopulation: 5
 --- !u!54 &1226671558
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -19740,6 +19306,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1300510666}
   m_Mesh: {fileID: -3836626486599244093, guid: c3b888b26f00dd04091e76f9fda9dbbc, type: 3}
+--- !u!114 &1301051924 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1758484239051666776, guid: d40d00a8457578b478ccce1594b0efc7,
+    type: 3}
+  m_PrefabInstance: {fileID: 2015002550}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d74d0fd52afe54641ade6c6fde80afe1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1313396973
 GameObject:
   m_ObjectHideFlags: 0
@@ -20246,7 +19824,6 @@ GameObject:
   - component: {fileID: 1353147964}
   - component: {fileID: 1353147963}
   - component: {fileID: 1353147962}
-  - component: {fileID: 1353147961}
   m_Layer: 7
   m_Name: Wall-1(Clone)
   m_TagString: Untagged
@@ -20281,36 +19858,6 @@ Transform:
   - {fileID: 1232348470}
   m_Father: {fileID: 495733538}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1353147961
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1353147959}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ea26f430b8cbb8848af0c85f733e970b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  buildingId: 0002
-  factionId: 0001
-  location: {x: 32, y: 1.5, z: -28}
-  coordinate: {x: 0, y: 0, z: 0}
-  rotation: {x: -0, y: -0.000000023849761, z: -0, w: -1}
-  maxHealth: 20
-  currentHealth: 20
-  faction:
-    factionName: Kameria
-    factionId: 0001
-    teamId: 0001
-    factionColor: {r: 0.58431375, g: 0.21176471, b: 0.21176471, a: 1}
-    ownedFlags: 1
-    currentWood: 940
-    currentStone: 0
-    currentGold: 0
-    currentFood: 100
-    currentPopulation: 5
 --- !u!54 &1353147962
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -21122,7 +20669,6 @@ GameObject:
   - component: {fileID: 1392252226}
   - component: {fileID: 1392252225}
   - component: {fileID: 1392252224}
-  - component: {fileID: 1392252223}
   m_Layer: 7
   m_Name: Wall-Corner-Inverse-1(Clone)
   m_TagString: Untagged
@@ -21159,36 +20705,6 @@ Transform:
   - {fileID: 822830969}
   m_Father: {fileID: 495733538}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1392252223
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1392252221}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ea26f430b8cbb8848af0c85f733e970b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  buildingId: 0004
-  factionId: 0001
-  location: {x: 44, y: 1.5, z: -32}
-  coordinate: {x: 0, y: 0, z: 0}
-  rotation: {x: -0, y: -0.7071069, z: -0, w: 0.7071067}
-  maxHealth: 20
-  currentHealth: 20
-  faction:
-    factionName: Kameria
-    factionId: 0001
-    teamId: 0001
-    factionColor: {r: 0.58431375, g: 0.21176471, b: 0.21176471, a: 1}
-    ownedFlags: 1
-    currentWood: 940
-    currentStone: 0
-    currentGold: 0
-    currentFood: 100
-    currentPopulation: 5
 --- !u!54 &1392252224
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -25960,7 +25476,6 @@ GameObject:
   - component: {fileID: 1743056643}
   - component: {fileID: 1743056642}
   - component: {fileID: 1743056641}
-  - component: {fileID: 1743056640}
   m_Layer: 7
   m_Name: Wall-1(Clone)
   m_TagString: Untagged
@@ -25995,36 +25510,6 @@ Transform:
   - {fileID: 2082341115}
   m_Father: {fileID: 495733538}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1743056640
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1743056638}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ea26f430b8cbb8848af0c85f733e970b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  buildingId: 0002
-  factionId: 0001
-  location: {x: 48, y: 1.5, z: -28}
-  coordinate: {x: 0, y: 0, z: 0}
-  rotation: {x: -0, y: 0.00000027814184, z: -0, w: -1}
-  maxHealth: 20
-  currentHealth: 20
-  faction:
-    factionName: Kameria
-    factionId: 0001
-    teamId: 0001
-    factionColor: {r: 0.58431375, g: 0.21176471, b: 0.21176471, a: 1}
-    ownedFlags: 1
-    currentWood: 940
-    currentStone: 0
-    currentGold: 0
-    currentFood: 100
-    currentPopulation: 5
 --- !u!54 &1743056641
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -26936,6 +26421,88 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1782271939}
   m_Mesh: {fileID: 4896394041108732376, guid: c3b888b26f00dd04091e76f9fda9dbbc, type: 3}
+--- !u!1001 &1789706886
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -8916998186551423939, guid: 3665ef801999cb34f8ceef2b3aadd139,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5134246514279439962, guid: 3665ef801999cb34f8ceef2b3aadd139,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -8.304423
+      objectReference: {fileID: 0}
+    - target: {fileID: 5134246514279439962, guid: 3665ef801999cb34f8ceef2b3aadd139,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.079551466
+      objectReference: {fileID: 0}
+    - target: {fileID: 5134246514279439962, guid: 3665ef801999cb34f8ceef2b3aadd139,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 30.28
+      objectReference: {fileID: 0}
+    - target: {fileID: 5134246514279439962, guid: 3665ef801999cb34f8ceef2b3aadd139,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5134246514279439962, guid: 3665ef801999cb34f8ceef2b3aadd139,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5134246514279439962, guid: 3665ef801999cb34f8ceef2b3aadd139,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5134246514279439962, guid: 3665ef801999cb34f8ceef2b3aadd139,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5134246514279439962, guid: 3665ef801999cb34f8ceef2b3aadd139,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5134246514279439962, guid: 3665ef801999cb34f8ceef2b3aadd139,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5134246514279439962, guid: 3665ef801999cb34f8ceef2b3aadd139,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5479564270353614048, guid: 3665ef801999cb34f8ceef2b3aadd139,
+        type: 3}
+      propertyPath: m_Name
+      value: WoodCutter
+      objectReference: {fileID: 0}
+    - target: {fileID: 8087791820314493017, guid: 3665ef801999cb34f8ceef2b3aadd139,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 8087791820314493017, guid: 3665ef801999cb34f8ceef2b3aadd139, type: 3}
+    - {fileID: -8916998186551423939, guid: 3665ef801999cb34f8ceef2b3aadd139, type: 3}
+    - {fileID: 7275471719829254792, guid: 3665ef801999cb34f8ceef2b3aadd139, type: 3}
+    - {fileID: 1899985454919630213, guid: 3665ef801999cb34f8ceef2b3aadd139, type: 3}
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 3665ef801999cb34f8ceef2b3aadd139, type: 3}
 --- !u!1 &1793972362
 GameObject:
   m_ObjectHideFlags: 0
@@ -27115,7 +26682,6 @@ GameObject:
   - component: {fileID: 1799123473}
   - component: {fileID: 1799123472}
   - component: {fileID: 1799123471}
-  - component: {fileID: 1799123470}
   m_Layer: 7
   m_Name: Wall-Corner-1(Clone)
   m_TagString: Untagged
@@ -27149,36 +26715,6 @@ Transform:
   - {fileID: 346899857}
   m_Father: {fileID: 495733538}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1799123470
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1799123468}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ea26f430b8cbb8848af0c85f733e970b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  buildingId: 0003
-  factionId: 0001
-  location: {x: 52, y: 1.5, z: -52}
-  coordinate: {x: 0, y: 0, z: 0}
-  rotation: {x: -0, y: 1, z: -0, w: -0.00000004371139}
-  maxHealth: 20
-  currentHealth: 20
-  faction:
-    factionName: Kameria
-    factionId: 0001
-    teamId: 0001
-    factionColor: {r: 0.58431375, g: 0.21176471, b: 0.21176471, a: 1}
-    ownedFlags: 1
-    currentWood: 940
-    currentStone: 0
-    currentGold: 0
-    currentFood: 100
-    currentPopulation: 5
 --- !u!54 &1799123471
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -27625,7 +27161,6 @@ GameObject:
   - component: {fileID: 1819549219}
   - component: {fileID: 1819549218}
   - component: {fileID: 1819549217}
-  - component: {fileID: 1819549216}
   m_Layer: 7
   m_Name: Wall-1(Clone)
   m_TagString: Untagged
@@ -27660,36 +27195,6 @@ Transform:
   - {fileID: 1971977641}
   m_Father: {fileID: 495733538}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1819549216
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1819549214}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ea26f430b8cbb8848af0c85f733e970b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  buildingId: 0002
-  factionId: 0001
-  location: {x: 52, y: 1.5, z: -36}
-  coordinate: {x: 0, y: 0, z: 0}
-  rotation: {x: -0, y: 0.7071066, z: -0, w: 0.707107}
-  maxHealth: 20
-  currentHealth: 20
-  faction:
-    factionName: Kameria
-    factionId: 0001
-    teamId: 0001
-    factionColor: {r: 0.58431375, g: 0.21176471, b: 0.21176471, a: 1}
-    ownedFlags: 1
-    currentWood: 940
-    currentStone: 0
-    currentGold: 0
-    currentFood: 100
-    currentPopulation: 5
 --- !u!54 &1819549217
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -27924,7 +27429,6 @@ GameObject:
   - component: {fileID: 1827560098}
   - component: {fileID: 1827560097}
   - component: {fileID: 1827560096}
-  - component: {fileID: 1827560095}
   m_Layer: 7
   m_Name: Wall-1(Clone)
   m_TagString: Untagged
@@ -27959,36 +27463,6 @@ Transform:
   - {fileID: 162292000}
   m_Father: {fileID: 495733538}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1827560095
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1827560093}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ea26f430b8cbb8848af0c85f733e970b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  buildingId: 0002
-  factionId: 0001
-  location: {x: 32, y: 1.5, z: -52}
-  coordinate: {x: 0, y: 0, z: 0}
-  rotation: {x: -0, y: 1, z: -0, w: -0.00000004371139}
-  maxHealth: 20
-  currentHealth: 20
-  faction:
-    factionName: Kameria
-    factionId: 0001
-    teamId: 0001
-    factionColor: {r: 0.58431375, g: 0.21176471, b: 0.21176471, a: 1}
-    ownedFlags: 1
-    currentWood: 940
-    currentStone: 0
-    currentGold: 0
-    currentFood: 100
-    currentPopulation: 5
 --- !u!54 &1827560096
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -28465,7 +27939,6 @@ GameObject:
   - component: {fileID: 1835895954}
   - component: {fileID: 1835895953}
   - component: {fileID: 1835895952}
-  - component: {fileID: 1835895951}
   m_Layer: 7
   m_Name: Wall-1(Clone)
   m_TagString: Untagged
@@ -28500,36 +27973,6 @@ Transform:
   - {fileID: 694030314}
   m_Father: {fileID: 495733538}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1835895951
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1835895949}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ea26f430b8cbb8848af0c85f733e970b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  buildingId: 0002
-  factionId: 0001
-  location: {x: 36, y: 1.5, z: -52}
-  coordinate: {x: 0, y: 0, z: 0}
-  rotation: {x: -0, y: 1, z: -0, w: -0.00000004371139}
-  maxHealth: 20
-  currentHealth: 20
-  faction:
-    factionName: Kameria
-    factionId: 0001
-    teamId: 0001
-    factionColor: {r: 0.58431375, g: 0.21176471, b: 0.21176471, a: 1}
-    ownedFlags: 1
-    currentWood: 940
-    currentStone: 0
-    currentGold: 0
-    currentFood: 100
-    currentPopulation: 5
 --- !u!54 &1835895952
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -31224,6 +30667,79 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2013580585}
   m_Mesh: {fileID: 1149973307703454695, guid: cdae25fa1db260749a1df513addc2ee7, type: 3}
+--- !u!1001 &2015002550
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1758484239051666776, guid: d40d00a8457578b478ccce1594b0efc7,
+        type: 3}
+      propertyPath: manager
+      value: 
+      objectReference: {fileID: 2114867221}
+    - target: {fileID: 7000058420266330515, guid: d40d00a8457578b478ccce1594b0efc7,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 4.2077665
+      objectReference: {fileID: 0}
+    - target: {fileID: 7000058420266330515, guid: d40d00a8457578b478ccce1594b0efc7,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7000058420266330515, guid: d40d00a8457578b478ccce1594b0efc7,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 21.647224
+      objectReference: {fileID: 0}
+    - target: {fileID: 7000058420266330515, guid: d40d00a8457578b478ccce1594b0efc7,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7000058420266330515, guid: d40d00a8457578b478ccce1594b0efc7,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7000058420266330515, guid: d40d00a8457578b478ccce1594b0efc7,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7000058420266330515, guid: d40d00a8457578b478ccce1594b0efc7,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7000058420266330515, guid: d40d00a8457578b478ccce1594b0efc7,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7000058420266330515, guid: d40d00a8457578b478ccce1594b0efc7,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7000058420266330515, guid: d40d00a8457578b478ccce1594b0efc7,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7669318621373707049, guid: d40d00a8457578b478ccce1594b0efc7,
+        type: 3}
+      propertyPath: m_Name
+      value: CustomTroop (2)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: d40d00a8457578b478ccce1594b0efc7, type: 3}
 --- !u!1 &2017076959
 GameObject:
   m_ObjectHideFlags: 0
@@ -31320,7 +30836,6 @@ GameObject:
   - component: {fileID: 2022703750}
   - component: {fileID: 2022703749}
   - component: {fileID: 2022703748}
-  - component: {fileID: 2022703747}
   m_Layer: 7
   m_Name: Wall-Gate-1(Clone)
   m_TagString: Untagged
@@ -31356,36 +30871,6 @@ Transform:
   - {fileID: 135497168}
   m_Father: {fileID: 495733538}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2022703747
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2022703744}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ea26f430b8cbb8848af0c85f733e970b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  buildingId: 0006
-  factionId: 0001
-  location: {x: 40, y: 1.5, z: -32}
-  coordinate: {x: 0, y: 0, z: 0}
-  rotation: {x: -0, y: -0.00000008742278, z: -0, w: -1}
-  maxHealth: 20
-  currentHealth: 20
-  faction:
-    factionName: Kameria
-    factionId: 0001
-    teamId: 0001
-    factionColor: {r: 0.58431375, g: 0.21176471, b: 0.21176471, a: 1}
-    ownedFlags: 1
-    currentWood: 940
-    currentStone: 0
-    currentGold: 0
-    currentFood: 100
-    currentPopulation: 5
 --- !u!54 &2022703748
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -31549,6 +31034,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2027064662}
   m_Mesh: {fileID: -6536208620040424768, guid: 10776fc902b81f74e837f4bd251a427e, type: 3}
+--- !u!114 &2030891029 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1758484239051666776, guid: d40d00a8457578b478ccce1594b0efc7,
+    type: 3}
+  m_PrefabInstance: {fileID: 1059751991}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d74d0fd52afe54641ade6c6fde80afe1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2036744891
 GameObject:
   m_ObjectHideFlags: 0
@@ -31991,6 +31488,98 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2060352329}
   m_Mesh: {fileID: 8184399077223922434, guid: c3b888b26f00dd04091e76f9fda9dbbc, type: 3}
+--- !u!1 &2063993865
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2063993868}
+  - component: {fileID: 2063993867}
+  - component: {fileID: 2063993866}
+  m_Layer: 0
+  m_Name: Terrain
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 2147483647
+  m_IsActive: 1
+--- !u!154 &2063993866
+TerrainCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2063993865}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_TerrainData: {fileID: 15600000, guid: 8afec285fcb37ec4b8a047273cae1d3c, type: 2}
+  m_EnableTreeColliders: 1
+--- !u!218 &2063993867
+Terrain:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2063993865}
+  m_Enabled: 1
+  serializedVersion: 6
+  m_TerrainData: {fileID: 15600000, guid: 8afec285fcb37ec4b8a047273cae1d3c, type: 2}
+  m_TreeDistance: 5000
+  m_TreeBillboardDistance: 150
+  m_TreeCrossFadeLength: 5
+  m_TreeMaximumFullLODCount: 50
+  m_DetailObjectDistance: 80
+  m_DetailObjectDensity: 1
+  m_HeightmapPixelError: 5
+  m_SplatMapDistance: 1000
+  m_HeightmapMaximumLOD: 0
+  m_ShadowCastingMode: 2
+  m_DrawHeightmap: 1
+  m_DrawInstanced: 0
+  m_DrawTreesAndFoliage: 1
+  m_StaticShadowCaster: 0
+  m_IgnoreQualitySettings: 0
+  m_ReflectionProbeUsage: 1
+  m_MaterialTemplate: {fileID: 2100000, guid: 594ea882c5a793440b60ff72d896021e, type: 2}
+  m_BakeLightProbesForTrees: 1
+  m_PreserveTreePrototypeLayers: 0
+  m_DeringLightProbesForTrees: 1
+  m_ReceiveGI: 1
+  m_ScaleInLightmap: 0.0256
+  m_LightmapParameters: {fileID: 15203, guid: 0000000000000000f000000000000000, type: 0}
+  m_GroupingID: 0
+  m_RenderingLayerMask: 1
+  m_AllowAutoConnect: 1
+  m_EnableHeightmapRayTracing: 1
+  m_EnableTreesAndDetailsRayTracing: 0
+  m_TreeMotionVectorModeOverride: 3
+--- !u!4 &2063993868
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2063993865}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -75, y: 0, z: -50}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2065857345
 GameObject:
   m_ObjectHideFlags: 0
@@ -32351,7 +31940,6 @@ GameObject:
   - component: {fileID: 2094411061}
   - component: {fileID: 2094411060}
   - component: {fileID: 2094411059}
-  - component: {fileID: 2094411058}
   m_Layer: 7
   m_Name: Wall-1(Clone)
   m_TagString: Untagged
@@ -32386,36 +31974,6 @@ Transform:
   - {fileID: 225192528}
   m_Father: {fileID: 495733538}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2094411058
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2094411056}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ea26f430b8cbb8848af0c85f733e970b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  buildingId: 0002
-  factionId: 0001
-  location: {x: 52, y: 1.5, z: -40}
-  coordinate: {x: 0, y: 0, z: 0}
-  rotation: {x: -0, y: 0.7071066, z: -0, w: 0.707107}
-  maxHealth: 20
-  currentHealth: 20
-  faction:
-    factionName: Kameria
-    factionId: 0001
-    teamId: 0001
-    factionColor: {r: 0.58431375, g: 0.21176471, b: 0.21176471, a: 1}
-    ownedFlags: 1
-    currentWood: 940
-    currentStone: 0
-    currentGold: 0
-    currentFood: 100
-    currentPopulation: 5
 --- !u!54 &2094411059
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -32675,8 +32233,10 @@ MonoBehaviour:
     color: {r: 0, g: 0, b: 0, a: 0}
     customUnits: []
   customUnits:
-  - {fileID: 2006478691}
   - {fileID: 1118070250}
+  - {fileID: 2006478691}
+  - {fileID: 2030891029}
+  - {fileID: 1301051924}
 --- !u!4 &2114867222
 Transform:
   m_ObjectHideFlags: 0
@@ -33082,4 +32642,9 @@ SceneRoots:
   - {fileID: 495733538}
   - {fileID: 827120892}
   - {fileID: 7070287923035475494}
+  - {fileID: 1059751991}
+  - {fileID: 2015002550}
   - {fileID: 1764229406}
+  - {fileID: 2063993868}
+  - {fileID: 1789706886}
+  - {fileID: 879170337}
