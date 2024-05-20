@@ -97,6 +97,26 @@ public class FileUtils
                 return Tex2D;
             }
         }
+        else
+        {
+            filePath = Application.streamingAssetsPath + "/FactionCustomizer/" + fileName;
+
+            FileData = File.ReadAllBytes(filePath);
+            Tex2D = new Texture2D(2, 2);
+            if (Tex2D.LoadImage(FileData))
+            {
+                return Tex2D;
+            }
+        }
         return null;
+    }
+
+    public void SaveImageToFile(Texture2D image, string fileName)
+    {
+        string filePath = Application.persistentDataPath + "/FactionCustomizer/" + fileName;
+
+        byte[] bytes = image.EncodeToPNG();
+
+        File.WriteAllBytes(Path.Combine(Application.persistentDataPath, filePath), bytes);
     }
 }

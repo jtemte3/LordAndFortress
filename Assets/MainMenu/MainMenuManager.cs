@@ -14,9 +14,9 @@ public class MainMenuManager : MonoBehaviour
         loadedFaction = new FileUtils().LoadFactionFromFile();
         bannerRenderer.material.color = loadedFaction.color;
         
-        foreach(CustomUnitLoader unit in customUnits)
+        for (int i = 0; i < customUnits.Count; i++)
         {
-            unit.LoadUnit(loadedFaction.customUnits[0], loadedFaction.color);
+            customUnits[i].LoadUnit(loadedFaction.customUnits[i], loadedFaction.color);
         }
     }
 
