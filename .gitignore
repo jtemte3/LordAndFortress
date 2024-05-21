@@ -2,6 +2,11 @@
 #
 # Get latest from https://github.com/github/gitignore/blob/main/Unity.gitignore
 #
+
+#Specific files to ignore
+Assets/Materials/Cloth.mat
+Assets/Materials/TabbardCloth.mat
+
 /[Ll]ibrary/
 /[Tt]emp/
 /[Oo]bj/
