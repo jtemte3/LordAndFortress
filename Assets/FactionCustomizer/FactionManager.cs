@@ -94,8 +94,11 @@ public class FactionManager : MonoBehaviour
                 newFaction.customUnits = new List<CustomUnitObject>(4);
                 newFaction.customUnits[0] = unitCustomizationController.ExportUnit();
                 newFaction.customUnits[1] = unitCustomizationController.ExportUnit();
+                newFaction.customUnits[1].unitGoldCost = 3;
                 newFaction.customUnits[2] = unitCustomizationController.ExportUnit();
+                newFaction.customUnits[2].unitGoldCost = 5;
                 newFaction.customUnits[3] = unitCustomizationController.ExportUnit();
+                newFaction.customUnits[3].unitGoldCost = 10;
                 new FileUtils().SaveFactionToFile(newFaction);
             }
             

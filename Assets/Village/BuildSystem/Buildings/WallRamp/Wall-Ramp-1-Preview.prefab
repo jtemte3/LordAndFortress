@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 718296223028250201}
   - component: {fileID: 373931120795135137}
   - component: {fileID: 4575868510622560717}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Support.003
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 2354404159273062008}
   - component: {fileID: 6439038362750579718}
   - component: {fileID: 5081368905741139774}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Support.004
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -177,7 +177,7 @@ GameObject:
   - component: {fileID: 6484396351725696988}
   - component: {fileID: 7655541967248074116}
   - component: {fileID: 8072374186361356358}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Support.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -260,7 +260,7 @@ GameObject:
   - component: {fileID: 8575057097801406277}
   - component: {fileID: 8073061445327928075}
   - component: {fileID: 6924758186601550488}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: RampPlatform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -343,7 +343,7 @@ GameObject:
   - component: {fileID: 575152151089833075}
   - component: {fileID: 2393747622623847117}
   - component: {fileID: 7315800610488000603}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Support.002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -544,7 +544,9 @@ MonoBehaviour:
   previewRenderer: {fileID: 2841260631381036034}
   valid: {r: 0, g: 1, b: 0, a: 0.25}
   invalid: {r: 1, g: 0, b: 0, a: 0.25}
+  resourcesNeeded: {r: 1, g: 1, b: 0, a: 0.25}
   canBuild: 0
+  hasResources: 0
 --- !u!54 &655885241101656345
 Rigidbody:
   m_ObjectHideFlags: 0

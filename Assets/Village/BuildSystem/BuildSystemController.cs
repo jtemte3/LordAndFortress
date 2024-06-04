@@ -241,6 +241,7 @@ public class BuildSystemController : MonoBehaviour
             village.AddBuilding(newObject);
             currentFaction.currentWood -= currentObject.woodCost;
             currentFaction.currentStone -= currentObject.stoneCost;
+            gameManager.navMesh.hasChange = true;
         }
     }
 
@@ -256,6 +257,7 @@ public class BuildSystemController : MonoBehaviour
                 previewObj.colList.RemoveAt(0);
                 currentFaction.currentWood += currentObject.woodRefund;
                 currentFaction.currentStone += currentObject.stoneRefund;
+                gameManager.navMesh.hasChange = true;
             }
         }
     }

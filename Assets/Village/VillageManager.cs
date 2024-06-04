@@ -26,6 +26,9 @@ public class VillageManager : MonoBehaviour
     public bool loadFromFile;
     public GameObject barracks;
     public GameObject barracksPanel;
+    public float payTimer;
+    public int payAmount;
+    private float nextPayTime;
 
     //Dictionary<string, GridPoint> grid = new Dictionary<string, GridPoint>();
     public bool isHidden = false;
@@ -33,6 +36,7 @@ public class VillageManager : MonoBehaviour
     void Start()
     {
         currentFaction = GetFactionDetails(currentFactionId);
+        nextPayTime = Time.time + payTimer;
 
         if (!loadFromFile)
         {
@@ -58,16 +62,25 @@ public class VillageManager : MonoBehaviour
 
         villageMap.Add(new Vector3(0, 0, 0), transform.Find("VillageBanner").gameObject);
 
+        //Dont delete the below line of code.. prevents a bug where the barracks menu takes 2 presses of B top initially open.
+        barracksPanel.SetActive(true);
+
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (Time.time >= nextPayTime)
+        {
+            currentFaction.currentGold += payAmount;
+            nextPayTime = Time.time + payTimer;
+        }
+
         if (canBuild && barracks != null)
         {
             if (Input.GetKeyDown(KeyCode.B))
             {
-                if (barracksPanel.activeSelf != true)
+                if (barracksPanel.activeInHierarchy == false)
                 {
                     gameManager.showCursor = true;
                     barracksPanel.GetComponent<BarracksMenuHandler>().ClearListeners();
@@ -283,7 +296,12 @@ public class VillageManager : MonoBehaviour
         if (barracks != null)
         {
             CustomUnitObject customUnit = currentFaction.customFactionObject.customUnits[type];
-            barracks.GetComponent<BarracksManager>().CreateUnitType(customUnit, currentFaction.factionColor, currentFaction.factionId, type);
+            if (currentFaction.currentGold >= customUnit.unitGoldCost && currentFaction.currentPopulation >= 0) 
+            {
+                barracks.GetComponent<BarracksManager>().CreateUnitType(customUnit, currentFaction.factionColor, currentFaction.factionId, type, currentFaction.hero);
+                currentFaction.currentGold -= customUnit.unitGoldCost;
+                currentFaction.currentPopulation -= 1;
+            }
         }
     }
 }

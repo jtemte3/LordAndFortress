@@ -10,6 +10,7 @@ public class FactionObject
     public string teamId;
     public Color factionColor;
     public CustomFactionObject customFactionObject;
+    public GameObject hero;
     public int ownedFlags;
     public int currentWood;
     public int currentStone;
