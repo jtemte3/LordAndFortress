@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 1754555911649754141}
   - component: {fileID: 7018786338429808245}
   - component: {fileID: 795176890438229315}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Fence
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -286,7 +286,7 @@ GameObject:
   - component: {fileID: 4782207649951368575}
   - component: {fileID: 507068798755807221}
   - component: {fileID: 7382288026378873940}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Doors
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -369,7 +369,7 @@ GameObject:
   - component: {fileID: 3922592724440222535}
   - component: {fileID: 924407314878783489}
   - component: {fileID: 6301238566771246605}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Logs
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -453,7 +453,7 @@ GameObject:
   - component: {fileID: 806753004353858314}
   - component: {fileID: 3169642585932960348}
   - component: {fileID: 8437740913451970805}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: StrawRoof
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -536,7 +536,7 @@ GameObject:
   - component: {fileID: 6635163301274952831}
   - component: {fileID: 6664813229533824763}
   - component: {fileID: 7705829482704325227}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PlankWalls
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -17,6 +17,20 @@ public class WallGateScript : MonoBehaviour
             if (entity.factionId == gateBuilding.GetVillage().GetCurrentFaction().factionId)
             {
                 animator.SetBool("doorOpen", true);
+                gateBuilding.village.gameManager.navMesh.hasChange = true;
+            }
+        }
+    }
+
+    void OnTriggerStay(Collider other)
+    {
+        if (other.gameObject.GetComponent<FactionEntityData>())
+        {
+            FactionEntityData entity = other.gameObject.GetComponent<FactionEntityData>();
+            if (entity.factionId == gateBuilding.GetVillage().GetCurrentFaction().factionId)
+            {
+                animator.SetBool("doorOpen", true);
+                //gateBuilding.village.gameManager.navMesh.hasChange = true;
             }
         }
     }
@@ -29,6 +43,7 @@ public class WallGateScript : MonoBehaviour
             if (entity.factionId == gateBuilding.GetVillage().GetCurrentFaction().factionId)
             {
                 animator.SetBool("doorOpen", false);
+                gateBuilding.village.gameManager.navMesh.hasChange = true;
             }
         }
     }

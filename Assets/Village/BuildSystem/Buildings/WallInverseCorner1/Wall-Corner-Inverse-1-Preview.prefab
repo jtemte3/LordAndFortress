@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1468317835439065495}
   - component: {fileID: 1216065110829041798}
   - component: {fileID: 7700221093166688628}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Support.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 6611797409510096053}
   - component: {fileID: 1821459103118485871}
   - component: {fileID: 812429635820377722}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SpikedLog.002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -178,7 +178,7 @@ GameObject:
   - component: {fileID: 5635204501682435559}
   - component: {fileID: 4793118463951690214}
   - component: {fileID: 9135998655820127724}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Support
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -261,7 +261,7 @@ GameObject:
   - component: {fileID: 8447191959155891599}
   - component: {fileID: 4087195176894930135}
   - component: {fileID: 6970807545674926266}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SpikedLog.003
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -345,7 +345,7 @@ GameObject:
   - component: {fileID: 1531844610517651966}
   - component: {fileID: 8453548692145590925}
   - component: {fileID: 2498640852818382484}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SpikedLog
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -429,7 +429,7 @@ GameObject:
   - component: {fileID: 564489389911936555}
   - component: {fileID: 5371577622630886689}
   - component: {fileID: 8998282840041703408}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Support.004
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -512,7 +512,7 @@ GameObject:
   - component: {fileID: 904835924191838857}
   - component: {fileID: 5746088494340502825}
   - component: {fileID: 6454462280761112910}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SpikedLog.004
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -596,7 +596,7 @@ GameObject:
   - component: {fileID: 5604755135525399035}
   - component: {fileID: 1338720023185472483}
   - component: {fileID: 2797159025536442880}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Platform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -679,7 +679,7 @@ GameObject:
   - component: {fileID: 6446489351159884785}
   - component: {fileID: 8438405945538134759}
   - component: {fileID: 6592383664777266238}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Support.003
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -762,7 +762,7 @@ GameObject:
   - component: {fileID: 3595592437507908356}
   - component: {fileID: 176390662670264288}
   - component: {fileID: 553106388313301478}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Support.002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -971,7 +971,9 @@ MonoBehaviour:
   previewRenderer: {fileID: 2841260631381036034}
   valid: {r: 0, g: 1, b: 0, a: 0.25}
   invalid: {r: 1, g: 0, b: 0, a: 0.25}
+  resourcesNeeded: {r: 1, g: 1, b: 0, a: 0.25}
   canBuild: 0
+  hasResources: 0
 --- !u!54 &655885241101656345
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1010,7 +1012,7 @@ GameObject:
   - component: {fileID: 7576820143208384024}
   - component: {fileID: 1970978358890170545}
   - component: {fileID: 3923454095164386662}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SpikedLog.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1094,7 +1096,7 @@ GameObject:
   - component: {fileID: 7721539111364413643}
   - component: {fileID: 1631132166978660786}
   - component: {fileID: 8804183462778490536}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SpikedLog.005
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1178,7 +1180,7 @@ GameObject:
   - component: {fileID: 8038096321040465875}
   - component: {fileID: 8384248676814451816}
   - component: {fileID: 9073266710456927049}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SpikedLog.006
   m_TagString: Untagged
   m_Icon: {fileID: 0}

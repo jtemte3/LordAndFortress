@@ -30,7 +30,7 @@ public class VillageLoader : MonoBehaviour
             {
                 village.AddBuilding(newBuilding);
             }
-
+            village.gameManager.navMesh.hasChange = true;
             this.gameObject.GetComponent<VillageLoader>().enabled = false;
 
         }

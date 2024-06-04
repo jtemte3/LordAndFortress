@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2551821040942656889}
   - component: {fileID: 8096734468542363033}
   - component: {fileID: 2501964759464183930}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SpikedLog.008
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 3890620509325660451}
   - component: {fileID: 6509547139946132940}
   - component: {fileID: 4218319790553778308}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SpikedLog.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -179,7 +179,7 @@ GameObject:
   - component: {fileID: 7671234548812328977}
   - component: {fileID: 96667623037393009}
   - component: {fileID: 2578296537851229787}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: DoorRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -262,7 +262,7 @@ GameObject:
   - component: {fileID: 7827666278944751149}
   - component: {fileID: 7812522141295946166}
   - component: {fileID: 5782572628899901527}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SpikedLog
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -346,7 +346,7 @@ GameObject:
   - component: {fileID: 4563144294577912044}
   - component: {fileID: 1876877739476051215}
   - component: {fileID: 532020667238524962}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SpikedLog.004
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -430,7 +430,7 @@ GameObject:
   - component: {fileID: 3502543317524232329}
   - component: {fileID: 2288298687478127348}
   - component: {fileID: 3140061961999777596}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SpikedLog.002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -514,7 +514,7 @@ GameObject:
   - component: {fileID: 2365945373490901012}
   - component: {fileID: 1643119183974413387}
   - component: {fileID: 4072265374059931420}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Platform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -597,7 +597,7 @@ GameObject:
   - component: {fileID: 2935700988170391668}
   - component: {fileID: 3121256439150892396}
   - component: {fileID: 8729692248426241273}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: DoorLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -680,7 +680,7 @@ GameObject:
   - component: {fileID: 290569892169615662}
   - component: {fileID: 4761249049135398885}
   - component: {fileID: 8273579573763913540}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SpikedLog.006
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -764,7 +764,7 @@ GameObject:
   - component: {fileID: 3580130495060678276}
   - component: {fileID: 4945443235336979916}
   - component: {fileID: 7752039169518566349}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SpikedLog.003
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -848,7 +848,7 @@ GameObject:
   - component: {fileID: 8976804236557482}
   - component: {fileID: 5011221634479014715}
   - component: {fileID: 6493582528160999586}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SpikedLog.005
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -932,7 +932,7 @@ GameObject:
   - component: {fileID: 6042978679793450185}
   - component: {fileID: 8046542725187200227}
   - component: {fileID: 5794212062817824092}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SpikedLog.007
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -8,7 +8,9 @@ public class LevelManager : MonoBehaviour
     public List<BuildableObject> objects = new();
     public List<VillageManager> villages = new();
     public List<FactionObject> factions = new();
+    public List<FactionEntityData> Heroes = new();
     public bool showCursor;
+    public NavMeshUtil navMesh;
 
     // Start is called before the first frame update
     void Start()
@@ -91,6 +93,14 @@ public class LevelManager : MonoBehaviour
                 faction.factionName = loadedFaction.name;
                 faction.factionColor = loadedFaction.color;
                 faction.customFactionObject = loadedFaction;
+
+                foreach (FactionEntityData hero in Heroes)
+                {
+                    if (hero.factionId == factionId)
+                    {
+                        faction.hero = hero.gameObject;
+                    }
+                }
 
                 Debug.Log("Level Manager: factionName :" + faction.factionName);
                 break;
