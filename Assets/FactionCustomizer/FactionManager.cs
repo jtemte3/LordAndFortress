@@ -66,13 +66,12 @@ public class FactionManager : MonoBehaviour
         else
         {
             colorIndicator.SetActive(true);
+            //use formula to determine new X value
+            int newXPosition = -500 + (position * 125) + 960;
+            colorIndicator.GetComponent<RectTransform>().position = new Vector3(newXPosition,
+                colorIndicator.GetComponent<RectTransform>().position.y,
+                colorIndicator.GetComponent<RectTransform>().position.z);
         }
-
-        //use formula to determine new X value
-        int newXPosition = -500 + (position * 125) + 960;
-        colorIndicator.GetComponent<RectTransform>().position = new Vector3(newXPosition,
-            colorIndicator.GetComponent<RectTransform>().position.y,
-            colorIndicator.GetComponent<RectTransform>().position.z);
     }
 
     private int findColorPosition(Color currentColor)
