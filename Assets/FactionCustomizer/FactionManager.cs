@@ -25,6 +25,7 @@ public class FactionManager : MonoBehaviour
     public Image unitOneImage;
     public Image unitTwoImage;
     public Image unitThreeImage;
+    public GameObject colorIndicator;
 
     [Header("Unit Settings")]
     public GameObject customTroopPreview;
@@ -40,6 +41,7 @@ public class FactionManager : MonoBehaviour
     {
         LoadFactionDetails();
         unitCustomizationController.UpdateColor(currentColor);
+        moveColorIndicator(findColorPosition(currentColor));
     }
 
     private void Update()
@@ -49,8 +51,32 @@ public class FactionManager : MonoBehaviour
 
     public void SetFactionColor(int position)
     {
+        moveColorIndicator(position);
         currentColor = FactonColors[position];
         unitCustomizationController.UpdateColor(currentColor);
+    }
+
+    private void moveColorIndicator(int position)
+    {
+        //use formula to determine new X value
+        int newXPosition = -500 + (position * 125) + 960;
+        colorIndicator.GetComponent<RectTransform>().position = new Vector3(newXPosition,
+            colorIndicator.GetComponent<RectTransform>().position.y,
+            colorIndicator.GetComponent<RectTransform>().position.z);
+    }
+
+    private int findColorPosition(Color currentColor)
+    {
+        int returnInt = -1;
+        foreach(Color color in FactonColors)
+        {
+            if (currentColor == color)
+            {
+                returnInt = FactonColors.IndexOf(color);
+            }
+        }
+
+        return returnInt;
     }
 
     public void RotateCharacter(float newSpeed)
