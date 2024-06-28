@@ -59,7 +59,7 @@ public class FactionManager : MonoBehaviour
     private void moveColorIndicator(int position)
     {
         //handle -1 position (edge case)
-        if (position > 4)
+        if (position == -1)
         {
             colorIndicator.SetActive(false);
         }
