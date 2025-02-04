@@ -468,6 +468,11 @@ PrefabInstance:
       propertyPath: m_Convex
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -1472338483686173800, guid: f82e4c3d8cf509349851e8b13ce72c35,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.05
+      objectReference: {fileID: 0}
     - target: {fileID: -1453254353409731919, guid: f82e4c3d8cf509349851e8b13ce72c35,
         type: 3}
       propertyPath: m_Layer
@@ -1303,7 +1308,7 @@ Animator:
   m_GameObject: {fileID: 7669318621373707049}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 9c561c5f282827d48b42906594d7a12a, type: 2}
+  m_Controller: {fileID: 9100000, guid: bf8d858d1638fc94ea04bd843eabb6cd, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 1

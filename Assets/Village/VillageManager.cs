@@ -1,5 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class VillageManager : MonoBehaviour
@@ -47,7 +50,7 @@ public class VillageManager : MonoBehaviour
 
         halfGridSize = (gridSize / 2) * gridScale;
 
-        ChangeVillageFlagColor(currentFactionId);
+        //ChangeVillageFlagColor(currentFactionId);
         ChangeVillageFactionOwner(currentFactionId);
 
         float roundedX = gridScale * Mathf.Round(transform.position.x / gridScale);
@@ -95,6 +98,11 @@ public class VillageManager : MonoBehaviour
                 }
             }
         }
+
+        if (!isHidden)
+        {
+            gridPoints.ForEach(x => x.GetComponent<GridPointManager>().AttemptVisibility());
+        }
         
     }
 
@@ -135,7 +143,14 @@ public class VillageManager : MonoBehaviour
             }
             foreach (GameObject point in gridPoints)
             {
-                point.GetComponent<Renderer>().enabled = true;
+                point.GetComponent<GridPointManager>().AttemptVisibility();
+            }
+        }
+        else
+        {
+            foreach (GameObject point in gridPoints)
+            {
+                point.GetComponent<GridPointManager>().AttemptVisibility();
             }
         }
     }
@@ -151,7 +166,8 @@ public class VillageManager : MonoBehaviour
             }
             foreach (GameObject point in gridPoints)
             {
-                point.GetComponent<Renderer>().enabled = false;
+
+                point.GetComponent<GridPointManager>().DisableVisibility();
             }
         }
     }
@@ -197,6 +213,7 @@ public class VillageManager : MonoBehaviour
         newBuilding.transform.parent = buildingParent;
     }
 
+    //Used by village loader to load a village from file
     public void AddBuilding(BuildingDataObject newBuildingData)
     {
         BuildableObject newBuildingObject = new();
@@ -230,9 +247,9 @@ public class VillageManager : MonoBehaviour
         Vector3 buildingCoordinate = buildingToRemove.GetComponent<VillageBuilding>().GetCoordinate();
 
         villageObjects.Remove(buildingToRemove);
-        villageMap.Remove(buildingCoordinate);
-
         Destroy(buildingToRemove);
+
+        villageMap.Remove(buildingCoordinate);
     }
 
     public void ChangeVillageFlagColor(string factionId)

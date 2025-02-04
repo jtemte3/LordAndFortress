@@ -10,7 +10,8 @@ public class MainMenuManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        SetupFlagMaterial();
+
         loadedFaction = new FileUtils().LoadFactionFromFile();
         bannerRenderer.material.color = loadedFaction.color;
         
@@ -18,6 +19,11 @@ public class MainMenuManager : MonoBehaviour
         {
             customUnits[i].LoadUnit(loadedFaction.customUnits[i], loadedFaction.color);
         }
+    }
+
+    private void SetupFlagMaterial()
+    {
+        bannerRenderer.material = new Material(bannerRenderer.material);
     }
 
     public void LoadScene(int sceneNumber)

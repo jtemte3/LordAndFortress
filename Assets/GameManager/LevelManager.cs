@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+using System.Reflection;
 using UnityEngine;
 
 public class LevelManager : MonoBehaviour
@@ -26,6 +27,9 @@ public class LevelManager : MonoBehaviour
                 if (village.currentFactionId == faction.factionId)
                 {
                     faction.ownedFlags++;
+
+                    SetupFlagMaterial(village.bannerFlag);
+
                     village.ChangeVillageFlagColor(faction.factionColor);
                 }
             }
@@ -111,5 +115,10 @@ public class LevelManager : MonoBehaviour
     public void SetCursor(bool state)
     {
         showCursor = state;
+    }
+
+    private void SetupFlagMaterial(Renderer banner)
+    {
+        banner.material = new Material(banner.material);
     }
 }
