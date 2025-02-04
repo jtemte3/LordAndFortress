@@ -14,6 +14,34 @@ public class CustomUnitLoader : MonoBehaviour
 
     public void LoadUnit(CustomUnitObject newUnit, Color factionColor)
     {
+
+        //Setup temp materials that change color so they don't change permanatly
+        for (int i = 0; i < baseArmorMaterials.Count; i++)
+        {
+            if (baseArmorMaterials[i].name.Contains("Cloth"))
+            {
+                Material tempMaterial = baseArmorMaterials[i];
+
+                baseArmorMaterials[i] = new Material(tempMaterial);
+            }
+        }
+
+        foreach (GameObject armor in armors)
+        {
+            var initialArmorMats = armor.GetComponent<Renderer>().sharedMaterials;
+            for (int i = 0; i < initialArmorMats.Length; i++)
+            {
+                if (initialArmorMats[i].name.Contains("Tabbard"))
+                {
+                    Material tempMaterial = initialArmorMats[i];
+                    initialArmorMats[i] = new Material(tempMaterial);
+                }
+            }
+            armor.GetComponent<Renderer>().sharedMaterials = initialArmorMats;
+        }
+
+        //end temp materail setup
+
         for (int i = 0; i < helmets.Count; i++)
         {
             if (newUnit.helmetId.Equals(i))

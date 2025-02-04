@@ -20,6 +20,8 @@ public class PlayerController : MonoBehaviour
 	public bool onSlope = false;
 	public Vector3 slopeMovementDirection;
 	public float slopeMovementBoost = 0.01f;
+	[Header("Animation")]
+	public Animator animator;
 
 	public void Start()
 	{
@@ -41,6 +43,19 @@ public class PlayerController : MonoBehaviour
 		//Creating a local speed variable that can change
 		float speed;
 
+		if (Input.GetMouseButtonUp(0))
+		{
+            animator.SetTrigger("Attack");
+        }
+
+		if (Input.GetMouseButton(1))
+		{
+            animator.SetBool("isBlocking", true);
+        }
+		else
+		{
+            animator.SetBool("isBlocking", false);
+        }
 
 		//Check for jetpack settings
 		if (Input.GetKey(KeyCode.LeftAlt) && Input.GetKeyDown(KeyCode.X))
@@ -74,13 +89,20 @@ public class PlayerController : MonoBehaviour
 			if (onSlope)
             {
 				transform.Translate(slopeMovementDirection * (speed + slopeMovementBoost));
-			}
+				
+
+            }
             else
             {
 				transform.Translate(0, 0, speed);
-			}
-			
-		}
+            }
+
+            animator.SetBool("isWalking", true);
+        }
+		else
+		{
+            animator.SetBool("isWalking", false);
+        }
 		//Check for moving backwards
 		if (Input.GetKey(KeyCode.S))
 		{

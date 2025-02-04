@@ -22,6 +22,30 @@ public class UnitCustomizationController : MonoBehaviour
 
     private void Start()
     {
+        for (int i = 0; i < baseArmorMaterials.Count; i++)
+        {
+            if (baseArmorMaterials[i].name.Contains("Cloth"))
+            {
+                Material tempMaterial = baseArmorMaterials[i];
+
+                baseArmorMaterials[i] = new Material(tempMaterial);
+            }
+        }
+
+        foreach (GameObject armor in armors)
+        {
+            var armorMats = armor.GetComponent<Renderer>().sharedMaterials;
+            for (int i = 0; i < armorMats.Length; i++)
+            {
+                if (armorMats[i].name.Contains("Tabbard"))
+                {
+                    Material tempMaterial = armorMats[i];
+                    armorMats[i] = new Material(tempMaterial);
+                }
+            }
+            armor.GetComponent<Renderer>().sharedMaterials = armorMats;
+        }
+
         foreach (GameObject armor in armors)
         {
             var armorMats = armor.GetComponent<Renderer>().sharedMaterials;

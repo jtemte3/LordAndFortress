@@ -11,8 +11,9 @@ GameObject:
   - component: {fileID: 6998831315314489379}
   - component: {fileID: 7546724180868586736}
   - component: {fileID: 5442660631197878357}
+  - component: {fileID: -4008013234197854959}
   m_Layer: 10
-  m_Name: TestSphere
+  m_Name: testSphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -83,3 +84,19 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &-4008013234197854959
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2443394665412799973}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 684ec058500e22a48b1497bf081e00fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  structureMask:
+    serializedVersion: 2
+    m_Bits: 128
+  physicsRadius: 1

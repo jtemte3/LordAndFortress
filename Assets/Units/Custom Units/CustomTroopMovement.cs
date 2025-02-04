@@ -9,10 +9,12 @@ public class CustomTroopMovement : MonoBehaviour
     public NavMeshAgent agent;
     public float followDistance = 5;
     public float speed;
+    public Animator animator;
     // Start is called before the first frame update
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
+        animator = GetComponent<Animator>();
         agent.destination = hero.transform.position;
         agent.speed = speed;
         agent.autoRepath = true;
@@ -25,11 +27,14 @@ public class CustomTroopMovement : MonoBehaviour
         if (dist <= followDistance)
         {
             agent.speed = 0;
+
+            animator.SetBool("isWalking", false);
         }
         else
         {
             agent.speed = speed;
             agent.destination = hero.transform.position;
+            animator.SetBool("isWalking", true);
         }
     }
 }
